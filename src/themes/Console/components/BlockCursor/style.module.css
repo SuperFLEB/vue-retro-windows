@@ -1,0 +1,21 @@
+.blockCursor {
+	position: absolute;
+	z-index: 10000;
+	pointer-events: none;
+
+	width: var(--grid-x, 10px);
+	height: var(--grid-y, 10px);
+
+	font: inherit;
+
+	color: #000;
+	background-color: transparent;
+}
+
+.blockCursor.invert {
+	backdrop-filter: invert(100%);
+}
+
+body.cursorHidden, body.cursorHidden * {
+	cursor: none;
+}

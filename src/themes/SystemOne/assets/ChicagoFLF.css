@@ -1,0 +1,11 @@
+/*
+To use this font-face, you must import this CSS file with its own style tag, e.g.
+<style scoped src="../assets/ChicagoFLF.css">
+Trying to import it with @use directives will mess up the relative URL importing.
+*/
+@font-face {
+	font-family: "ChicagoFLF";
+	src: url("./ChicagoFLF/ChicagoFLF.woff2"),
+	     url("./ChicagoFLF/ChicagoFLF.woff"),
+	     url("./ChicagoFLF/ChicagoFLF.ttf");
+}

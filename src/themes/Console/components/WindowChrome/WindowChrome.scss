@@ -1,0 +1,89 @@
+
+@use "../../font" as *;
+
+.frame {
+	position: absolute;
+
+	font-family: $font-family, monospace;
+	font-size: $font-size;
+	line-height: $grid-y;
+
+	white-space: pre;
+
+	color: #333;
+	background-color: #099;
+
+	user-select: none;
+}
+
+.frame.focus::before {
+	content: " ";
+	position: absolute;
+	top: $grid-y;
+	right: -$grid-x;
+	bottom: -$grid-y;
+	left: $grid-x;
+	background-color: transparent;
+	z-index: -1;
+	backdrop-filter: grayscale(100%) contrast(3) brightness(50%);
+}
+
+.frame.focus {
+	color: #cc0;
+}
+
+.main {
+	color: #ccc;
+
+	position: absolute;
+
+	inset: 1lh 1ch;
+
+	white-space: normal;
+	overflow: hidden;
+
+	user-select: text;
+
+	--sel-fg: #00c;
+	--sel-bg: #ccc;
+
+	*::selection {
+		color: var(--sel-fg);
+		background-color: var(--sel-bg);
+	}
+}
+
+.resizeHandle {
+	display: inline;
+}
+
+.textFrameChrome {
+	background-color: inherit;
+	white-space: pre;
+	& > * {
+		position: absolute;
+		background-color: inherit;
+	}
+	.titleBar {
+		top: 0;
+		left: 0;
+	}
+	.titleClose {
+		top: 0;
+		left: 2ch;
+	}
+	.titleBarText {
+		padding: 0 1ch;
+	}
+	.resizeHandle {
+		bottom: 0;
+		right: 0;
+	}
+}
+
+.content :deep() {
+	p {
+		margin-top: 0;
+		margin-bottom: 1lh;
+	}
+}

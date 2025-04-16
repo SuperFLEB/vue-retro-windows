@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" width="20" height="20">
+	<defs>
+		<style>
+			pattern > rect {
+				fill: #000;
+				width: 1px;
+				height: 1px;
+			}
+
+			#r > rect {
+				width: 100%;
+				height: 100%;
+				display: none;
+			}
+
+			#r > rect:target, #r > rect.vis {
+				display: inline;
+			}
+		</style>
+		<pattern id="pp25" patternUnits="userSpaceOnUse" width="4" height="2">
+			<rect />
+			<rect x="2" y="1" />
+		</pattern>
+		<pattern id="pp50" patternUnits="userSpaceOnUse" width="2" height="2">
+			<rect />
+			<rect x="1" y="1"/>
+		</pattern>
+	</defs>
+	<g id="r">
+		<rect class="vis" id="p25" x="0" y="0" width="20" height="20" fill="url(#pp25)"/>
+		<rect id="p50" x="0" y="0" width="20" height="20" fill="url(#pp50)"/>
+	</g>
+
+</svg>

@@ -1,0 +1,43 @@
+@use "../_pcColor.scss" as pc;
+
+.desktopMenuBar {
+	background-color: pc.$red;
+	color: pc.$lt-yellow;
+	height: 1lh;
+	position: relative;
+	z-index: 100;
+}
+
+.desktopMenuBar:deep() {
+	hr {
+		height: 3px;
+		margin: calc(1ch - 1.5px) -2.5ch;		border: 0 none;
+		background-color: currentColor;
+	}
+
+	.menu.root > .menuItem {
+		padding: 0 1ch;
+	}
+
+	.menu.root > .menuItem .menu.sub {
+		background-color: pc.$white;
+		color: pc.$black;
+		padding: 1lh 4ch;
+		box-shadow: 1ch 1lh 0 rgba(0,0,0,0.5);
+		margin-left: -1ch;
+	}
+
+	.menu.root > .menuItem:focus-within {
+		color: pc.$black;
+		background-color: pc.$green;
+	}
+
+	.menu.sub:before {
+		content: attr(data-frame);
+		white-space: pre;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+}

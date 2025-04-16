@@ -1,0 +1,43 @@
+.menuBar {
+	box-sizing: border-box;
+	position: relative;
+	z-index: 10;
+	width: 100%;
+
+	> .menu {
+		display: flex;
+		flex-direction: row;
+	}
+}
+
+.menuBar:deep() {
+	.menu.root, .menu.sub {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		min-width: 20ch;
+	}
+
+	.menu.root > .menuItem > .sub {
+		position: absolute;
+	}
+
+	.menu.root > .menuItem > .sub .sub {
+		position: absolute;
+		left: 100%;
+		margin-top: -1lh;
+	}
+
+	.menu.root .sub {
+		position: relative;
+		z-index: 20;
+	}
+
+	.menuItem > .sub {
+		display: none;
+	}
+
+	.menuItem:focus-within > .sub {
+		display: block;
+	}
+}

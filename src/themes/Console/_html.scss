@@ -1,0 +1,163 @@
+@use "./_pcColor.scss" as pc;
+
+$text-input: "input:not([type]),input[type='text'],input[type='password'],input[type='email'],input[type='tel'],input[type='url'],input[type='search'],input[type='number']";
+$text-enhanced-input: "input[type='date'],input[type='time'],input[type='datetime-local'],input[type='month'],input[type='week']";
+
+@mixin themed {
+	#{$text-input}, #{$text-enhanced-input}, textarea {
+		appearance: none;
+		font: inherit;
+		background-color: pc.$blue;
+		color: pc.$lt-yellow;
+		border: 0 none;
+		box-sizing: border-box;
+		outline: none;
+		caret-color: transparent;
+		padding: 0;
+		margin: 0;
+	}
+
+	textarea {
+		vertical-align: top;
+	}
+
+	#{$text-input}, #{$text-enhanced-input} {
+		height: 1lh;
+	}
+
+	fieldset {
+		margin-inline: 0;
+		padding-block: 0;
+		padding-inline: 0;
+
+		margin: 0 0.5ch calc(1.5ch - 2px) 0.5ch;
+		padding: 0 calc(0.5ch - 2px) 0.5ch calc(0.5ch - 2px);
+
+		border: 2px solid currentColor;
+
+		> legend {
+			padding-inline: 0;
+			margin: 0 1ch;
+		}
+	}
+
+
+	input[type=radio], input[type=checkbox] {
+		appearance: none;
+		font: inherit;
+		line-height: inherit;
+
+		padding-block: 0;
+		padding-inline: 0;
+		margin-block: 0;
+		margin-inline: 0;
+		margin: 0;
+		padding: 0;
+
+		&:focus, &:active {
+			outline: none;
+			color: pc.$lt-yellow;
+		}
+
+		&:focus:after {
+			color: pc.$lt-yellow;
+		}
+
+		&::after {
+			display: inline;
+			position: relative;
+		}
+	}
+
+	input[type=radio] {
+		&::after {
+			content: "( )";
+		}
+
+		&:checked::after {
+			content: "(♦)";
+		}
+	}
+	
+	input[type=checkbox] {
+		&::after {
+			content: "[ ]";
+		}
+
+		&:checked::after {
+			content: "[√]";
+		}
+	}
+
+	button:not(.scrollBar *), input[type=button], input[type=submit] {
+		&, &:focus, &:active {
+			outline: none;
+		}
+
+		font: inherit;
+		border: 0;
+		margin: 0;
+		padding: 0 4ch;
+		box-shadow: 1ch 1ch 0 pc.$black;
+
+
+		&:focus {
+			background-color: pc.$white;
+			color: pc.$lt-white;
+
+			&::before {
+				content: "<\00a0";
+				display: inline-block;
+				margin-inline-start: -2ch;
+			}
+
+			&::after {
+				content: "\00a0>";
+				display: inline-block;
+				margin-inline-end: -2ch;
+			}
+		}
+
+		&:active {
+			color: pc.$red;
+			box-shadow: 1ch 0 0 #000;
+		}
+	}
+	a {
+		color: pc.$lt-yellow;
+		text-decoration: none;
+	}
+
+	a::before {
+		content: "[";
+	}
+
+	a::after {
+		content: "]";
+	}
+
+	a:visited {
+		color: pc.$magenta;
+	}
+
+	a:active {
+		color: pc.$lt-red;
+	}
+
+	a:focus {
+		background-color: pc.$lt-yellow;
+		color: #000;
+		outline: 0 none;
+	}
+
+	p {
+		margin-block-start: 1lh;
+		margin-block-end: 1lh;
+		margin-inline-start: 0;
+		margin-inline-end: 0;
+	}
+
+	p:first-child {
+		margin-block-start: 0;
+	}
+}

@@ -1,0 +1,58 @@
+@use "sass:map";
+@use "dimensional.lib" as dlib;
+
+$size: 32px !default;
+
+.container, .container * {
+	box-sizing: border-box;
+}
+
+.container {
+	display: flex;
+}
+
+:deep {
+	.button {
+		flex-grow: 0;
+		aspect-ratio: 1 / 1;
+	}
+
+	.button.fwd {
+		order: 2;
+	}
+
+	.button.back {
+		order: 1;
+	}
+
+	.track {
+		order: 2;
+		flex-grow: 1;
+		position: relative;
+	}
+
+	.trackSegment {
+		z-index: 1;
+	}
+
+	.thumb {
+		z-index: 2;
+		user-select: none;
+
+		&.fixed {
+			aspect-ratio: 1 / 1;
+		}
+	}
+}
+
+@each $dim, $d in dlib.$xy {
+	.container.#{$dim} {
+		flex-direction: map.get($d, "flex");
+		#{dlib.opp($dim, "along")}: $size;
+	}
+	.#{dim} {
+		&.button, &.track, &.thumb.fixed {
+			#{dlib.opp($dim, "along")}: 100%;
+		}
+	}
+}

@@ -1,0 +1,16 @@
+/*
+To use this font-face, you must import this CSS file with its own style tag, e.g.
+<style scoped src="../assets/SystemTrue.css">
+Trying to import it with @use directives will mess up the relative URL importing.
+*/
+@font-face {
+	font-family: "System True";
+	src: url('./SystemTrue/SystemTrue.woff2'); /* format("woff2"),
+	url('./SystemTrue/SystemTrue.woff') format("woff"),
+	url('./SystemTrue/SystemTrue.ttf') format("ttf"),
+	local('MS Sans Serif'),
+	local('Arial');*/
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}

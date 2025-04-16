@@ -1,0 +1,46 @@
+@use "../../style/constants" as vars;
+
+.handles {
+	background-color: #ccc;
+	z-index: -1;
+}
+
+.frame:deep() .resizeHandles {
+	position: absolute;
+	inset: 0;
+	overflow: hidden;
+
+	font-size: vars.$winUIFontSize;
+	user-select: none;
+
+	& > div {
+		position: absolute;
+		border: 1px solid black;
+		width: calc(vars.$titleHeight + 6px);
+		height: calc(vars.$titleHeight + 6px);
+	}
+
+	.nw {
+		top: -2px;
+		left: -2px;
+		cursor: nw-resize;
+	}
+
+	.ne {
+		top: -2px;
+		right: -2px;
+		cursor: ne-resize;
+	}
+
+	.sw {
+		bottom: -2px;
+		left: -2px;
+		cursor: sw-resize;
+	}
+
+	.se {
+		bottom: -2px;
+		right: -2px;
+		cursor: se-resize;
+	}
+}

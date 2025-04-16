@@ -1,0 +1,50 @@
+.menuBar {
+	width: 100%;
+	cursor: default;
+	line-height: 1.5lh;
+}
+
+.menuBar:deep() {
+	.menu.root,
+	.menu.sub {
+		min-width: 20ch;
+	}
+
+	.item {
+		display: block;
+		padding: 0 1ch;
+	}
+
+	.root .menuItem .menuItem {
+		padding: 0 2ch;
+	}
+
+	.menu.root > .menuItem > .sub {
+		position: absolute;
+	}
+
+	.menu.root .sub {
+		position: relative;
+		border: 1px solid #000;
+		box-shadow: 2px 2px 0 #ccc;
+		background-color: #fff;
+		z-index: 100;
+	}
+
+	.menuItem > .sub {
+		display: none;
+	}
+
+	.menuItem:focus-within > .sub {
+		display: block;
+	}
+
+	.menuItem:focus-within {
+		color: #fff;
+		background-color: #000;
+	}
+
+	.menuItem:focus-within > .sub {
+		color: #000;
+	}
+}

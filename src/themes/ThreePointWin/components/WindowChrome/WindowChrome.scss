@@ -1,0 +1,34 @@
+@use "../../style/constants" as vars;
+@use "./handles.scss";
+@use "./titlebar.scss";
+@use "./zindex.scss";
+
+.frame.resizeable {
+	border: 1px solid #000;
+	background-color: transparent;
+	padding: 4px;
+}
+
+// Get rid of browser styling on focus actions.
+.frame:focus-visible {
+	outline: 0 none;
+}
+
+.innerFrame {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	border: 1px solid #000;
+}
+
+.main {
+	background-color: transparent;
+}
+
+.contentWrapper {
+	position: relative;
+	background-color: #fff;
+	flex-grow: 1;
+	min-height: 0;
+	overflow: hidden;
+}

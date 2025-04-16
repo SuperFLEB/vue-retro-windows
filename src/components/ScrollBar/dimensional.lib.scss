@@ -1,0 +1,18 @@
+@use "sass:map";
+
+$xy: (x: (
+		along: width,
+		end: right,
+		flex: row,
+), y: (
+		along: height,
+		end: bottom,
+		flex: column,
+));
+
+@function opp($dim, $prop) {
+	@if $dim == x {
+		@return map.get(map.get($xy, y), $prop);
+	}
+	@return map.get(map.get($xy, x), $prop);
+}

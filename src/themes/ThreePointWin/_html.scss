@@ -1,0 +1,35 @@
+@use "assets/SystemTrue.css" as *;
+@mixin themed {
+	button:not(.noTheme, .noTheme *), input[type=button]:not(.noTheme, .noTheme *), input[type=submit]:not(.noTheme, .noTheme *) {
+		font: 12pt "Microsoft Sans Serif", "Arial", sans-serif;
+		border: 2px outset #fff;
+		border-radius: 2px 4px 4px 2px;
+		outline: 1px solid #000;
+		position: relative;
+		padding: 0.5em;
+
+		&,
+		&:hover {
+			background-color: #ddd;
+		}
+
+		&:active {
+			border-color: #888 transparent transparent #888;
+			border-style: solid;
+		}
+
+		&:focus::after {
+			position: absolute;
+			top: 0.1em;
+			right: 0.1em;
+			bottom: 0.1em;
+			left: 0.1em;
+			border: 1px dotted #000;
+			content: " ";
+		}
+
+		&:focus {
+			outline-width: 2px;
+		}
+	}
+}

@@ -1,0 +1,40 @@
+.content {
+	a {
+		color: #cc0;
+		text-decoration: none;
+	}
+
+	a::before {
+		content: "[";
+	}
+
+	a::after {
+		content: "]";
+	}
+
+	a:visited {
+		color: #606;
+	}
+
+	a:active {
+		color: #c00;
+	}
+
+	a:focus {
+		background-color: #cc0;
+		color: #000;
+		outline: 0 none;
+	}
+
+	p {
+		margin-block-start: 1lh;
+		margin-block-end: 1lh;
+		margin-inline-start: 0;
+		margin-inline-end: 0;
+	}
+
+	p:first-child {
+		margin-block-start: 0;
+	}
+
+}

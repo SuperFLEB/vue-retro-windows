@@ -1,0 +1,33 @@
+{
+  "name": "vue-windows-1",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "justbuild": "vite build",
+    "preview": "vite preview",
+    "circular": "madge --circular --ts-config ./tsconfig.app.json --extensions .ts,.tsx,.js,.jsx,.vue src/app/App.vue"
+  },
+  "dependencies": {
+    "@superfleb/caret": "^0.0.6",
+    "@superfleb/worm": "^1.0.1",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@superfleb/draggable": "^0.1.4",
+    "@types/node": "^22.13.5",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/tsconfig": "^0.7.0",
+    "madge": "^8.0.0",
+    "sass-embedded": "^1.85.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.1.0",
+    "vue-tsc": "^2.2.0"
+  },
+  "packageManager": "yarn@4.7.0",
+  "resolutions": {
+    "@superfleb/draggable": "portal:/E:/webdev/draggable"
+  }
+}

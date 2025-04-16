@@ -1,0 +1,74 @@
+.button {
+	aspect-ratio: 1 / 1;
+	flex-grow: 0;
+	padding-block: 0;
+	padding-inline: 0;
+	line-height: 1;
+
+	position: relative;
+	appearance: none;
+	border-radius: 0;
+	border: 0 none;
+	background-color: transparent;
+	color: #333;
+	font-size: 18px;
+	text-align: center;
+}
+
+.button.back {
+	order: 1;
+}
+
+.button.fwd {
+	order: 3;
+}
+
+.track {
+	position: relative;
+	order: 2;
+	flex-grow: 1;
+}
+
+.container.x {
+	.trackSegment {
+		height: 50%;
+		bottom: 25%;
+	}
+}
+
+.container.y {
+	.trackSegment {
+		width: 50%;
+		left: 25%;
+	}
+}
+
+.trackSegment {
+	border: 1px inset #fff;
+	border-radius: 15px;
+
+	position: absolute;
+	z-index: 1;
+
+	&.active {
+		background-color: #000;
+	}
+}
+
+:deep(*) {
+	.thumb {
+		background-color: #ccc;
+		border: 2px outset #fff;
+		border-radius: 7px;
+	}
+	.thumb.x {
+		height: 15px;
+	}
+	.thumb.y {
+		width: 15px;
+	}
+}
+
+.button {
+}
+

@@ -1,0 +1,32 @@
+.frame {
+	box-sizing: border-box;
+	position: absolute;
+	inset: 0;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.main {
+	display: grid;
+	position: relative;
+	flex-grow: 1;
+	grid-template-columns: auto min-content;
+	grid-template-rows: auto min-content;
+}
+
+.main :deep(> .scrollContainerX) {
+	grid-column: 1;
+	grid-row: 2;
+}
+
+.main :deep(> .scrollContainerY) {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+.contentWrapper {
+	position: relative;
+	grid-column: 1;
+	grid-row: 1;
+}

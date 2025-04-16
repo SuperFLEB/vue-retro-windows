@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 3000" width="3000" height="3000">
+	<pattern id="p" width="2" height="2" patternUnits="userSpaceOnUse">
+		<rect width="2" height="2" fill="#fff" />
+		<rect id="r" width="1" height="1" fill="#000" />
+		<use href="#r" x="1" y="1" />
+	</pattern>
+	<rect width="100%" height="100%" fill="url(#p)" />
+</svg>
