@@ -1,5 +1,5 @@
 import type Box from "@t/Box.ts";
-import {charGrid} from "@/themes/Console/constants.ts";
+import {charGrid} from "./constants.ts";
 
 const roundToGrid = (box: Box) => {
 	const offset = {

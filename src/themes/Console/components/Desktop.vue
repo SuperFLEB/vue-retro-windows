@@ -2,11 +2,11 @@
 import makeBackgroundTile from "./Desktop/makeBackgroundTile.ts";
 import CaretController from "@superfleb/caret";
 import {computed, onMounted, onUnmounted, ref, useTemplateRef} from "vue";
-import BlockCursor from "@/themes/Console/components/BlockCursor/BlockCursor.vue";
+import BlockCursor from "./BlockCursor/BlockCursor.vue";
 import dos437Unicode from "../assets/DOS437Unicode.ts";
-import MenuProvider from "@/components/Menu/MenuProvider.vue";
-import MenuBar from "@/components/Menu/MenuBar.vue";
-import useThemeMenu from "@/composables/useThemeMenu.ts";
+import MenuProvider from "@int/components/Menu/MenuProvider.vue";
+import MenuBar from "@int/components/Menu/MenuBar.vue";
+import useThemeMenu from "@int/composables/useThemeMenu.ts";
 
 const tile = ref<string>(null);
 const desktopRef = useTemplateRef("desktopRef");

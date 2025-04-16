@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {randomString} from "@/util.ts";
+import {randomString} from "@int/util.ts";
 
 const filterId = randomString(5, "lores");
 
@@ -112,7 +112,5 @@ const tightTable = "0 .05 .95 1";
 			display: inline-block;
 		}
 	}
-
 }
-
 </style>

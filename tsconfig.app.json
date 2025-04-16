@@ -13,6 +13,8 @@
 
 		"paths": {
 			"@/*": ["./src/*"],
+			"@int/*": ["./src/internal/*"],
+			"@themes/*": ["./src/themes/*"],
 			"@t/*": ["./src/types/*"],
 			"*": ["./*", "./*/index.vue", "./*/index"],
 		}

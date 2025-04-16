@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {onMounted, onUnmounted, useTemplateRef} from "vue";
-import {charGrid} from "@/themes/Console/constants.ts";
+import {charGrid} from "../constants.ts";
 
 let intObs: IntersectionObserver | null;
 const subMenuRef = useTemplateRef("subMenuRef");

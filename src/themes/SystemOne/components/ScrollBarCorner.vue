@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import Handle from "@/components/ResizeHandles/Handle.vue";
+import Handle from "@int/components/ResizeHandles/Handle.vue";
 </script>
 
 <template>

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import Desktop from "@/components/Desktop.vue";
+import Desktop from "@int/components/Desktop.vue";
 import type {ThemeSpec} from "@t/Theme";
-import ThemeProvider from "@/components/ThemeProvider/ThemeProvider.vue";
-import WinManProvider from "@/components/WindowManagementProvider/WinManProvider.vue";
-import "@/debug/index.ts";
-import ApplicationThemesProvider from "@/components/ApplicationThemesProvider/ApplicationThemesProvider.vue";
-import builtInThemes, {type BuiltInThemes} from "@/themes/index.ts";
+import ThemeProvider from "@int/components/ThemeProvider/ThemeProvider.vue";
+import WinManProvider from "@int/components/WindowManagementProvider/WinManProvider.vue";
+import "@int/debug/index.ts";
+import ApplicationThemesProvider from "@int/components/ApplicationThemesProvider/ApplicationThemesProvider.vue";
+import builtInThemes, {type BuiltInThemes} from "@themes/index.ts";
 import {computed} from "vue";
 
 type Props = { themes?: ThemeSpec[], theme: BuiltInThemes | string };

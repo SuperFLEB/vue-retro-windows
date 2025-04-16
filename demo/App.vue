@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import Window from "../src/components/Window/Window.vue";
-import ThemePicker from "../src/components/ThemePicker.vue";
+import Window from "@/components/Window.vue";
+import Application from "@/components/Application.vue";
+import ThemePicker from "@/components/ThemePicker.vue";
 import WelcomeWindow from "./components/WelcomeWindow.vue";
-import Application from "../src/components/Application.vue";
 </script>
 
 <template>

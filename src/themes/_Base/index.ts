@@ -1,4 +1,4 @@
-import WindowDragProxy from "@/components/Window/WindowDragProxy.vue";
+import WindowDragProxy from "@int/components/Window/WindowDragProxy.vue";
 import {type CompleteThemeSpec, defaultThemeEffects} from "@t/Theme.ts";
 import WindowChrome from "./components/WindowChrome.vue";
 import Desktop from "./components/Desktop.vue";

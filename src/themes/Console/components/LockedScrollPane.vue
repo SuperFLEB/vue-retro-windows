@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import {onMounted, useTemplateRef, watch} from "vue";
-import {useScrollableElement} from "@/components/ScrollBar/useScrollableElement.ts";
-import {isRefSet} from "@/util.ts";
-import useScroll from "@/components/ScrollBar/useScroll.ts";
-import {charGrid} from "@/themes/Console/constants.ts";
-import debug from "@/debug/index.ts";
+import {useScrollableElement} from "@int/components/ScrollBar/useScrollableElement.ts";
+import {isRefSet} from "@int/util.ts";
+import useScroll from "@int/components/ScrollBar/useScroll.ts";
+import {charGrid} from "../constants.ts";
+import debug from "@int/debug/index.ts";
 
 const paneDom = useTemplateRef("pane");
 const calipersDom = useTemplateRef("calipers");

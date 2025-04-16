@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useTheme from "@/components/ThemeProvider/useTheme.ts";
+import useTheme from "@int/components/ThemeProvider/useTheme.ts";
 
 const {interface: {getThemesInfo, setCurrentTheme, getCurrentThemeInfo}} = useTheme();
 const themes = getThemesInfo();

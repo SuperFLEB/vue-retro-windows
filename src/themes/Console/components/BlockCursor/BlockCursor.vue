@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {computed, onMounted, onUnmounted, ref, type Ref, toRefs, watch} from "vue";
 import type XY from "@t/XY.ts";
-import {charGrid} from "@/themes/Console/constants.ts";
+import {charGrid} from "../../constants.ts";
 
 export type BlockCursorType = "block" | "invert";
 export type GridSize = { x: number; y: number };

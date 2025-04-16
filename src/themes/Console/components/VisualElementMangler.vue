@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {charGrid} from "@/themes/Console/constants.ts";
+import {charGrid} from "../constants.ts";
 import {onMounted, useTemplateRef} from "vue";
-import dos437Unicode from "@/themes/Console/assets/DOS437Unicode.ts";
+import dos437Unicode from "../assets/DOS437Unicode.ts";
 
 const densities = ["`" + `. - ':_,^=;><+!rc*/z?sLTv)J7(|Fi{C}fI31tl`, `v)J7(|Fi{C}fI31tlu[neoZ5Yxjya]2ESwqkP6h9`, `C]2ESwqkP6h9d4VpOGbUAKXHm8RD#$Bg0MNWQ%&@`];
 function getRowOfDensity(density: number, length: number = 200): string {

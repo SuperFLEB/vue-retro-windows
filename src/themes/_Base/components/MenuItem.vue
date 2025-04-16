@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {MenuTypes} from "@/components/Menu/MenuTypes.ts";
-import RenderMenuItem from "@/components/Menu/RenderMenuItem.ts";
-import SubMenu from "@/components/Menu/SubMenu.vue";
-import type {MenuItemSpec, MenuItemState} from "@/components/Menu/types.ts";
+import {MenuTypes} from "@int/components/Menu/MenuTypes.ts";
+import RenderMenuItem from "@int/components/Menu/RenderMenuItem.ts";
+import SubMenu from "@int/components/Menu/SubMenu.vue";
+import type {MenuItemSpec, MenuItemState} from "@int/components/Menu/types.ts";
 type Props = { spec: MenuItemSpec, item: MenuItemState, hasToggle?: boolean };
 const props = withDefaults(defineProps<Props>(), { hasToggle: false, checked: false });
 const display = props.spec.display ?? props.spec.name ?? "!!UNTITLED!!";

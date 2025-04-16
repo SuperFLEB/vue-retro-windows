@@ -1,0 +1,23 @@
+@font-face {
+	font-family: "DOS437Unicode Fallback Lucida";
+	src: local(Lucida Sans Typewriter), local(Lucida Console);
+	size-adjust: 153%;
+	descent-override: 93%;
+}
+
+@font-face {
+	font-family: "DOS437Unicode Fallback Courier New";
+	src: local("Courier New");
+	size-adjust: 153%;
+	descent-override: 87%;
+}
+
+@font-face {
+	font-family: "DOS437Unicode";
+	src: url("./DOS437Unicode/DOS437Unicode.ttf"),
+	url("./DOS437Unicode/DOS437Unicode.woff2"),
+	url("./DOS437Unicode/DOS437Unicode.woff");
+}
+
+$stack: "DOS437Unicode", "DOS437Unicode Fallback Lucida", "DOS437Unicode Fallback Courier New", monospace;
+

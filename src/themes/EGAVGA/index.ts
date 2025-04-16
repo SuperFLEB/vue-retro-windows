@@ -2,7 +2,7 @@ import WindowChrome from "./components/WindowChrome.vue";
 import Desktop from "./components/Desktop.vue";
 import VisualElementMangler from "./components/VisualElementMangler.vue";
 import type {ThemeSpec} from "@t/Theme.ts";
-import ScrollBar from "@/themes/EGAVGA/components/ScrollBar.vue";
+import ScrollBar from "./components/ScrollBar.vue";
 
 const theme: ThemeSpec = {
 	keyName: "fleb/egavga",

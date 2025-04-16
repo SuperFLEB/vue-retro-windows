@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type {Dimension, Directional} from "@t/scroll.ts";
 import {toRefs, useTemplateRef} from "vue";
-import TrackSegment from "@/components/ScrollBar/TrackSegment.vue";
-import Thumb from "@/components/ScrollBar/Thumb.vue";
-import contentSizeRef from "@/util/observeSize.ts";
-import ScrollButton from "@/components/ScrollBar/ScrollButton.vue";
-import useCanScroll from "@/composables/useCanScroll.ts";
+import TrackSegment from "@int/components/ScrollBar/TrackSegment.vue";
+import Thumb from "@int/components/ScrollBar/Thumb.vue";
+import contentSizeRef from "@int/util/observeSize.ts";
+import ScrollButton from "@int/components/ScrollBar/ScrollButton.vue";
+import useCanScroll from "@int/composables/useCanScroll.ts";
 
 type Props = { dimension: Dimension };
 const props = defineProps<Props>();
@@ -44,7 +44,7 @@ const canScroll = useCanScroll();
 </template>
 
 <style scoped lang="scss">
-@use "@/components/ScrollBar/ScrollBarBasic.scss" with (
+@use "@int/components/ScrollBar/ScrollBarBasic.scss" with (
 			$size: 26px
 		);
 @use "./ScrollBar.scss";

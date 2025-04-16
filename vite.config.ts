@@ -8,12 +8,17 @@ export default defineConfig({
 	plugins: [vue()],
 	build: {
 		assetsInlineLimit: 0,
+		lib: {
+
+		}
 	},
 	resolve: {
 		preserveSymlinks: true,
 		alias: [
-			{find: "@t", replacement: path.resolve(__dirname, "./src/types")},
 			{find: "@", replacement: path.resolve(__dirname, "./src")},
+			{find: "@t", replacement: path.resolve(__dirname, "./src/types")},
+			{find: "@int", replacement: path.resolve(__dirname, "./src/internal")},
+			{find: "@themes", replacement: path.resolve(__dirname, "./src/themes")},
 		],
 	}
 });

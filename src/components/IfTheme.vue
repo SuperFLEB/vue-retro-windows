@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useTheme from "@/components/ThemeProvider/useTheme.ts";
+import useTheme from "@int/components/ThemeProvider/useTheme.ts";
 import {computed} from "vue";
 import type {ThemeEffects, ThemeEffectsList} from "@t/Theme.ts";
 import type {SingleOrArray} from "@t/SingleOrArray.ts";

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import style from "./style.module.css";
-import Classes from "@/util/Classes.ts";
-import { XY } from "@/util/metricsTypes.ts";
+import Classes from "@int/util/Classes.ts";
+import { XY } from "@int/util/metricsTypes.ts";
 
 export type BlockCursorType = "block" | "invert";
 export type GridSize = { x: number; y: number };

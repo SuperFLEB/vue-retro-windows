@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import {useWindow} from "@/components/WindowManagementProvider/useWindowManager.ts";
-import {charGrid} from "@/themes/Console/constants.ts";
-import Handle from "@/components/ResizeHandles/Handle.vue";
-import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
+import {useWindow} from "@int/components/WindowManagementProvider/useWindowManager.ts";
+import {charGrid} from "../constants.ts";
+import Handle from "@int/components/ResizeHandles/Handle.vue";
+import ScrollProvider from "@int/components/ScrollBar/ScrollProvider.vue";
 import {computed} from "vue";
-import {boxOf} from "@/util.ts";
-import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";
-import roundToGrid from "@/themes/Console/roundToGrid.ts";
-import useMenu from "@/components/Menu/useMenu.ts";
+import {boxOf} from "@int/util.ts";
+import ScrollBars from "@int/components/ScrollBar/ScrollBars.vue";
+import roundToGrid from "../roundToGrid.ts";
+import useMenu from "@int/components/Menu/useMenu.ts";
 
 const {props: windowProps} = useWindow();
 const emit = defineEmits(["movestart", "windowfocus", "windowblur"]);

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {useWindow} from "@/components/WindowManagementProvider/useWindowManager.ts";
-import ResizeHandle from "@/components/ResizeHandles/Handle.vue";
-import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
-import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";
+import {useWindow} from "@int/components/WindowManagementProvider/useWindowManager.ts";
+import ResizeHandle from "@int/components/ResizeHandles/Handle.vue";
+import ScrollProvider from "@int/components/ScrollBar/ScrollProvider.vue";
+import ScrollBars from "@int/components/ScrollBar/ScrollBars.vue";
 
 const {props: windowProps} = useWindow();
 </script>
@@ -25,10 +25,10 @@ const {props: windowProps} = useWindow();
 	</div>
 </template>
 
-<style scoped src="@/themes/Console/assets/DOS437Unicode.scss" />
+<style scoped src="../assets/DOS437Unicode.scss" />
 <style scoped lang="scss">
-@use "@/styles/WindowChromeBasic.scss";
-@use "@/assets/DOS437Unicode/index";
+@use "@int/styles/WindowChromeBasic.scss";
+@use "../assets/DOS437Unicode.scss";
 
 .frame {
 	font-family: "DOS437Unicode", sans-serif;

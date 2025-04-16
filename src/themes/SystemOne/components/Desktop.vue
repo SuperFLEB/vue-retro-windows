@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import MenuBar from "@/components/Menu/MenuBar.vue";
-import MenuProvider from "@/components/Menu/MenuProvider.vue";
-import useThemeMenu from "@/composables/useThemeMenu.ts";
-import {MenuTypes} from "@/components/Menu/MenuTypes.ts";
+import MenuBar from "@int/components/Menu/MenuBar.vue";
+import MenuProvider from "@int/components/Menu/MenuProvider.vue";
+import useThemeMenu from "@int/composables/useThemeMenu.ts";
+import {MenuTypes} from "@int/components/Menu/MenuTypes.ts";
 
 const themeMenu = useThemeMenu();
 

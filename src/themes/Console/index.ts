@@ -3,7 +3,7 @@ import Desktop from "./components/Desktop.vue";
 import VisualElementMangler from "./components/VisualElementMangler.vue";
 import type {ThemeSpec} from "@t/Theme.ts";
 import ScrollBars from "./components/ScrollBars.vue";
-import LockedScrollPane from "@/themes/Console/components/LockedScrollPane.vue";
+import LockedScrollPane from "./components/LockedScrollPane.vue";
 import SubMenu from "./components/SubMenu.vue";
 
 const theme: ThemeSpec = {
