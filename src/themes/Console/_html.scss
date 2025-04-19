@@ -90,16 +90,15 @@ $text-enhanced-input: "input[type='date'],input[type='time'],input[type='datetim
 	}
 
 	button:not(.scrollBar *), input[type=button], input[type=submit] {
-		&, &:focus, &:active {
-			outline: none;
-		}
-
 		font: inherit;
 		border: 0;
 		margin: 0;
 		padding: 0 4ch;
 		box-shadow: 1ch 1ch 0 pc.$black;
 
+		&, &:focus, &:active {
+			outline: none;
+		}
 
 		&:focus {
 			background-color: pc.$white;

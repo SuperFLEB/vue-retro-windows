@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type {Dimension, Directional} from "@t/scroll.ts";
 import {toRefs, useTemplateRef} from "vue";
-import IfScroll from "@int/components/ScrollBar/IfScroll.vue";
-import TrackSegment from "@int/components/ScrollBar/TrackSegment.vue";
-import Thumb from "@int/components/ScrollBar/Thumb.vue";
-import contentSizeRef from "@int/util/observeSize.ts";
-import ScrollButton from "@int/components/ScrollBar/ScrollButton.vue";
+import IfScroll from "@/components/ScrollBar/IfScroll.vue";
+import TrackSegment from "@/components/ScrollBar/TrackSegment.vue";
+import Thumb from "@/components/ScrollBar/Thumb.vue";
+import contentSizeRef from "@/util/observeSize.ts";
+import ScrollButton from "@/components/ScrollBar/ScrollButton.vue";
 
 type Props = { dimension: Dimension };
 const props = defineProps<Props>();
@@ -42,7 +42,7 @@ const trackDimensions = contentSizeRef(trackElementRef);
 </template>
 
 <style scoped lang="scss">
-@use "@int/components/ScrollBar/ScrollBarBasic.scss" with (
+@use "@/components/ScrollBar/ScrollBarBasic.scss" with (
 	$size: 16px
 );
 @use "./ScrollBar.scss";

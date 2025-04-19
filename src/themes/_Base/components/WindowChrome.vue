@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {useWindow} from "@int/components/WindowManagementProvider/useWindowManager.ts";
-import ResizeHandle from "@int/components/ResizeHandles/Handle.vue";
-import ScrollProvider from "@int/components/ScrollBar/ScrollProvider.vue";
-import ScrollBars from "@int/components/ScrollBar/ScrollBars.vue";
+import {useWindow} from "@/components/WindowManagementProvider/useWindowManager.ts";
+import ResizeHandle from "@/components/ResizeHandles/Handle.vue";
+import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
+import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";
 
 const {props: windowProps} = useWindow();
 </script>
@@ -28,7 +28,7 @@ const {props: windowProps} = useWindow();
 </template>
 
 <style scoped lang="scss">
-@use "@int/styles/WindowChromeBasic.scss";
+@use "@/styles/WindowChromeBasic.scss";
 
 .frame, .titleBar {
 	box-sizing: border-box;

@@ -4,12 +4,12 @@ import CaretController from "@superfleb/caret";
 import {computed, onMounted, onUnmounted, ref, useTemplateRef} from "vue";
 import BlockCursor from "./BlockCursor/BlockCursor.vue";
 import dos437Unicode from "../assets/DOS437Unicode.ts";
-import MenuProvider from "@int/components/Menu/MenuProvider.vue";
-import MenuBar from "@int/components/Menu/MenuBar.vue";
-import useThemeMenu from "@int/composables/useThemeMenu.ts";
+import MenuProvider from "@/components/Menu/MenuProvider.vue";
+import MenuBar from "@/components/Menu/MenuBar.vue";
+import useThemeMenu from "@/composables/useThemeMenu.ts";
 
 const tile = ref<string>(null);
-const desktopRef = useTemplateRef("desktopRef");
+const desktopRef = useTemplateRef("desktop");
 
 const style = computed(() => {
 	return ({
@@ -50,7 +50,7 @@ const baseMenu = {
 			<div class="desktopMenuBar">
 				<MenuBar/>
 			</div>
-			<div class="desktop" :style="style" ref="desktopRef">
+			<div class="desktop" :style="style" ref="desktop">
 				<BlockCursor/>
 				<slot/>
 			</div>
@@ -84,7 +84,7 @@ $grid-y: $font-size * 2;
 	position: absolute;
 	inset: 0;
 
-	font: f.$font-size / 1 f.$font-family;
+	font: #{f.$font-size}/#{2 * f.$font-size} f.$font-family;
 	color: pc.$white;
 	background-color: pc.$blue;
 

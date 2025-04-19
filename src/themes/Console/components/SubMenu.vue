@@ -3,7 +3,7 @@ import {onMounted, onUnmounted, useTemplateRef} from "vue";
 import {charGrid} from "../constants.ts";
 
 let intObs: IntersectionObserver | null;
-const subMenuRef = useTemplateRef("subMenuRef");
+const subMenuRef = useTemplateRef("subMenu");
 
 const outerMargin = [1, 0];
 
@@ -45,11 +45,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-<ol data-frame="" ref="subMenuRef">
+<ol data-frame="" ref="subMenu">
 	<slot />
 </ol>
 </template>
-
-<style scoped>
-
-</style>

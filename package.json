@@ -1,34 +1,60 @@
 {
-  "name": "vue-windows-1",
-  "private": true,
-  "version": "0.0.1",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
-    "justbuild": "vite build",
-    "preview": "vite preview",
-    "circular": "madge --circular --ts-config ./tsconfig.app.json --extensions .ts,.tsx,.js,.jsx,.vue src/app/App.vue"
-  },
-  "dependencies": {
-    "@superfleb/caret": "^0.0.6",
-    "@superfleb/worm": "^1.0.1",
-    "vue": "^3.5.13"
-  },
-  "devDependencies": {
-    "@superfleb/draggable": "^0.1.4",
-    "@types/node": "^22.13.5",
-    "@vitejs/plugin-vue": "^5.2.1",
-    "@vue/tsconfig": "^0.7.0",
-    "madge": "^8.0.0",
-    "sass-embedded": "^1.85.0",
-    "tinyglobby": "^0.2.12",
-    "typescript": "~5.7.2",
-    "vite": "^6.1.0",
-    "vue-tsc": "^2.2.0"
-  },
-  "packageManager": "yarn@4.7.0",
-  "resolutions": {
-    "@superfleb/draggable": "portal:/E:/webdev/draggable"
-  }
+	"name": "@superfleb/retrowin-vue",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vue-tsc -b && vite build",
+		"justbuild": "vite build",
+		"preview": "vite preview",
+		"circular": "madge --circular --ts-config ./tsconfig.app.json --extensions .ts,.tsx,.js,.jsx,.vue src/app/App.vue"
+	},
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/exported/index.d.ts",
+				"default": "./dist/exported/DefaultApplication.mjs"
+			}
+		},
+		"./components": {
+			"import": {
+				"types": "./dist/exported/index.d.ts",
+				"default": "./dist/exported/DefaultApplication.mjs"
+			}
+		},
+		"./components/*": {
+			"import": {
+				"default": "./dist/exported/*.mjs"
+			}
+		}
+	},
+	"dependencies": {
+		"@superfleb/caret": "^0.0.6",
+		"@superfleb/worm": "^1.0.1",
+		"vue": "^3.5.13",
+		"vue-sfc-transformer": "^0.1.11"
+	},
+	"devDependencies": {
+		"@laynezh/vite-plugin-lib-assets": "^1.1.0",
+		"@superfleb/draggable": "^0.1.4",
+		"@types/node": "^22.13.5",
+		"@vitejs/plugin-vue": "^5.2.3",
+		"@vue/tsconfig": "^0.7.0",
+		"madge": "^8.0.0",
+		"magic-string": "^0.30.17",
+		"mkdist": "^2.3.0",
+		"rollup-plugin-rename-node-modules": "^1.3.1",
+		"sass": "^1.86.3",
+		"tinyglobby": "^0.2.12",
+		"typescript": "~5.7.2",
+		"unbuild": "^3.5.0",
+		"vite": "^6.3.1",
+		"vite-plugin-libcss": "^1.1.1",
+		"vue-tsc": "^2.2.0"
+	},
+	"packageManager": "yarn@4.7.0",
+	"resolutions": {
+		"@superfleb/draggable": "portal:/E:/webdev/draggable"
+	}
 }

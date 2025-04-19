@@ -1,5 +1,5 @@
 import type Box from '@t/Box';
-import type {MenuItemSpec} from "@int/components/Menu/types.ts";
+import type {MenuItemSpec} from "@/components/Menu/types.ts";
 
 export type WinManRegistry = Record<WinId, WindowProps>;
 

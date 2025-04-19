@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type Box from "@t/Box.ts";
 import {computed} from "vue";
-import {stylesOf} from "@int/util.ts";
-import {dotPattern} from "@int/themeutil.ts";
+import {stylesOf} from "@/util.ts";
+import {dotPattern} from "@/themeutil.ts";
 
 type Props = { proxyBox: Box };
 const props = defineProps<Props>();

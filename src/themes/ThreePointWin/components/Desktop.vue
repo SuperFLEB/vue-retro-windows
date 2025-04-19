@@ -2,6 +2,7 @@
 	<div class="desktop"><slot /></div>
 </template>
 
+<style src="../assets/SystemTrue.css" />
 <style scoped lang="scss">
 @use "../_html.scss" as h;
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
-import Window from "@int/components/Window/Window.vue";
-import DemoContent from "@int/app/components/DemoContent.vue";
-import type {MenuItemSpec} from "@int/components/Menu/types.ts";
-import {MenuTypes} from "@int/components/Menu/MenuTypes.ts";
+import Window from "@/components/Window/Window.vue";
+import DemoContent from "@/app/exported/DemoContent.vue";
+import type {MenuItemSpec} from "@/components/Menu/types.ts";
+import {MenuTypes} from "@/components/Menu/MenuTypes.ts";
 import {h} from "vue";
 
 const actionClick = (message: string) => {
@@ -135,7 +135,3 @@ const menuSpec: MenuItemSpec = {
 		<DemoContent blather="lorem"></DemoContent>
 	</Window>
 </template>
-
-<style scoped>
-
-</style>

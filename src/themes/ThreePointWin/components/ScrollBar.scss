@@ -1,6 +1,6 @@
-// This stylesheet should be used in addition to @int/components/ScrollBar/ScrollBarBasic.scss.
+// This stylesheet should be used in addition to @/exported/ScrollBar/ScrollBarBasic.scss.
 
-:deep {
+:deep(*) {
 	.button {
 		position: relative;
 		appearance: none;

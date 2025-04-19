@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {onMounted, onUnmounted, ref} from "vue";
-import {randomString} from "@int/util.ts";
+import {randomString} from "@/util.ts";
 
 const timestamp = () => randomString(3) + "-" + new Date().getTime().toString(32).slice(-3);
 

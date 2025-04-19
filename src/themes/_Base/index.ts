@@ -1,4 +1,4 @@
-import WindowDragProxy from "@int/components/Window/WindowDragProxy.vue";
+import WindowDragProxy from "@/components/Window/WindowDragProxy.vue";
 import {type CompleteThemeSpec, defaultThemeEffects} from "@t/Theme.ts";
 import WindowChrome from "./components/WindowChrome.vue";
 import Desktop from "./components/Desktop.vue";
@@ -11,11 +11,11 @@ import ScrollBars from "./components/ScrollBars.vue";
 import MenuItem from "./components/MenuItem.vue";
 
 /*
- * This is a base theme used as a fallback for when themes are missing components.
+ * This is a base theme used as a fallback for when themes are missing exported.
  * You shouldn't put this into your config/themes.ts unless you're testing it.
  *
- * This theme includes all components and settings with sane default values. It uses settings such as nativeScroll: true
- * that mean that all components are not shown when viewing this theme, so you should use the _Demo theme to test.
+ * This theme includes all exported and settings with sane default values. It uses settings such as nativeScroll: true
+ * that mean that all exported are not shown when viewing this theme, so you should use the _Demo theme to test.
  *
  * You should NOT copy, extend, or inherit from this, e.g., using:
  *

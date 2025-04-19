@@ -31,7 +31,7 @@ export const defaultThemeEffects = Object.freeze({
 } as const satisfies Record<string, boolean>) ;
 
 // An informational list of side effects the theme causes on page content. Setting these will not cause anything to
-// happen in the theme. They are used by other components to understand how they will be rendered.
+// happen in the theme. They are used by other exported to understand how they will be rendered.
 export type ThemeEffects = Like<typeof defaultThemeEffects>;
 export type ThemeEffectsList = (keyof ThemeEffects)[];
 

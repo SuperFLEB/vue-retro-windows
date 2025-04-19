@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import {useWindow} from "@int/components/WindowManagementProvider/useWindowManager.ts";
-import HandleSet from "@int/components/ResizeHandles/HandleSet.vue";
-import ScrollProvider from "@int/components/ScrollBar/ScrollProvider.vue";
-import ScrollBars from "@int/components/ScrollBar/ScrollBars.vue";
-import MenuBar from "@int/components/Menu/MenuBar.vue";
-import MenuProvider from "@int/components/Menu/MenuProvider.vue";
+import {useWindow} from "@/components/WindowManagementProvider/useWindowManager.ts";
+import HandleSet from "@/components/ResizeHandles/HandleSet.vue";
+import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
+import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";
+import MenuBar from "@/components/Menu/MenuBar.vue";
+import MenuProvider from "@/components/Menu/MenuProvider.vue";
 
 const {props: windowProps} = useWindow();
 
@@ -55,7 +55,7 @@ const windowChromeSvgUrl = new URL("../assets/windowChrome.svg", import.meta.url
 
 <style scoped lang="scss" src="./MenuBar.scss" />
 <style scoped lang="scss">
-@use "@int/styles/WindowChromeBasic.scss";
+@use "@/styles/WindowChromeBasic.scss";
 @use "WindowChrome/WindowChrome.scss";
 
 // @use "WindowChrome.old/WindowChrome.old.scss";

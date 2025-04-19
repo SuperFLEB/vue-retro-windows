@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {computed, onMounted, useTemplateRef} from "vue";
-import useTheme, {canUseTheme} from "@int/components/ThemeProvider/useTheme.ts";
-import {useScrollableElement} from "@int/components/ScrollBar/useScrollableElement.ts";
-import {isRefSet} from "@int/util.ts";
+import useTheme, {canUseTheme} from "@/components/ThemeProvider/useTheme.ts";
+import {useScrollableElement} from "@/components/ScrollBar/useScrollableElement.ts";
+import {isRefSet} from "@/util.ts";
 
 const paneDom = useTemplateRef("pane");
 const calipersDom = useTemplateRef("calipers");

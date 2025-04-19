@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import {useWindow} from "@int/components/WindowManagementProvider/useWindowManager.ts";
-import ScrollProvider from "@int/components/ScrollBar/ScrollProvider.vue";
-import Handle from "@int/components/ResizeHandles/Handle.vue";
-import ScrollBars from "@int/components/ScrollBar/ScrollBars.vue";
-import useMenu from "@int/components/Menu/useMenu.ts";
+import {useWindow} from "@/components/WindowManagementProvider/useWindowManager.ts";
+import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
+import Handle from "@/components/ResizeHandles/Handle.vue";
+import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";
+import useMenu from "@/components/Menu/useMenu.ts";
 
 const emit = defineEmits(["movestart", "windowfocus", "windowblur"]);
 
@@ -49,6 +49,6 @@ function focusin(e: MouseEvent | TouchEvent) {
 
 <style src="../assets/ChicagoFLF.css"/>
 <style scoped lang="scss">
-@use "@int/styles/WindowChromeBasic.scss";
+@use "@/styles/WindowChromeBasic.scss";
 @use "./WindowChrome.scss";
 </style>

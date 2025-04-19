@@ -1,4 +1,4 @@
-import DocFont from "@int/util/DocFont.ts";
+import DocFont from "@/util/DocFont.ts";
 import ttf from "./DOS437Unicode/DOS437Unicode.ttf";
 import woff from "./DOS437Unicode/DOS437Unicode.woff";
 import woff2 from "./DOS437Unicode/DOS437Unicode.woff2";

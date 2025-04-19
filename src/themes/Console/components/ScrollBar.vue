@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import {useWindow} from "@int/components/WindowManagementProvider/useWindowManager.ts";
+import {useWindow} from "@/components/WindowManagementProvider/useWindowManager.ts";
 import {computed, useTemplateRef} from "vue";
 import {charGrid} from "../constants.ts";
-import useRepeatButton from "@int/composables/useRepeatButton.ts";
-import useScroll from "@int/components/ScrollBar/useScroll.ts";
+import useRepeatButton from "@/composables/useRepeatButton.ts";
+import useScroll from "@/components/ScrollBar/useScroll.ts";
 
 type Props = { dimension: "x" | "y" };
 const props = defineProps<Props>();
-const sbRef = useTemplateRef("sbRef");
+const sbRef = useTemplateRef("sb");
 
 const {props: windowProps} = useWindow();
 const {visible, state: scrollState, interface: scrollInterface} = useScroll();
@@ -53,7 +53,7 @@ const {mouseDownHandler: page} = useRepeatButton((_: Event, direction: 1 | -1 = 
 </script>
 
 <template>
-	<div ref="sbRef" :class="['scrollBar', dimension]" :style="colorVars">
+	<div ref="sb" :class="['scrollBar', dimension]" :style="colorVars">
 		<template v-if="state.visible">
 			<button type="button">{{ fills[0] }}</button>
 			<div class="track" @mousedown="page($event, -1)">{{fills[2].repeat(state.chPos)}}</div>

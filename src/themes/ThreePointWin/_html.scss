@@ -1,4 +1,3 @@
-@use "assets/SystemTrue.css" as *;
 @mixin themed {
 	button:not(.noTheme, .noTheme *), input[type=button]:not(.noTheme, .noTheme *), input[type=submit]:not(.noTheme, .noTheme *) {
 		font: 12pt "Microsoft Sans Serif", "Arial", sans-serif;

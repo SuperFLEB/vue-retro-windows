@@ -13,11 +13,11 @@ const idealTile = 500;
 const tileWidth = Math.ceil(idealTile / charGrid.x) * charGrid.x;
 const tileHeight = Math.ceil(idealTile / charGrid.y) * charGrid.y;
 
-const canRef = useTemplateRef("canRef");
+const canRef = useTemplateRef("can");
 const imageRefs = {
-	a: useTemplateRef("imageRefA"),
-	b: useTemplateRef("imageRefB"),
-	c: useTemplateRef("imageRefC")
+	a: useTemplateRef("imageA"),
+	b: useTemplateRef("imageB"),
+	c: useTemplateRef("imageC")
 };
 
 onMounted(() => {
@@ -39,15 +39,15 @@ onMounted(() => {
 </script>
 
 <template>
-	<canvas :width="tileWidth" :height="tileHeight" ref="canRef" style="display: none"></canvas>
+	<canvas :width="tileWidth" :height="tileHeight" ref="can" style="display: none"></canvas>
 	<svg class="filters" width="0" height="0">
 		<defs>
 			<filter id="ascii" x="0" y="0" width="100%" height="100%">
 				<!-- Shading images (characters) for each level of shading:
 				     a: Low midtones, b: High midtones, c: Highlights -->
-				<feImage ref="imageRefA" xlink:href="" x="0" y="0" :width="tileWidth" :height="tileHeight" result="imgA"/>
-				<feImage ref="imageRefB" xlink:href="" x="0" y="0" :width="tileWidth" :height="tileHeight" result="imgB"/>
-				<feImage ref="imageRefC" xlink:href="" x="0" y="0" :width="tileWidth" :height="tileHeight" result="imgC"/>
+				<feImage ref="imageA" xlink:href="" x="0" y="0" :width="tileWidth" :height="tileHeight" result="imgA"/>
+				<feImage ref="imageB" xlink:href="" x="0" y="0" :width="tileWidth" :height="tileHeight" result="imgB"/>
+				<feImage ref="imageC" xlink:href="" x="0" y="0" :width="tileWidth" :height="tileHeight" result="imgC"/>
 
 				<!-- Tile those over the whole visible area -->
 				<feTile in="imgA" result="a" x="0" y="0"/>

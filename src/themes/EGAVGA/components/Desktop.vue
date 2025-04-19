@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {randomString} from "@int/util.ts";
+import {randomString} from "@/util.ts";
 
 const filterId = randomString(5, "lores");
 
@@ -35,6 +35,7 @@ const tightTable = "0 .05 .95 1";
 	</svg>
 </template>
 
+<style src="../assets/DOS437Unicode.scss" lang="scss" />
 <style scoped lang="scss">
 :root {
 	overflow: hidden;
