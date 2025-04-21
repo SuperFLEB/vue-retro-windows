@@ -1,10 +1,23 @@
-import type {ThemeSpec} from "@t/Theme";
-import {DemoThemedScroll, DemoNativeScroll} from "./_Demo";
+import type {CompleteThemeSpec, ThemeSpec} from "@t/Theme";
+import {DemoThemedScroll, DemoNativeScroll, DemoProxyDrag} from "./_Demo";
 import ThreePointWin from "./ThreePointWin";
+import ThreePointWinClassic from "./ThreePointWinClassic";
 import SystemOne from "./SystemOne";
 import Console from "./Console";
 import EGAVGA from "./EGAVGA";
 
-export type BuiltInThemes = "fleb/threepointwin" | "fleb/systemone" | "fleb/console" | "fleb/egavga";
-export { DemoThemedScroll, DemoNativeScroll, ThreePointWin, SystemOne, Console, EGAVGA };
-export default [DemoThemedScroll, DemoNativeScroll, ThreePointWin, EGAVGA, SystemOne, Console] as ThemeSpec[];
+const themes: ThemeSpec[] = [
+	DemoThemedScroll,
+	DemoNativeScroll,
+	DemoProxyDrag,
+	ThreePointWin,
+	ThreePointWinClassic,
+	EGAVGA,
+	SystemOne,
+	Console
+];
+
+// This is only an advisory type for IDE hints, and should not be relied upon for type checking.
+export type BuiltInThemes = "fleb/threepointwin" | "fleb/threepointwin/arial" | "fleb/systemone" | "fleb/console" | "fleb/egavga";
+
+export default themes;

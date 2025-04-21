@@ -5,9 +5,9 @@ Trying to import it with @use directives will mess up the relative URL importing
 */
 @font-face {
 	font-family: "System True";
-	src: url('./SystemTrue/SystemTrue.woff2') format("woff2"),
-	url('./SystemTrue/SystemTrue.woff') format("woff"),
-	url('./SystemTrue/SystemTrue.ttf') format("ttf"),
+	src: url('SystemTrueystemTrue.woff2') format("woff2"),
+	url('SystemTrueystemTrue.woff') format("woff"),
+	url('SystemTrueystemTrue.ttf') format("ttf"),
 	local('MS Sans Serif'),
 	local('Arial');
 	font-weight: 500;

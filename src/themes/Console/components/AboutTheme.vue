@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import type {ThemeSpec} from "@t/Theme.ts";
+defineProps<{ themeName: string }>()
+</script>
 <template>
 	<p>Console theme by FLEB (a.k.a. SuperFLEB)</p>
 	<p>Uses (derivatives of) the DOS437 font by Joshua Stein</p>

@@ -1,21 +1,23 @@
-import type {DefineComponent} from "vue";
-import type {WindowProps} from "@t/WinMan.ts";
+import type {Component, DefineComponent, SlotsType} from "vue";
+import type {MenuItemSpec, MenuItemState} from "@/components/Menu/types.ts";
+import type {Dimension} from "@t/scroll.ts";
 
-type Handler<E extends Event> = (event: E) => void;
+type Empty = Record<never, never>;
+type ComponentShape<Props = Empty, Slots extends SlotsType = SlotsType<{ default: () => any }>> = DefineComponent<Props, any, any, {}, {}, {}, {}, {}, string, any, any, any , Slots>;
 
-export type AboutTheme = DefineComponent<Record<string, never>>
-export type RwWindowChrome = DefineComponent<{
-	dragStartHandler: Handler<MouseEvent>,
-	focusinHandler: Handler<FocusEvent>,
-	focusoutHandler: Handler<FocusEvent>
-}, any, any, any>;
-export type RwDesktop = DefineComponent<Record<string, never>>;
-export type RwWindowPane<AdditionalProps = {}> = DefineComponent<{ windowProps: WindowProps } & AdditionalProps>;
-export type RwScrollBar<AdditionalProps = {}> = DefineComponent<Record<string, never> & AdditionalProps>;
-export type RwScrollBars<AdditionalProps = {}> = DefineComponent<Record<string, never> & AdditionalProps>;
-export type RwScrollBarCorner<AdditionalProps = {}> = DefineComponent<Record<string, never> & AdditionalProps>;
-export type RwVisualMangler = DefineComponent<{}>;
-export type RwWindowDragProxy = DefineComponent<{}>;
-export type RwMenuBar = DefineComponent<{}>;
-export type RwSubMenu = DefineComponent<{}>;
-export type RwMenuItem = DefineComponent<{}>;
+export type AboutTheme = ComponentShape<Empty, Empty>;
+export type RwDesktop = ComponentShape;
+export type RwWindowChrome = ComponentShape;
+export type RwWindowPane = ComponentShape;
+
+// export type RwScrollBar = DefineComponent<{ dimension: Dimension }, any, any, {}, {}, {}, {}, {}, string, any, any>;
+export type RwScrollBar = ComponentShape<{ dimension: Dimension }, Empty>;
+
+export type RwScrollBars = ComponentShape;
+export type RwScrollBarCorner = ComponentShape;
+
+export type RwVisualMangler = ComponentShape;
+export type RwWindowDragProxy = ComponentShape;
+export type RwMenuBar = ComponentShape;
+export type RwSubMenu = ComponentShape;
+export type RwMenuItem = ComponentShape<{ spec: MenuItemSpec, item: MenuItemState, hasToggle?: boolean }>;

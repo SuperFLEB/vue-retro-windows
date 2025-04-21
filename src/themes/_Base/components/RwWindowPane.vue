@@ -4,7 +4,7 @@ import useTheme, {canUseTheme} from "@/providers/ThemeProvider/useTheme.ts";
 import {useScrollableElement} from "@/components/ScrollBar/useScrollableElement.ts";
 import {isRefSet} from "@/util.ts";
 
-const paneDom = useTemplateRef("pane");
+const paneRef = useTemplateRef("pane");
 const calipersDom = useTemplateRef("calipers");
 const themeRef = canUseTheme() ? useTheme().themeRef : null;
 const nativeScroll = computed(() => {
@@ -12,11 +12,11 @@ const nativeScroll = computed(() => {
 });
 
 onMounted(() => {
-	if (!isRefSet(paneDom)) {
+	if (!isRefSet(paneRef)) {
 		console.warn("WindowPane mounted without a content element. Scrolling may be inoperative.");
 		return;
 	}
-	useScrollableElement(paneDom, calipersDom);
+	useScrollableElement(paneRef, calipersDom);
 });
 
 </script>

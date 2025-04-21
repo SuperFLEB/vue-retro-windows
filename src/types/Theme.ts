@@ -50,6 +50,7 @@ export type ThemeInfo = {
 	effects?: Partial<ThemeEffects>;
 	style?: CssModule;
 	debugModeOnly?: true;
+	themeSpecificSettings?: Record<string, any>;
 };
 
 export type ThemeSpec = ThemeInfo & { components: ThemeComponents };

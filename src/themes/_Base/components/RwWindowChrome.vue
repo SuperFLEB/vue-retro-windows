@@ -3,7 +3,6 @@ import {useWindow} from "@/providers/WinManProvider/useWindowManager.ts";
 import ResizeHandle from "@/components/ResizeHandles/Handle.vue";
 import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
 import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";
-
 const {props: windowProps} = useWindow();
 </script>
 

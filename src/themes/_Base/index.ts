@@ -10,6 +10,7 @@ import RwSubMenu from "./components/RwSubMenu.vue";
 import RwScrollBars from "./components/RwScrollBars.vue";
 import RwMenuItem from "./components/RwMenuItem.vue";
 import AboutTheme from "./components/AboutTheme.vue";
+import RwWindowDragProxy from "./components/RwWindowDragProxy.vue";
 
 /*
  * This is a base theme used as a fallback for when themes are missing exported.
@@ -50,11 +51,12 @@ const theme: CompleteThemeSpec = {
 		RwVisualMangler,
 		RwSubMenu,
 		RwMenuItem,
-		WindowDragProxy,
+		RwWindowDragProxy,
 	},
 	effects: {
 		...defaultThemeEffects
-	}
+	},
+	themeSpecificSettings: {},
 };
 
 export default theme;

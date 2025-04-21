@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import type {ThemeSpec} from "@t/Theme.ts";
+defineProps<{ themeName: string }>()
+</script>
 <template>
 	<p>EGAVGA theme by FLEB (a.k.a. SuperFLEB)</p>
 	<p>Uses (derivatives of) the DOS437 font by Joshua Stein</p>
@@ -18,5 +22,3 @@
 			OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</p>
 	</section>
 </template>
-<script setup lang="ts">
-</script>

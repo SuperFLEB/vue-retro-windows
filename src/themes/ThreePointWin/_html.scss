@@ -1,6 +1,6 @@
 @mixin themed {
 	button:not(.noTheme, .noTheme *), input[type=button]:not(.noTheme, .noTheme *), input[type=submit]:not(.noTheme, .noTheme *) {
-		font: 10pt "SystemicDisassembly", "Microsoft Sans Serif", "Arial", sans-serif;
+		font: 10pt var(--winUIFont), "Microsoft Sans Serif", "Arial", sans-serif;
 		border: 2px outset #fff;
 		border-radius: 2px 4px 4px 2px;
 		outline: 1px solid #000;

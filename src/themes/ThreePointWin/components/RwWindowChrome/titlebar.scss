@@ -1,25 +1,23 @@
-@use "../../style/constants" as vars;
-
 .titleBar, .titleBar * {
 	box-sizing: border-box;
 }
 
 .titleBar {
-	font-family: vars.$winUIFont, sans-serif;
-	font-size: vars.$winUIFontSize;
+	font-family: var(--winUIFont), sans-serif;
+	font-size: var(--winUIFontSize);
 	display: flex;
 	align-items: center;
 	flex-direction: row;
 	background-color: #fff;
 	color: #000;
 	border-bottom: 1px solid #000;
-	height: vars.$titleHeight;
+	height: var(--titleHeight);
 	box-sizing: content-box;
 	user-select: none;
 }
 
 .frame.focus .titleBar {
-	background-color: vars.$highlightColor;
+	background-color: var(--highlightColor);
 	color: #fff;
 }
 
@@ -53,8 +51,8 @@
 	border-width: 2px 3px 3px 2px;
 	background-color: #ccc;
 	border-radius: 0;
-	width: vars.$titleHeight;
-	height: vars.$titleHeight;
+	width: var(--titleHeight);
+	height: var(--titleHeight);
 	padding: 0;
 	margin: 0;
 	font-size: inherit;
@@ -77,7 +75,7 @@
 }
 
 .contextMenu {
-	top: calc(vars.$titleHeight + 6px);
+	top: calc(var(--titleHeight) + 6px);
 	left: 5px;
 	z-index: 5;
 }

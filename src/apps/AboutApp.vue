@@ -14,7 +14,7 @@ const themes = themeInterface.getThemesInfo();
 		<h2>Themes</h2>
 		<template v-for="theme in themes">
 			<h3>{{ theme.displayName }}</h3>
-			<Themed is="AboutTheme" :theme="theme.keyName"/>
+			<Themed is="AboutTheme" :theme="theme.keyName" :themeName="theme.keyName" />
 		</template>
 	</div>
 </template>
