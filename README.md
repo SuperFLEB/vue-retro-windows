@@ -1,5 +1,16 @@
-# Vue 3 + TypeScript + Vite
+# @superfleb/retrowin
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A Web "Window environment" with 80s-90s retro flavor.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Status: Very rough. Very WIP.
+
+This is still in very early development, as is this README. I'm just putting something basic here so there's a readme. 
+
+Come back later to see more.
+
+## License
+
+I'm planning to put this on some sort of open source license, but I haven't yet.
+
+Some components (fonts, mostly) are licensed under their own terms. Consult license documentation in individual directories for details.
+
