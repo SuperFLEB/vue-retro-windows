@@ -4,6 +4,37 @@ $text-input: "input:not([type]),input[type='text'],input[type='password'],input[
 $text-enhanced-input: "input[type='date'],input[type='time'],input[type='datetime-local'],input[type='month'],input[type='week']";
 
 @mixin themed {
+	box-sizing: border-box;
+
+	h1, h2, h3, h4, h5, h6 {
+		font-size: 1em;
+		margin: 0;
+		padding: 0;
+	}
+
+	h1 {
+		color: pc.$lt-yellow;
+		&:before { content: "*** "; }
+		&:after { content: " ***"; }
+	}
+
+	h2 {
+		color: pc.$lt-cyan;
+		&:before { content: "** "; }
+		&:after { content: " **"; }
+	}
+
+	h3 {
+		color: pc.$lt-green;
+		&:before { content: "* "; }
+		&:after { content: " *"; }
+	}
+
+	p, section {
+		margin: 1lh 0;
+		padding: 0;
+	}
+
 	#{$text-input}, #{$text-enhanced-input}, textarea {
 		appearance: none;
 		font: inherit;

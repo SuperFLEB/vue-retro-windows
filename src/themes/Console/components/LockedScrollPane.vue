@@ -25,7 +25,7 @@ watch(scrollState.value, () => {
 
 onMounted(() => {
 	if (!isRefSet(paneDom)) {
-		console.warn("Pane mounted without a content element. Scrolling may be inoperative.");
+		console.warn("WindowPane mounted without a content element. Scrolling may be inoperative.");
 		return;
 	}
 	useScrollableElement(paneDom, calipersDom);

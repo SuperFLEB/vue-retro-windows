@@ -1,13 +1,13 @@
 import {computed, ref, watch} from "vue";
 import useScroll from "@/components/ScrollBar/useScroll.ts";
-import useTheme from "@/components/ThemeProvider/useTheme.ts";
+import useTheme from "@/providers/ThemeProvider/useTheme.ts";
 import {type ScrollState, ScrollStateActionSource} from "@/components/ScrollBar/types.ts";
 import {scrolls} from "@/components/ScrollBar/util.ts";
 import {ComposableOutOfContextError} from "@/errors.ts";
 import type XY from "@t/XY.ts";
 import debug from "@/debug";
 import type {ScrollInterface} from "@/components/ScrollBar/ScrollProvider.vue";
-import type {ThemeProviderInterface} from "@/components/ThemeProvider/types.ts";
+import type {ThemeProviderInterface} from "@/providers/ThemeProvider/types.ts";
 import type {AnyRef} from "@t/AnyRef.ts";
 
 type Mount = (props: {

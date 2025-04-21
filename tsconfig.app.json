@@ -20,6 +20,7 @@
 		"paths": {
 			"@/*": ["./src/*"],
 			"@exp/*": ["./src/exported/*"],
+			"@apps/*": ["./src/apps/*"],
 			"@themes/*": ["./src/themes/*"],
 			"@t/*": ["./src/types/*"],
 			"*": ["./*", "./*/index.vue", "./*/index"],

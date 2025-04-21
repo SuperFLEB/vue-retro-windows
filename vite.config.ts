@@ -64,6 +64,7 @@ export default defineConfig({
 		alias: [
 			{find: "@", replacement: path.resolve(__dirname, "./src")},
 			{find: "@exp", replacement: path.resolve(__dirname, "./src/exported")},
+			{find: "@apps", replacement: path.resolve(__dirname, "./src/apps")},
 			{find: "@t", replacement: path.resolve(__dirname, "./src/types")},
 			{find: "@themes", replacement: path.resolve(__dirname, "./src/themes")},
 		],

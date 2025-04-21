@@ -4,19 +4,19 @@ import type * as Themed from "@t/themedComponents.ts";
 import type {Like} from "@t/Like.ts";
 
 export type ThemeComponents = {
-	FeatureWindow?: Themed.FeatureWindow;
-	WindowChrome?: Themed.WindowChrome;
-	WindowDragProxy?: Themed.WindowDragProxy;
-	Desktop?: Themed.Desktop;
-	Pane?: Themed.Pane;
-	ScrollBars?: Themed.ScrollBars;
-	ScrollBarX?: Themed.ScrollBar;
-	ScrollBarY?: Themed.ScrollBar;
-	ScrollBarCorner?: Themed.ScrollBarCorner;
-	VisualElementMangler?: Themed.VisualElementMangler;
-	MenuBar?: Themed.MenuBar;
-	SubMenu?: Themed.SubMenu;
-	MenuItem?: Themed.MenuItem;
+	AboutTheme: Themed.AboutTheme,
+	RwWindowChrome?: Themed.RwWindowChrome;
+	RwWindowDragProxy?: Themed.RwWindowDragProxy;
+	RwDesktop?: Themed.RwDesktop;
+	RwWindowPane?: Themed.RwWindowPane;
+	RwScrollBars?: Themed.RwScrollBars;
+	RwScrollBarX?: Themed.RwScrollBar;
+	RwScrollBarY?: Themed.RwScrollBar;
+	RwScrollBarCorner?: Themed.RwScrollBarCorner;
+	RwVisualMangler?: Themed.RwVisualMangler;
+	RwMenuBar?: Themed.RwMenuBar;
+	RwSubMenu?: Themed.RwSubMenu;
+	RwMenuItem?: Themed.RwMenuItem;
 };
 
 export const defaultThemeEffects = Object.freeze({

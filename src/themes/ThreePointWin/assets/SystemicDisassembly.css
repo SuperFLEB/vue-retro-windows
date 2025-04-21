@@ -1,0 +1,14 @@
+/*
+To use this font-face, you must import this CSS file with its own style tag, e.g.
+<style scoped src="../assets/SystemicDisassembly.css">
+Trying to import it with @use directives will mess up the relative URL importing.
+*/
+@font-face {
+	font-family: "SystemicDisassembly";
+	src: url('./SystemicDisassembly/SystemicDisassemblyRegular.otf'),
+	local('MS Sans Serif'),
+	local('Arial');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}

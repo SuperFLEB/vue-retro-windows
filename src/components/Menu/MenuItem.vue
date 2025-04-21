@@ -3,7 +3,7 @@ import type {MenuItemSpec, MenuItemState} from "./types.ts";
 import {MenuTypes} from "./MenuTypes.ts";
 import {computed} from "vue";
 import SubMenu from "@/components/Menu/SubMenu.vue";
-import Themed from "@/components/ThemeProvider/Themed.vue";
+import Themed from "@/providers/ThemeProvider/Themed.vue";
 
 type Props = { spec: MenuItemSpec, checked?: boolean, root?: boolean };
 const props = withDefaults(defineProps<Props>(), {checked: false, root: false});
@@ -25,5 +25,5 @@ const noRenderRoot = props.root && spec.type === MenuTypes.SUB;
 
 <template>
 	<SubMenu v-if="noRenderRoot" :sub="props.spec.sub ?? []" class="menu root" />
-	<Themed v-else @click="action($event, spec)" is="MenuItem" :hasToggle :spec :item />
+	<Themed v-else @click="action($event, spec)" is="RwMenuItem" :hasToggle :spec :item />
 </template>

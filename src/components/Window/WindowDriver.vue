@@ -5,10 +5,10 @@
 
 import {computed, type CSSProperties} from "vue";
 import {useDraggable} from "@superfleb/draggable/vue";
-import {useWindow} from "@/components/WindowManagementProvider/useWindowManager.ts";
-import useTheme from "@/components/ThemeProvider/useTheme.ts";
-import Pane from "@/components/Pane.vue";
-import Themed from "@/components/ThemeProvider/Themed.vue";
+import {useWindow} from "@/providers/WinManProvider/useWindowManager.ts";
+import useTheme from "@/providers/ThemeProvider/useTheme.ts";
+import WindowPane from "@/components/Window/WindowPane.vue";
+import Themed from "@/providers/ThemeProvider/Themed.vue";
 import {boxOf} from "@/util.ts";
 import type Box from "@t/Box.ts";
 
@@ -58,12 +58,12 @@ const windowStyle = computed<CSSProperties>(() => {
 <template>
 	<slot v-if="!themeRef.mdiSubWindows" name="subWindows" />
 	<div :="$attrs" class="windowDriver" :tabindex="-1" :style="windowStyle">
-		<Themed is="WindowChrome" @movestart="dragStartHandler($event)" @click="focusinHandler" @windowfocus="focusinHandler" @windowblur="focusoutHandler">
-			<Pane>
+		<Themed is="RwWindowChrome" @movestart="dragStartHandler($event)" @click="focusinHandler" @windowfocus="focusinHandler" @windowblur="focusoutHandler">
+			<WindowPane>
 				<slot v-if="themeRef.mdiSubWindows" name="subWindows" />
 				<slot />
-			</Pane>
+			</WindowPane>
 		</Themed>
 	</div>
-	<Themed v-if="themeRef.useProxyDrag && dragState.inDrag" is="WindowDragProxy" :proxyBox :windowBox/>
+	<Themed v-if="themeRef.useProxyDrag && dragState.inDrag" is="RwWindowDragProxy" :proxyBox :windowBox/>
 </template>

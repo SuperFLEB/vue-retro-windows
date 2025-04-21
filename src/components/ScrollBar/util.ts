@@ -1,10 +1,10 @@
-import type {Dimension, Dimensional, Directional} from "@t/scroll";
+import type {Dimension, Dimensional, DimensionalDirectional} from "@t/scroll";
 import type {LinearScrollState, ScrollState} from "./types.ts";
 import clamp from "@/util/clamp.ts";
 
 type ElementAdjective = "offset" | "client" | "scroll";
 
-export const posStyles: Directional<string> = {
+export const posStyles: DimensionalDirectional<string> = {
 	x: { fwd: "right", back: "left" },
 	y: { fwd: "bottom", back: "top" },
 };

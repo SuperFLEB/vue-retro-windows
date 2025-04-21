@@ -2,6 +2,7 @@
  * Debug themes intended to have everything fall through to _Base.
  */
 import type {ThemeSpec} from "@t/Theme.ts";
+import AboutTheme from "./AboutTheme.vue";
 
 export const DemoThemedScroll: ThemeSpec = {
 	keyName: "core/debug-themed-scroll",
@@ -24,6 +25,8 @@ export const DemoNativeScroll: ThemeSpec = {
 	nativeScroll: true,
 	hijackScroll: false,
 	debugModeOnly: true,
-	components: {},
+	components: {
+		AboutTheme
+	},
 };
 

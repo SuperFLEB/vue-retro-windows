@@ -1,25 +1,27 @@
-import WindowChrome from "./components/WindowChrome.vue";
-import WindowDragProxy from "./components/WindowDragProxy.vue";
-import ScrollBar from "./components/ScrollBar.vue";
-import Desktop from "./components/Desktop.vue";
-import VisualElementMangler from "./components/VisualElementMangler.vue";
-import ScrollBarCorner from "./components/ScrollBarCorner.vue";
 import type {ThemeSpec} from "@t/Theme.ts";
-import ScrollBars from "./components/ScrollBars.vue";
+import AboutTheme from "./components/AboutTheme.vue";
+import RwWindowChrome from "./components/RwWindowChrome.vue";
+import RwWindowDragProxy from "./components/RwWindowDragProxy.vue";
+import RwScrollBar from "./components/RwScrollBar.vue";
+import RwDesktop from "./components/RwDesktop.vue";
+import RwVisualMangler from "./components/RwVisualMangler.vue";
+import RwScrollBarCorner from "./components/RwScrollBarCorner.vue";
+import RwScrollBars from "./components/RwScrollBars.vue";
 
 const theme: ThemeSpec = {
 	keyName: "fleb/systemone",
 	displayName: "System One",
 	uniqueClassName: "theme-fleb-systemone",
 	components: {
-		WindowChrome,
-		Desktop,
-		ScrollBarX: ScrollBar,
-		ScrollBarY: ScrollBar,
-		ScrollBars: ScrollBars,
-		ScrollBarCorner: ScrollBarCorner,
-		VisualElementMangler,
-		WindowDragProxy
+		AboutTheme,
+		RwWindowChrome,
+		RwDesktop,
+		RwScrollBarX: RwScrollBar,
+		RwScrollBarY: RwScrollBar,
+		RwScrollBars,
+		RwScrollBarCorner,
+		RwVisualMangler,
+		WindowDragProxy: RwWindowDragProxy
 	},
 	effects: {
 		menu: true,

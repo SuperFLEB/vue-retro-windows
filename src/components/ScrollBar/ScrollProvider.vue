@@ -12,7 +12,7 @@ import {
 import type XY from "@t/XY.ts";
 import scrollBarSettingsUpdater, {initialScrollBarSettings} from "@/components/ScrollBar/ScrollSettings.ts";
 import {ScrollProviderProvides as keys} from "@/components/ScrollBar/keys.ts";
-import useTheme, {canUseTheme} from "@/components/ThemeProvider/useTheme.ts";
+import useTheme, {canUseTheme} from "@/providers/ThemeProvider/useTheme.ts";
 import {scrolls} from "@/components/ScrollBar/util.ts";
 
 type Props = { nativeScrollOverride?: boolean | undefined };

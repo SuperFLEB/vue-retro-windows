@@ -4,13 +4,11 @@
 	z-index: 10;
 	width: 100%;
 	cursor: default;
-	line-height: 1.5lh;
 
 	background-color: #fff;
 	overflow: hidden;
 
-	font: 16px / 18px Arial, sans-serif;
-	line-height: 1.5lh;
+	font: #{vars.$winUIFontSize} / vars.$titleHeight vars.$winUIFont;
 
 	border-bottom: 1px solid #000;
 }
@@ -27,7 +25,7 @@
 	}
 
 	.root .menuItem .menuItem {
-		padding: 0 2ch;
+		padding: 0 1ch;
 	}
 
 	.menu.root > .menuItem > .sub {

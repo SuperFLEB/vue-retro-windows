@@ -1,19 +1,21 @@
-import WindowChrome from "./components/WindowChrome.vue";
-import ScrollBar from "./components/ScrollBar.vue";
-import Desktop from "./components/Desktop.vue";
-import WindowDragProxy from "./components/WindowDragProxy.vue";
 import type {ThemeSpec} from "@t/Theme.ts";
+import AboutTheme from "./components/AboutTheme.vue";
+import RwWindowChrome from "./components/RwWindowChrome.vue";
+import RwScrollBar from "./components/RwScrollBar.vue";
+import RwDesktop from "./components/RwDesktop.vue";
+import RwWindowDragProxy from "./components/RwWindowDragProxy.vue";
 
 const theme: ThemeSpec = {
 	keyName: "fleb/threepointwin",
 	displayName: "Three Point Win",
 	uniqueClassName: "theme-fleb-threepointwin",
 	components: {
-		WindowChrome,
-		WindowDragProxy,
-		ScrollBarX: ScrollBar,
-		ScrollBarY: ScrollBar,
-		Desktop,
+		AboutTheme,
+		RwWindowChrome,
+		RwWindowDragProxy,
+		RwScrollBarX: RwScrollBar,
+		RwScrollBarY: RwScrollBar,
+		RwDesktop,
 	},
 	effects: {
 		menu: true,

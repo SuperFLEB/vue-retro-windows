@@ -1,0 +1,89 @@
+.container {
+	--scrollbarWidth: 25px;
+	user-select: none;
+	background-color: #ccc;
+}
+
+.container.inactive {
+	background-color: #fff;
+
+	.button {
+		color: #000;
+	}
+
+	.track {
+		background-image: none;
+		background-color: #fff;
+	}
+}
+
+.container {
+	.button {
+		aspect-ratio: 1 / 1;
+		flex-grow: 0;
+		padding-block: 0;
+		padding-inline: 0;
+
+		position: relative;
+		appearance: none;
+		border-radius: 0;
+		background-color: #fff;
+		border: 1px solid #000;
+
+		font-family: "SystemOneUI", sans-serif;
+		font-size: 20px;
+		text-align: center;
+	}
+
+	.button.back {
+		order: 1;
+	}
+
+	.button.fwd {
+		order: 3;
+	}
+}
+
+.container:deep() {
+	 .track {
+		position: relative;
+		order: 2;
+		flex-grow: 1;
+		border: 1px solid #000;
+
+		background-color: #fff;
+		background-image: url("@/assets/shades/2px-25.png");
+		background-repeat: repeat;
+		image-rendering: pixelated;
+	}
+
+	.trackSegment {
+		position: absolute;
+		z-index: 1;
+
+		&.active {
+			background-color: #000;
+		}
+	}
+
+	.thumb {
+		background-color: #fff;
+		border: 1px solid #000;
+
+		&.x {
+			border-style: none solid none solid;
+		}
+
+		&.y {
+			border-style: solid none solid none;
+		}
+	}
+
+	.thumbProxy {
+		border: 1px solid #000;
+	}
+
+	.button {
+	}
+
+}

@@ -1,14 +1,15 @@
 import WindowDragProxy from "@/components/Window/WindowDragProxy.vue";
 import {type CompleteThemeSpec, defaultThemeEffects} from "@t/Theme.ts";
-import WindowChrome from "./components/WindowChrome.vue";
-import Desktop from "./components/Desktop.vue";
-import Pane from "./components/Pane.vue";
-import ScrollBar from "./components/ScrollBar.vue";
-import VisualElementMangler from "./components/VisualElementMangler.vue";
-import ScrollBarCorner from "./components/ScrollBarCorner.vue";
-import SubMenu from "./components/SubMenu.vue";
-import ScrollBars from "./components/ScrollBars.vue";
-import MenuItem from "./components/MenuItem.vue";
+import RwWindowChrome from "./components/RwWindowChrome.vue";
+import RwDesktop from "./components/RwDesktop.vue";
+import RwWindowPane from "./components/RwWindowPane.vue";
+import RwScrollBar from "./components/RwScrollBar.vue";
+import RwVisualMangler from "./components/RwVisualMangler.vue";
+import RwScrollBarCorner from "./components/RwScrollBarCorner.vue";
+import RwSubMenu from "./components/RwSubMenu.vue";
+import RwScrollBars from "./components/RwScrollBars.vue";
+import RwMenuItem from "./components/RwMenuItem.vue";
+import AboutTheme from "./components/AboutTheme.vue";
 
 /*
  * This is a base theme used as a fallback for when themes are missing exported.
@@ -38,17 +39,18 @@ const theme: CompleteThemeSpec = {
 	mdiSubWindows: false,
 	desktopMenu: false,
 	components: {
-		WindowChrome,
+		AboutTheme,
+		RwWindowChrome,
+		RwDesktop,
+		RwWindowPane,
+		RwScrollBars,
+		RwScrollBarX: RwScrollBar,
+		RwScrollBarY: RwScrollBar,
+		RwScrollBarCorner,
+		RwVisualMangler,
+		RwSubMenu,
+		RwMenuItem,
 		WindowDragProxy,
-		Desktop,
-		Pane,
-		ScrollBars: ScrollBars,
-		ScrollBarX: ScrollBar,
-		ScrollBarY: ScrollBar,
-		ScrollBarCorner: ScrollBarCorner,
-		VisualElementMangler,
-		SubMenu,
-		MenuItem,
 	},
 	effects: {
 		...defaultThemeEffects

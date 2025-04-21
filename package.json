@@ -13,19 +13,30 @@
 	"exports": {
 		".": {
 			"import": {
-				"types": "./dist/exported/index.d.ts",
-				"default": "./dist/exported/DefaultApplication.mjs"
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.mjs"
 			}
 		},
 		"./components": {
 			"import": {
 				"types": "./dist/exported/index.d.ts",
-				"default": "./dist/exported/DefaultApplication.mjs"
+				"default": "./dist/exported/index.mjs"
 			}
 		},
 		"./components/*": {
 			"import": {
 				"default": "./dist/exported/*.mjs"
+			}
+		},
+		"./apps": {
+			"import": {
+				"types": "./dist/apps/index.d.ts",
+				"default": "./dist/apps/index.mjs"
+			}
+		},
+		"./apps/*": {
+			"import": {
+				"default": "./dist/apps/*.mjs"
 			}
 		}
 	},

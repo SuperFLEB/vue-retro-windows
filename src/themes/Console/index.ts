@@ -1,10 +1,11 @@
-import WindowChrome from "./components/WindowChrome.vue";
-import Desktop from "./components/Desktop.vue";
-import VisualElementMangler from "./components/VisualElementMangler.vue";
 import type {ThemeSpec} from "@t/Theme.ts";
-import ScrollBars from "./components/ScrollBars.vue";
+import AboutTheme from "./components/AboutTheme.vue";
+import RwWindowChrome from "./components/RwWindowChrome.vue";
+import RwDesktop from "./components/RwDesktop.vue";
+import RwVisualMangler from "./components/RwVisualMangler.vue";
+import RwScrollBars from "./components/RwScrollBars.vue";
 import LockedScrollPane from "./components/LockedScrollPane.vue";
-import SubMenu from "./components/SubMenu.vue";
+import RwSubMenu from "./components/RwSubMenu.vue";
 
 const theme: ThemeSpec = {
 	keyName: "fleb/console",
@@ -15,12 +16,13 @@ const theme: ThemeSpec = {
 	hijackScroll: true,
 	nativeScroll: false,
 	components: {
-		Desktop,
-		WindowChrome,
-		VisualElementMangler,
-		ScrollBars,
-		Pane: LockedScrollPane,
-		SubMenu,
+		AboutTheme,
+		RwDesktop,
+		RwWindowChrome,
+		RwVisualMangler,
+		RwScrollBars,
+		WindowPane: LockedScrollPane,
+		RwSubMenu,
 	},
 	effects: {
 		textOnly: true,

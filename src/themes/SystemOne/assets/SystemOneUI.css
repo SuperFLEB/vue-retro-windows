@@ -1,0 +1,9 @@
+/*
+To use this font-face, you must import this CSS file with its own style tag, e.g.
+<style scoped src="../assets/SystemOneUI.css">
+Trying to import it with @use directives will mess up the relative URL importing.
+*/
+@font-face {
+	font-family: "SystemOneUI";
+	src: url("./SystemOneUI/SystemOneUI.otf");
+}

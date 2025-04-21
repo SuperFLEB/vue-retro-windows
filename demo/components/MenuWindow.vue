@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import Window from "@/components/Window/Window.vue";
+import Window from "@/components/Window/RwWindow.vue";
 import DemoContent from "@/app/exported/DemoContent.vue";
 import type {MenuItemSpec} from "@/components/Menu/types.ts";
 import {MenuTypes} from "@/components/Menu/MenuTypes.ts";
@@ -108,9 +108,9 @@ const menuSpec: MenuItemSpec = {
 					}
 				},
 				{
-					name: "About Program Manager",
+					name: "AboutApp Program Manager",
 					action: (_, __) => {
-						actionClick('About Program Manager');
+						actionClick('AboutApp Program Manager');
 					}
 				}
 			]

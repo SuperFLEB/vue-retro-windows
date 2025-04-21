@@ -1,4 +1,4 @@
-import useTheme from "@/components/ThemeProvider/useTheme.ts";
+import useTheme from "@/providers/ThemeProvider/useTheme.ts";
 import type {MenuItemSpec} from "@/components/Menu/types.ts";
 export default function useThemeMenu() {
 	const {interface: {getThemesInfo, setCurrentTheme}} = useTheme();

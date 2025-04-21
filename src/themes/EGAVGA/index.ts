@@ -1,8 +1,9 @@
-import WindowChrome from "./components/WindowChrome.vue";
-import Desktop from "./components/Desktop.vue";
-import VisualElementMangler from "./components/VisualElementMangler.vue";
+import AboutTheme from "./components/AboutTheme.vue";
+import RwWindowChrome from "./components/RwWindowChrome.vue";
+import RwDesktop from "./components/RwDesktop.vue";
+import RwVisualMangler from "./components/RwVisualMangler.vue";
 import type {ThemeSpec} from "@t/Theme.ts";
-import ScrollBar from "./components/ScrollBar.vue";
+import RwScrollBar from "./components/RwScrollBar.vue";
 
 const theme: ThemeSpec = {
 	keyName: "fleb/egavga",
@@ -17,11 +18,12 @@ const theme: ThemeSpec = {
 		dithering: true,
 	},
 	components: {
-		WindowChrome,
-		Desktop,
-		VisualElementMangler,
-		ScrollBarX: ScrollBar,
-		ScrollBarY: ScrollBar
+		AboutTheme,
+		RwWindowChrome,
+		RwDesktop,
+		RwVisualMangler,
+		RwScrollBarX: RwScrollBar,
+		RwScrollBarY: RwScrollBar
 	},
 };
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useWindow} from "@/components/WindowManagementProvider/useWindowManager.ts";
+import {useWindow} from "@/providers/WinManProvider/useWindowManager.ts";
 import {useDraggable} from "@superfleb/draggable/vue";
 import {getCornerPoint} from "./util.ts";
 import type CardinalCorner from "@t/CardinalCorner.ts";

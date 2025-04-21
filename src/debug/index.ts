@@ -5,7 +5,7 @@ export type ApplicationMetaData = {
 };
 
 const APP = {
-	displayName: "Application",
+	displayName: "RwApplication",
 	keyName: "unknownApp",
 	available: false,
 	sessionKey: "@superfleb/debug:default",
