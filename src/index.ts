@@ -1,2 +1,2 @@
-import RwDefaultApp from "@exp/RwDefaultApp.vue";
+import RwDefaultApp from "@apps/RwDefaultApp.vue";
 export default RwDefaultApp;

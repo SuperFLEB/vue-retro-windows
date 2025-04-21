@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<Props>(), {
 		<slot/>
 	</RwApplication>
 	<component v-if="props.rootSelector" is="style">
-		{{ rootSelector }} {
+		{{ props.rootSelector }} {
 		margin: 0;
 		padding: 0;
 		background-color: #000;
@@ -23,12 +23,15 @@ const props = withDefaults(defineProps<Props>(), {
 		text-size-adjust: none;
 		-moz-text-size-adjust: none;
 		-webkit-text-size-adjust: none;
+		overflow: hidden;
 		}
+		/* <template v-if="props.rootSelector.split(' ').includes('body')"> */
 		body {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
 		}
+		/* </template> */
 	</component>
 	<component if="props.appSelector" is="style">
 		{{ appSelector }} {

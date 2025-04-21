@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {RwApplication, RwWindow} from "@exp";
-import {AboutApp, ThemePicker} from "@apps";
+import {RwWindow} from "@exp";
+import {DefaultApp, AboutApp, ThemePicker} from "@apps";
 import ChangeTracker from "./components/ChangeTracker.vue";
 import DemoContent from "./components/DemoContent.vue";
 import SampleImage from "./components/SampleImage.vue";
@@ -34,7 +34,7 @@ const aboutMenu = {
 </script>
 
 <template>
-	<RwApplication theme="fleb/threepointwin">
+	<DefaultApp theme="fleb/threepointwin">
 		<RwWindow title="Theme Picker" :x=0 :width="300" :height="300" winId="916ce28c-f868-4869-8053-13446dd86560">
 			<ThemePicker/>
 		</RwWindow>
@@ -51,5 +51,5 @@ const aboutMenu = {
 		<RwWindow :x="150" :y="50" :width="800" :height="800" title="About" win-id="dace5a00-4e21-4375-9e3c-0f44629528df" :menu="aboutMenu">
 			<AboutApp/>
 		</RwWindow>
-	</RwApplication>
+	</DefaultApp>
 </template>
