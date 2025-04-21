@@ -23,7 +23,7 @@ const imageRefs = {
 onMounted(() => {
 	dos437Unicode.load().then(_ => {
 		const context = canRef.value!.getContext("2d")!;
-		context.font = `${charGrid.x}px / ${charGrid.y}px Dos437 Unicode`;
+		context.font = `${charGrid.x}px / ${charGrid.y}px Dos437Unicode`;
 		for (const [density, key] of ["a", "b", "c"].entries()) {
 			context.fillStyle = "#000";
 			context.fillRect(0, 0, tileWidth, tileHeight);
