@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useWindow} from "@/providers/WinManProvider/useWindowManager.ts";
+import {useWindow} from "@/providers/WinManProvider/useWindow.ts";
 import {computed, useTemplateRef} from "vue";
 import {charGrid} from "../constants.ts";
 import useRepeatButton from "@/composables/useRepeatButton.ts";

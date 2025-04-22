@@ -1,9 +1,8 @@
 import {inject} from "vue";
-import {Win as w, WinMan as wm} from "@/providers/WinManProvider/keys.ts";
+import {Win as w} from "@/providers/WinManProvider/keys.ts";
 import type {WinInterface} from "@/providers/WinManProvider/WindowProvider.vue";
 import type {WindowProps} from "@t/WinMan.ts";
 import {ComposableOutOfContextError} from "@/errors.ts";
-import type {WinManInterface} from "@/providers/WinManProvider/WinManProvider.vue";
 
 export const useWindow = () => {
 	const intf = inject<WinInterface>(w.INTERFACE);
@@ -14,9 +13,3 @@ export const useWindow = () => {
 
 	return {props, interface: intf};
 };
-
-export const useWindowManager = () => {
-	const intf = inject<WinManInterface>(wm.INTERFACE);
-	return {interface: intf};
-};
-

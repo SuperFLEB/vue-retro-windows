@@ -12,7 +12,7 @@ import WindowProvider from "@/providers/WinManProvider/WindowProvider.vue";
 import type {ValidPartialWindowProps} from "@t/WinMan.ts";
 import {createWindowProps, defaultWindowProps} from "@/components/Window/props.ts";
 import {onMounted} from "vue";
-import {useWindowManager} from "@/providers/WinManProvider/useWindowManager.ts";
+import {useWindowManager} from "@/providers/WinManProvider/useWinMan.ts";
 import {ComposableOutOfContextError} from "@/errors.ts";
 
 type Props = ValidPartialWindowProps;
@@ -40,7 +40,9 @@ onMounted(() => {
 	<template v-if="winMan.has(props.winId)">
 		<WindowProvider :winId="initialState.winId">
 			<WindowDriver>
-				<template #subWindows><slot name="subWindows" /></template>
+				<template #subWindows>
+					<slot name="subWindows"/>
+				</template>
 				<slot/>
 			</WindowDriver>
 		</WindowProvider>

@@ -13,7 +13,7 @@ watch(themeRef, () => {
 });
 </script>
 <template>
-	<component :is="component" :="$attrs" ref="componentRef">
+	<component :is="component" v-bind="$attrs" ref="componentRef">
 		<template v-for="(_, slotName) in $slots" :key="slotName" v-slot:[slotName]>
 			<slot :="$attrs" :name="slotName" />
 		</template>

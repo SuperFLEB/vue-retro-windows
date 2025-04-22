@@ -7,6 +7,7 @@ import RwDesktop from "./components/RwDesktop.vue";
 import RwVisualMangler from "./components/RwVisualMangler.vue";
 import RwScrollBarCorner from "./components/RwScrollBarCorner.vue";
 import RwScrollBars from "./components/RwScrollBars.vue";
+import RwFolderSpace from "./components/RwFolderSpace.vue";
 
 const theme: ThemeSpec = {
 	keyName: "fleb/systemone",
@@ -21,7 +22,8 @@ const theme: ThemeSpec = {
 		RwScrollBars,
 		RwScrollBarCorner,
 		RwVisualMangler,
-		WindowDragProxy: RwWindowDragProxy
+		RwWindowDragProxy: RwWindowDragProxy,
+		RwFolderSpace,
 	},
 	effects: {
 		menu: true,

@@ -4,6 +4,7 @@ import RwWindowChrome from "./components/RwWindowChrome.vue";
 import RwScrollBar from "./components/RwScrollBar.vue";
 import RwDesktop from "./components/RwDesktop.vue";
 import RwWindowDragProxy from "./components/RwWindowDragProxy.vue";
+import RwFolderSpace from "./components/RwFolderSpace.vue";
 
 const theme: ThemeSpec = {
 	keyName: "fleb/threepointwin",
@@ -16,6 +17,7 @@ const theme: ThemeSpec = {
 		RwScrollBarX: RwScrollBar,
 		RwScrollBarY: RwScrollBar,
 		RwDesktop,
+		RwFolderSpace,
 	},
 	effects: {
 		menu: true,
