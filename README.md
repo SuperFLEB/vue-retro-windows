@@ -6,6 +6,8 @@ A Web "Window environment" with 80s-90s retro flavor.
 
 This is still in very early development, as is this README. I'm just putting something basic here so there's a readme. 
 
+[There's a demo, though, if you want to see how it's going](https://superfleb.github.io/vue-retro-windows/)
+
 Come back later to see more.
 
 ## License
