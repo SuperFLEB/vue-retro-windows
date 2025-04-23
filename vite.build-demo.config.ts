@@ -3,20 +3,16 @@ import importCss from "./build-script/importCss.mjs";
 import vue from "@vitejs/plugin-vue";
 import path from "node:path";
 
-const CSS_NAME = "retrowin-vue";
-
 export default defineConfig({
-	plugins: [vue(), importCss({exportName: CSS_NAME})],
+	plugins: [vue(), importCss("retrowin-vue")],
 	base: "./",
-	root: "./src-demo",
 	build: {
-		emptyOutDir: true,
 		assetsInlineLimit: 0,
-		outDir: "../dist-demo/",
+		outDir: "./dist-demo/",
 		minify: true,
 		target: "es2020",
 		rollupOptions: {
-			input: "./src-demo/index.html",
+			input: "./index.html",
 		}
 	},
 	resolve: {

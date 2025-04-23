@@ -3,9 +3,9 @@ import path from "node:path";
 
 let config;
 
-export default function defineConfig({ exportName, path: cssFilePath }) {
-	const filePath = path.resolve(exportName ? `./${exportName}.css` : cssFilePath);
-	const cssFakeImport = "\0IMPORT-CSS-PLUGIN-WAS-HERE";
+export default function importCss(exportName) {
+	const filePath = path.resolve(`./${exportName ?? "UNKNOWN"}.css`);
+	const cssFakeImport = `\\0IMPORT-CSS-PLUGIN-WAS-HERE:${filePath}`;
 	return {
 		name: 'importCss',
 		configResolved(resolvedConfig) {

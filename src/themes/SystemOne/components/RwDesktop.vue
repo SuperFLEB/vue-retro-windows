@@ -38,6 +38,7 @@ const baseMenu = {
 <style src="../assets/Pixelva.css"/>
 <style scoped lang="scss" src="./MenuBar.scss"/>
 <style scoped lang="scss">
+@use "../_html.scss" as html;
 .screen {
 	position: relative;
 	display: flex;
@@ -49,6 +50,10 @@ const baseMenu = {
 
 	font-family: Pixelva, Helvetica, Arial, sans-serif;
 	overflow: hidden;
+
+	&:deep() {
+		@include html.themed;
+	}
 }
 
 .desktop {

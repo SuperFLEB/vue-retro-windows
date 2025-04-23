@@ -21,7 +21,7 @@ const theme: ThemeSpec = {
 		RwWindowChrome,
 		RwVisualMangler,
 		RwScrollBars,
-		WindowPane: LockedScrollPane,
+		RwWindowPane: LockedScrollPane,
 		RwSubMenu,
 	},
 	effects: {
