@@ -1,24 +1,32 @@
 import MagicString from "magic-string";
 import path from "node:path";
 
+let config;
+
 export default function defineConfig({ exportName, path: cssFilePath }) {
 	const filePath = path.resolve(exportName ? `./${exportName}.css` : cssFilePath);
 	const cssFakeImport = "\0IMPORT-CSS-PLUGIN-WAS-HERE";
 	return {
 		name: 'importCss',
+		configResolved(resolvedConfig) {
+			config = resolvedConfig;
+		},
 		resolveId(id) {
 			if (id === "[css]") {
-				return {
-					id: cssFakeImport,
-					external: true,
-					moduleSideEffects: true,
-				};
+				if (config.lib) {
+					return {
+						id: cssFakeImport,
+						external: true,
+						moduleSideEffects: true,
+					};
+				}
 			}
 			return id;
 		},
 		load(id) {
 			// This handles the dev server where renderChunk never happens and it actually tries to resolve the temporary import.
 			// Since it's the dev server so the CSS gets included automatically we can just ignore the import entirely.
+			if (id === "[css]") return "";
 			if (id === cssFakeImport) return "";
 		},
 		renderChunk(code, chunk) {
