@@ -623,19 +623,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@superfleb/draggable@portal:/E:/webdev/draggable::locator=%40superfleb%2Fretrowin-vue%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@superfleb/draggable@portal:/E:/webdev/draggable::locator=%40superfleb%2Fretrowin-vue%40workspace%3A."
+"@superfleb/draggable@npm:^0.1.4":
+  version: 0.1.5
+  resolution: "@superfleb/draggable@npm:0.1.5::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40superfleb%2Fdraggable%2F0.1.5%2Fe1dfc25017a4d66fe6b7651aa5f3cde00fc61394"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     vue: ^3.0.0
-  peerDependenciesMeta:
-    react:
-      optional: true
-    vue:
-      optional: true
+  checksum: 10c0/6dea7213a5779672b49603ec4f9bb7a59f4ab9bfd0b17339d1c8805a88034ec4ef2fb657cdd9e2a91033ef64bec51299bb6114db28e2f8dbc5cdac0dbec1121e
   languageName: node
-  linkType: soft
+  linkType: hard
 
 "@superfleb/retrowin-vue@workspace:.":
   version: 0.0.0-use.local

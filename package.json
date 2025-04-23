@@ -60,8 +60,5 @@
 		"vite": "^6.3.1",
 		"vue-tsc": "^2.2.0"
 	},
-	"packageManager": "yarn@4.7.0",
-	"resolutions": {
-		"@superfleb/draggable": "portal:/E:/webdev/draggable"
-	}
+	"packageManager": "yarn@4.7.0"
 }
