@@ -623,7 +623,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@superfleb/draggable@npm:^0.1.4":
+"@superfleb/draggable@npm:^0.1.5":
   version: 0.1.5
   resolution: "@superfleb/draggable@npm:0.1.5::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40superfleb%2Fdraggable%2F0.1.5%2Fe1dfc25017a4d66fe6b7651aa5f3cde00fc61394"
   peerDependencies:
@@ -638,8 +638,7 @@ __metadata:
   resolution: "@superfleb/retrowin-vue@workspace:."
   dependencies:
     "@superfleb/caret": "npm:^0.0.6"
-    "@superfleb/draggable": "npm:^0.1.4"
-    "@superfleb/worm": "npm:^1.0.1"
+    "@superfleb/draggable": "npm:^0.1.5"
     "@types/node": "npm:^22.13.5"
     "@vitejs/plugin-vue": "npm:^5.2.3"
     "@vue/tsconfig": "npm:^0.7.0"
@@ -654,13 +653,6 @@ __metadata:
     vue-tsc: "npm:^2.2.0"
   languageName: unknown
   linkType: soft
-
-"@superfleb/worm@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "@superfleb/worm@npm:1.0.1::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40superfleb%2Fworm%2F1.0.1%2Fa89be010d6c38a0ba4b2f184c79acf3cd6a0e78c"
-  checksum: 10c0/642a9727a29d60be22fe3c10f3def334cb024f13f5336a848ada60ac504b17e94d8cb539637f76bfcc2c766918e00feef41784cccc1921502aa632ac8e946e81
-  languageName: node
-  linkType: hard
 
 "@ts-graphviz/adapter@npm:^2.0.6":
   version: 2.0.6
