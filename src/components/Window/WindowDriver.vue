@@ -5,7 +5,7 @@
 
 import {computed, type CSSProperties} from "vue";
 import {useDraggable} from "@superfleb/draggable/vue";
-import {useWindow} from "@/providers/WinManProvider/useWindowManager.ts";
+import {useWindow} from "@/providers/WinManProvider/useWindow.ts";
 import useTheme from "@/providers/ThemeProvider/useTheme.ts";
 import WindowPane from "@/components/Window/WindowPane.vue";
 import Themed from "@/providers/ThemeProvider/Themed.vue";

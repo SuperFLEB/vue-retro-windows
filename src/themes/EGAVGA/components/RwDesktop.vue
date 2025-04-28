@@ -39,22 +39,22 @@ const tightTable = "0 .05 .95 1";
 <style scoped lang="scss">
 @use "../_html.scss" as html;
 
-.desktop, .desktop::before {
+.desktop {
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-}
 
-.desktop::before {
 	filter: var(--filter-url);
 	background-image: linear-gradient(45deg, #000, #00c 100%);
-	content: " ";
+	/*
 	top: -30px;
 	bottom: -30px;
 	left: -30px;
 	right: -30px;
+	z-index: -1;
+	*/
 }
 
 .desktop:deep() {

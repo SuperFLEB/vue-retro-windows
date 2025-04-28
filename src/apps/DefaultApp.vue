@@ -1,16 +1,26 @@
 <script setup lang="ts">
 import RwApplication from "@/components/RwApplication.vue";
 import "@/util/style.mjs";
+import type {ApplicationDefinition} from "@t/Application.js";
 
-type Props = { rootSelector?: string | false, appSelector?: string | false, theme?: string };
+type Props = {
+	rootSelector?: string | false,
+	appSelector?: string | false,
+	theme?: string,
+	appId?: string,
+	apps?: ApplicationDefinition[],
+};
 const props = withDefaults(defineProps<Props>(), {
 	rootSelector: ":root, html, body",
 	appSelector: "#app",
 	theme: "fleb/threepointwin",
+	appId: "main",
+	apps: () => [],
 });
+
 </script>
 <template>
-	<RwApplication :theme>
+	<RwApplication :theme :appId :apps>
 		<slot/>
 	</RwApplication>
 	<component v-if="props.rootSelector" is="style">
@@ -25,13 +35,16 @@ const props = withDefaults(defineProps<Props>(), {
 		-webkit-text-size-adjust: none;
 		overflow: hidden;
 		}
-		/* <template v-if="props.rootSelector.split(' ').includes('body')"> */
-		body {
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-		}
-		/* </template> */
+		/*
+		<template v-if="props.rootSelector.split(' ').includes('body')"> */
+			body {
+			display: flex;
+			flex-direction: column;
+			flex-grow: 1;
+			}
+			/*
+		</template>
+		*/
 	</component>
 	<component if="props.appSelector" is="style">
 		{{ appSelector }} {

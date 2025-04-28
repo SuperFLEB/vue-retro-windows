@@ -1,10 +1,13 @@
 <script setup lang="ts">
-
-import Window from "@/components/Window/RwWindow.vue";
-import DemoContent from "@/app/exported/DemoContent.vue";
+import {RwWindow} from "@exp";
+import DemoContent from "./DemoContent.vue";
 import type {MenuItemSpec} from "@/components/Menu/types.ts";
 import {MenuTypes} from "@/components/Menu/MenuTypes.ts";
+import Instance from "@/providers/AppManProvider/AppManProvider.vue";
 import {h} from "vue";
+
+type Props = { target: string | undefined, instance: Instance };
+const props = withDefaults(defineProps<Props>(), {target: undefined});
 
 const actionClick = (message: string) => {
 	alert(message);
@@ -130,8 +133,8 @@ const menuSpec: MenuItemSpec = {
 </script>
 
 <template>
-	<Window win-id="dc1896dc-11fb-414f-b1f5-1998a97623d2" :menu="menuSpec" :="$attrs">
+	<RwWindow :x="50" :y="50" :width="600" :height="800" v-bind="{...props.instance.data.winMan}" :menu="menuSpec">
 		<p>This window has a menu on it, or it puts a menu on the desktop when it's focused (depending on the theme). Now, have some AI blather:</p>
 		<DemoContent blather="lorem"></DemoContent>
-	</Window>
+	</RwWindow>
 </template>

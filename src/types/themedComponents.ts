@@ -1,4 +1,4 @@
-import type {Component, DefineComponent, SlotsType} from "vue";
+import type {DefineComponent, SlotsType} from "vue";
 import type {MenuItemSpec, MenuItemState} from "@/components/Menu/types.ts";
 import type {Dimension} from "@t/scroll.ts";
 
@@ -21,3 +21,5 @@ export type RwWindowDragProxy = ComponentShape;
 export type RwMenuBar = ComponentShape;
 export type RwSubMenu = ComponentShape;
 export type RwMenuItem = ComponentShape<{ spec: MenuItemSpec, item: MenuItemState, hasToggle?: boolean }>;
+
+export type RwFolderSpace = ComponentShape<{ context: "desktop" | "folder" }>;

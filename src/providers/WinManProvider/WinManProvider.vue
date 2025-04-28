@@ -7,8 +7,12 @@ import {WinMan as wm} from "@/providers/WinManProvider/keys.ts";
 import {unshiftZ} from "@/providers/WinManProvider/util.ts";
 import useTheme, {canUseTheme} from "@/providers/ThemeProvider/useTheme.ts";
 import type {MenuItemSpec} from "@/components/Menu/types.ts";
+// import Storage from "@/util/Storage.js";
 
 type WinManRegistry = Record<WinId, WindowProps>;
+
+type Props = { appId: string };
+const props = defineProps<Props>();
 
 const _winMan = ref<WinManRegistry>({});
 const iteration = ref(0);
@@ -78,7 +82,6 @@ if (themeRef) {
 }
 
 provide<WinManInterface>(wm.INTERFACE, intf);
-
 const winMan = readonly(_winMan.value);
 provide<DeepReadonly<WinManRegistry>>(wm.REGISTRY, winMan);
 </script>

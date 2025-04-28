@@ -3,7 +3,7 @@ import {type DeepReadonly, provide, readonly, ref, type Ref} from "vue";
 import type {MenuItemSpec} from "./types.ts";
 import combine from "./combine.ts";
 import keys from "./keys.ts";
-import {useWindow} from "@/providers/WinManProvider/useWindowManager.ts";
+import {useWindow} from "@/providers/WinManProvider/useWindow.ts";
 
 type Props = { useNearestWindow?: boolean, baseMenu?: MenuItemSpec };
 const props = withDefaults(defineProps<Props>(), {useNearestWindow: true});

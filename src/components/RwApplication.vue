@@ -7,20 +7,34 @@ import "@/debug/index.ts";
 import ThemeCollectionProvider from "@/providers/ThemeCollectionProvider/ThemeCollectionProvider.vue";
 import builtInThemes, {type BuiltInThemes} from "@themes/index.ts";
 import {computed} from "vue";
+import AppManProvider from "@/providers/AppManProvider/AppManProvider.vue";
+import type {ApplicationDefinition} from "@t/Application.js";
+import AppManRenderer from "@/providers/AppManProvider/AppManRenderer.vue";
 
-type Props = { themes?: ThemeSpec[], theme: BuiltInThemes | string };
-const props = withDefaults(defineProps<Props>(), { themes: undefined });
+type Props = {
+	themes?: ThemeSpec[],
+	theme: BuiltInThemes | string,
+	appId?: string,
+	apps?: ApplicationDefinition[]
+};
+const props = withDefaults(defineProps<Props>(), {
+	themes: undefined,
+	appId: "main",
+	apps: () => []
+});
 const themes = computed(() => props.themes ?? builtInThemes);
-
 </script>
 <template>
-	<ThemeCollectionProvider :themes :defaultTheme="theme">
-		<ThemeProvider :root="true">
-			<WinManProvider>
-				<RwDesktop>
-					<slot/>
-				</RwDesktop>
-			</WinManProvider>
-		</ThemeProvider>
-	</ThemeCollectionProvider>
+	<AppManProvider :apps>
+		<ThemeCollectionProvider :themes :defaultTheme="theme">
+			<ThemeProvider :root="true">
+				<WinManProvider :appId>
+					<RwDesktop>
+						<slot/>
+						<AppManRenderer />
+					</RwDesktop>
+				</WinManProvider>
+			</ThemeProvider>
+		</ThemeCollectionProvider>
+	</AppManProvider>
 </template>

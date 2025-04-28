@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useWindow} from "@/providers/WinManProvider/useWindowManager.ts";
+import {useWindow} from "@/providers/WinManProvider/useWindow.ts";
 import ResizeHandle from "@/components/ResizeHandles/Handle.vue";
 import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
 import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";

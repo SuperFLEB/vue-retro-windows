@@ -17,6 +17,7 @@ export type ThemeComponents = {
 	RwMenuBar?: Themed.RwMenuBar;
 	RwSubMenu?: Themed.RwSubMenu;
 	RwMenuItem?: Themed.RwMenuItem;
+	RwFolderSpace?: Themed.RwFolderSpace;
 };
 
 export const defaultThemeEffects = Object.freeze({

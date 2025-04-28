@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="300" height="300">
+	<defs>
+		<linearGradient id="beveler" x1="0" y1="0" x2="100%" y2="100%">
+			<stop offset="49%" stop-color="#fff" />
+			<stop offset="51%" stop-color="#000" />
+		</linearGradient>
+
+		<g id="s">
+			<rect id="sgrad" x="0" y="0" width="16" height="16" />
+			<rect id="scap" x="3" y="3" width="10" height="10" />
+		</g>
+		<g id="c">
+			<circle id="cgrad" cx="0" cy="0" r="3" />
+			<circle id="ccap" cx="0" cy="0" r="1" />
+		</g>
+	</defs>
+	<style>
+		svg {
+			background-color: #ccc;
+		}
+
+		#sgrad {
+			fill: url(#beveler);
+			fill-transform: rotate(180);
+		}
+
+		#s, #scap {
+			fill: #5aa;
+		}
+
+		#cgrad {
+			fill: url(#beveler);
+		}
+
+		#ccap {
+			fill: #ccc;
+		}
+	</style>
+
+	<circle id="jig" cx="50%" cy="50%" r="240" stroke="transparent" fill="transparent"/>
+	<script id="scr">
+		//<![CDATA[
+		const jig = document.getElementById("jig");
+		const len = jig.getTotalLength();
+
+		const fix = (n) => Math.round(n * 1000) / 1000;
+
+		const makeSquare = (mins) => {
+			const point = jig.getPointAtLength(len * mins/60);
+			const sq = document.createElementNS("http://www.w3.org/2000/svg", "use");
+			sq.setAttribute("href", "#s");
+
+			const wid = 10;
+			sq.setAttribute("x", fix(point.x - wid / 2));
+			sq.setAttribute("y", fix(point.y - wid / 2));
+
+			document.rootElement.appendChild(sq);
+		}
+
+		const makeDots = (mins) => {
+			if (mins % 5 === 0) {
+				makeSquare(mins);
+				return;
+			}
+			const point = jig.getPointAtLength(len * mins/60);
+
+			const cir = document.createElementNS("http://www.w3.org/2000/svg", "use");
+			cir.setAttribute("href", "#c");
+
+			cir.setAttribute("x", fix(point.x));
+			cir.setAttribute("y", fix(point.y));
+			cir.setAttribute("class", "dot");
+
+			document.rootElement.appendChild(cir);
+		}
+
+		for (let t=0; t < 60; t++) {
+			makeDots(t);
+		}
+
+		const serializer = new XMLSerializer();
+		const script = document.getElementById("scr");
+		script.parentNode.removeChild(script);
+	    const svgString = serializer.serializeToString(document);
+
+		// location.href = "data:image/svg+xml;base64," + btoa(svgString)
+
+		console.log(svgString);
+	//]]>
+	</script>
+</svg>
