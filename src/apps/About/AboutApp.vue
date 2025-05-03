@@ -19,7 +19,7 @@ function switchTheme(keyName: string) {
 		<div class="aboutContent">
 			<h1>SuperFLEB RetroWin for Vue</h1>
 			<p>Originally developed by <a href="https://github.com/SuperFLEB">FLEB (a.k.a. SuperFLEB)</a></p>
-			<RwWindow v-for="theme, index in themes" :key="theme.keyName" :width="700" :height="300" :x="index * 40" :y="100 + index * 40" :title="`Theme - ${theme.displayName}`" :winId="`about:${theme.keyName}`">
+			<RwWindow v-for="(theme, index) in themes" :key="theme.keyName" :width="700" :height="300" :x="index * 40" :y="100 + index * 40" :title="`Theme - ${theme.displayName}`" :winId="`about:${theme.keyName}`">
 				<h1>{{ theme.displayName }}</h1>
 				<p>
 					<em v-if="theme.keyName === themeKeyName">This theme is currently active.</em>
