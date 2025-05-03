@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import RwDesktopEnvironment from "@/components/RwDesktopEnvironment.vue";
 import "@/util/style.mjs";
-import type {ApplicationDefinition} from "@t/Application.js";
+import type {ApplicationDefinition} from "@t/Application.ts";
 
 type Props = {
 	rootSelector?: string | false,

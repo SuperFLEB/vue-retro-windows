@@ -3,11 +3,7 @@ import {RwWindow} from "@exp";
 import DemoContent from "./DemoContent.vue";
 import type {MenuItemSpec} from "@/components/Menu/types.ts";
 import {MenuTypes} from "@/components/Menu/MenuTypes.ts";
-import RetroWinProvider from "@/providers/RetroWinProvider/RetroWinProvider.vue";
 import {h} from "vue";
-
-type Props = { target: string | undefined, instance: RetroWinProvider };
-const props = withDefaults(defineProps<Props>(), {target: undefined});
 
 const actionClick = (message: string) => {
 	alert(message);
@@ -133,8 +129,8 @@ const menuSpec: MenuItemSpec = {
 </script>
 
 <template>
-	<RwWindow :x="50" :y="50" :width="600" :height="800" v-bind="{...props.instance.data.winMan}" :menu="menuSpec">
-		<p>This window has a menu on it, or it puts a menu on the desktop when it's focused (depending on the theme). Now, have some AI blather:</p>
+	<RwWindow :x="50" :y="50" :width="600" :height="800" :menu="menuSpec" title="AI-generated Blather" winId="main">
+		<p><em>This window has a menu on it, or it puts a menu on the desktop when it's focused (depending on the theme). Now, have some AI blather:</em></p>
 		<DemoContent blather="lorem"></DemoContent>
 	</RwWindow>
 </template>

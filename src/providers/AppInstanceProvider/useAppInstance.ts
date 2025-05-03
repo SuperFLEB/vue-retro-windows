@@ -4,7 +4,7 @@ import {ComposableOutOfContextError} from "@/errors.ts";
 import type {AppInstanceInterface} from "@/providers/AppInstanceProvider/AppInstanceProvider.vue";
 
 export function canUseAppInstance() {
-	return Boolean(inject(k.INTERFACE));
+	return Boolean(inject(k.INTERFACE, false));
 }
 
 export default function useAppInstance() {

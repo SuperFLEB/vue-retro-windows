@@ -1,21 +1,16 @@
 <script setup lang="ts">
-import type {ApplicationDefinition, ApplicationId} from "@t/Application.js";
-import useRetroWin from "@/providers/RetroWinProvider/useRetroWin.js";
+import useLauncher from "@/components/Launcher/useLauncher.ts";
+import type {ApplicationDefinition, ApplicationId} from "@t/Application.ts";
+import {computed} from "vue";
 
 type Props = { app: ApplicationDefinition | ApplicationId, attachment?: string, label?: string };
 const props = withDefaults(defineProps<Props>(), {attachment: undefined, label: undefined });
 
-const {interface: appManIntf} = useRetroWin();
-const applicationId = typeof props.app === "object" ? appManIntf.resolveOrRegister(props.app) : props.app;
-const label = props.label ?? appManIntf.getApplication(applicationId).displayName;
-
-function launch() {
-	appManIntf.launch(applicationId);
-}
+const launcher = computed(() => useLauncher(props));
 </script>
 
 <template>
-	<button class="launcherButton" @click="launch">{{ label }}</button>
+	<button class="launcherButton" @click="launcher.launchFunction">{{ launcher.label }}</button>
 </template>
 
 <style scoped>

@@ -2,9 +2,11 @@
 import WindowDriver from "@/components/Window/WindowDriver.vue";
 import WindowProvider from "@/providers/WindowProvider/WindowProvider.vue";
 import useWindowManager from "@/providers/AppManagerProvider/useWindowManager.ts";
-import type {PartialWindowInstanceWithWinId, WindowInstance} from "@t/RwEnvironment.ts";
 import useAppInstance, {canUseAppInstance} from "@/providers/AppInstanceProvider/useAppInstance.ts";
 import type {WinUid} from "@t/WinMan.ts";
+import {mutableWindowProps, type PartialWindowInstanceWithWinId} from "@t/WindowInstance.ts";
+import pick from "@/util/pick.ts";
+import {watch} from "vue";
 
 /**
  * This is the outer window component that ingests initial props and creates a WindowProvider context.
@@ -27,6 +29,16 @@ if (uid === undefined) {
 	uid = windowManagerInterface.register(propsFiltered).uid;
 	appInstanceInterface?.registerWindowUid(props.winId, uid);
 }
+
+watch(props, () => {
+	const changes = pick(props, mutableWindowProps);
+	if (Object.keys(changes).length) {
+		windowManagerInterface.update({
+			uid,
+			...changes,
+		});
+	}
+});
 
 </script>
 

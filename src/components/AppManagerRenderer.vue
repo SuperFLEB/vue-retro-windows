@@ -3,8 +3,8 @@ import {computed} from "vue";
 import Itermore from "@/util/Itermore.ts";
 import useAppManager from "@/providers/AppManagerProvider/useAppManager.ts";
 import useApplicationCollection from "@/providers/ApplicationCollectionProvider/useApplicationCollection.ts";
-import type {AppInstance} from "@t/RwEnvironment.ts";
 import AppInstanceProvider from "@/providers/AppInstanceProvider/AppInstanceProvider.vue";
+import type {AppInstance} from "@t/AppInstance.ts";
 
 const {registry} = useAppManager();
 const {interface: appsInterface} = useApplicationCollection();

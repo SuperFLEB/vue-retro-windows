@@ -12,7 +12,7 @@ const pick = (e: MouseEvent) => {
 </script>
 
 <template>
-	<RwWindow :width="400" :height="300" :x="100" :y="100" winId="main">
+	<RwWindow :width="400" :height="300" :x="100" :y="100" winId="main" title="Theme Picker">
 		<div>
 			<form @submit="$event.preventDefault()">
 				<fieldset>

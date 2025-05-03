@@ -2,26 +2,31 @@
 import Themed from "@/themed/Themed.vue";
 import useTheme from "@/providers/ThemeProvider/useTheme.ts";
 import RwWindow from "@/components/Window/RwWindow.vue";
-import type {Instance} from "@/providers/RetroWinProvider/RetroWinProvider.vue";
-
-type Props = { target: string | undefined, instance: Instance };
-withDefaults(defineProps<Props>(), { target: undefined });
+import {ref} from "vue";
 
 const {interface: themeInterface} = useTheme();
 const themes = themeInterface.getThemesInfo();
+const themeKeyName = ref(themeInterface.getCurrentTheme().keyName);
+
+function switchTheme(keyName: string) {
+	themeInterface.setCurrentTheme(keyName);
+	themeKeyName.value = keyName;
+}
 </script>
 
 <template>
-	<RwWindow :width="800" :height="400" :x="50" :y="50" v-bind="{...instance.data.winMan}">
+	<RwWindow :width="800" :height="700" :x="50" :y="50" title="About RetroWin" winId="main">
 		<div class="aboutContent">
 			<h1>SuperFLEB RetroWin for Vue</h1>
 			<p>Originally developed by <a href="https://github.com/SuperFLEB">FLEB (a.k.a. SuperFLEB)</a></p>
-
-			<h2>Themes</h2>
-			<template v-for="theme in themes">
-				<h3>{{ theme.displayName }}</h3>
+			<RwWindow v-for="theme, index in themes" :key="theme.keyName" :width="700" :height="300" :x="index * 40" :y="100 + index * 40" :title="`Theme - ${theme.displayName}`" :winId="`about:${theme.keyName}`">
+				<h1>{{ theme.displayName }}</h1>
+				<p>
+					<em v-if="theme.keyName === themeKeyName">This theme is currently active.</em>
+					<button v-else type="button" @click="switchTheme(theme.keyName)">Try {{theme.displayName}}</button>
+				</p>
 				<Themed is="AboutTheme" :theme="theme.keyName" :themeName="theme.keyName" />
-			</template>
+			</RwWindow>
 		</div>
 	</RwWindow>
 </template>

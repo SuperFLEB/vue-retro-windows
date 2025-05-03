@@ -1,29 +1,20 @@
 <script setup lang="ts">
 import type {ApplicationDefinition, ApplicationId} from "@t/Application.js";
-import useAppManager from "@/providers/AppManagerProvider/useAppManager.js";
-import useApplicationCollection from "@/providers/ApplicationCollectionProvider/useApplicationCollection.js";
+import useLauncher from "@/components/Launcher/useLauncher.ts";
+import {computed} from "vue";
 
 type Props = { app: ApplicationDefinition | ApplicationId, attachment?: string, label?: string };
 const props = withDefaults(defineProps<Props>(), {attachment: undefined, label: undefined });
 
-const {interface: appManIntf} = useAppManager();
-const {interface: appCollectionIntf} = useApplicationCollection();
-
-const applicationId = typeof props.app === "object" ? appCollectionIntf.resolveOrRegister(props.app) : props.app;
-const Icon = appCollectionIntf.getLauncherIcon(applicationId);
-const label = props.label ?? appCollectionIntf.getApplicationDefinition(applicationId).displayName;
-
-function launch() {
-	appManIntf.launch(applicationId, 0);
-}
+const launcher = computed(() => useLauncher(props));
 </script>
 
 <template>
-	<div class="launcher" @dblclick="launch" tabindex="0">
+	<div class="launcher" @dblclick="launcher.launchFunction" tabindex="0">
 		<div class="icon">
-			<Icon :attachment="props.attachment" :size="{x: 48, y: 48}" launcher="instance" />
+			<component :is="launcher.IconComponent" :attachment="props.attachment" :size="{x: 48, y: 48}" launcher="instance" />
 		</div>
-		<div class="label">{{ label }}</div>
+		<div class="label">{{ launcher.label }}</div>
 	</div>
 </template>
 

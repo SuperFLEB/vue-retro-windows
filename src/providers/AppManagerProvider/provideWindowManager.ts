@@ -1,10 +1,11 @@
-import type {PartialWindowInstanceWithUid, WindowInstance} from "@t/RwEnvironment.js";
+
 import type {MenuItemSpec} from "@/components/Menu/types.ts";
 import type {WinUid} from "@t/WinMan.ts";
 import {onUnmounted, provide, ref, watch} from "vue";
 import useTheme, {canUseTheme} from "@/providers/ThemeProvider/useTheme.ts";
 import k from "./keys.ts";
 import type {AppManagerProvides} from "@/providers/AppManagerProvider/AppManagerProvider.vue";
+import type {PartialWindowInstanceWithUid, WindowInstance} from "@t/WindowInstance.ts";
 
 let lastWinIndex: number = 0;
 
@@ -58,7 +59,6 @@ function createWindowInstance(
 		uid: _uid,
 		parent: parent,
 		...(props || {}),
-		title: `${props?.title ?? "Window"} ${_uid}`,
 	} as WindowInstance;
 }
 

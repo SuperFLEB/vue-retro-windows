@@ -2,7 +2,8 @@ import {inject} from "vue";
 import {Win as w} from "@/providers/WindowProvider/keys.ts";
 import type {WindowInterface} from "@/providers/WindowProvider/WindowProvider.vue";
 import {ComposableOutOfContextError} from "@/errors.ts";
-import type {WindowInstance} from "@t/RwEnvironment.ts";
+
+import type {WindowInstance} from "@t/WindowInstance.ts";
 
 export const useWindow = () => {
 	const intf = inject<WindowInterface>(w.INTERFACE);

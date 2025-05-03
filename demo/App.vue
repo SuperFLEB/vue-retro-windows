@@ -8,6 +8,7 @@ import * as Themed from "@/themed/index";
 
 import BlatherDef from "./apps/Blather/Blather.def";
 import SampleImageDef from "./apps/SampleImage/SampleImage.def.ts";
+import ChangeTrackerDef from "./apps/ChangeTracker/ChangeTracker.def.ts";
 </script>
 
 <template>
@@ -17,6 +18,7 @@ import SampleImageDef from "./apps/SampleImage/SampleImage.def.ts";
 			<Themed.RwLauncher :app="ThemePickerDef"/>
 			<Themed.RwLauncher :app="SampleImageDef"/>
 			<Themed.RwLauncher :app="BlatherDef"/>
+			<Themed.RwLauncher :app="ChangeTrackerDef"/>
 		</Themed.RwFolderSpace>
 	</DefaultApp>
 </template>

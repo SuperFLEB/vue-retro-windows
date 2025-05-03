@@ -1,15 +1,10 @@
 <script setup lang="ts">
 import RwVisualMangler from "@exp/RwVisualMangler.vue";
-import useTheme from "@/providers/ThemeProvider/useTheme";
-import RetroWinProvider from "@/providers/RetroWinProvider/RetroWinProvider.vue";
 import RwWindow from "@/components/Window/RwWindow.vue";
-
-type Props = { target: string | undefined, instance: RetroWinProvider };
-const props = withDefaults(defineProps<Props>(), {target: undefined});
 </script>
 
 <template>
-	<RwWindow :x="50" :y="50" :width="600" :height="800" v-bind="{...props.instance.data.winMan}">
+	<RwWindow :x="50" :y="50" :width="600" :height="800" title="Sample Image" winId="main">
 		<RwVisualMangler>
 			<div class="images">
 				<div><img class="image" alt="Sample Image, 20th Century Groceries" src="../../assets/SampleImage.jpg"/>

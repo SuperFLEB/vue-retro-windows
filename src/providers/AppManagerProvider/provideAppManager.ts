@@ -1,10 +1,11 @@
 import type {ApplicationId} from "@t/Application.js";
-import type {AppInstance, Pid, WindowInstance} from "@t/RwEnvironment.js";
 import useApplicationCollection from "@/providers/ApplicationCollectionProvider/useApplicationCollection.js";
 import {onUnmounted, provide, readonly, ref} from "vue";
 import k from "./keys.ts";
 import type {WinId, WinUid} from "@t/WinMan.ts";
 import type {WindowManagerProvides} from "@/providers/AppManagerProvider/AppManagerProvider.vue";
+import type {WindowInstance} from "@t/WindowInstance.ts";
+import type {AppInstance, Pid} from "@t/AppInstance.ts";
 
 let lastPid: Pid = 0;
 

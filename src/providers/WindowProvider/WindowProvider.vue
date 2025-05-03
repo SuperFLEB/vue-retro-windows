@@ -4,11 +4,11 @@ import {boxOf, xyOf} from "@/util.ts";
 import {moveBoxCorner} from "@/util/Box.ts";
 import useWindowManager from "@/providers/AppManagerProvider/useWindowManager.ts";
 import {Win as w} from "./keys.ts";
-import type {WindowInstance} from "@t/RwEnvironment.ts";
 import type {WinUid} from "@t/WinMan.ts";
 import type XY from "@t/XY.ts";
 import type CardinalCorner from "@t/CardinalCorner.ts";
 import type Box from "@t/Box.ts";
+import type {WindowInstance} from "@t/WindowInstance.ts";
 
 type Props = { uid: WinUid };
 const {uid} = defineProps<Props>();
