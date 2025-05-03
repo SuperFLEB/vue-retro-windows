@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import RwVisualMangler from "@exp/RwVisualMangler.vue";
 import RwWindow from "@/components/Window/RwWindow.vue";
+import sampleImage from "./SampleImage.jpg";
 </script>
 
 <template>
 	<RwWindow :x="50" :y="50" :width="600" :height="800" title="Sample Image" winId="main">
 		<RwVisualMangler>
 			<div class="images">
-				<div><img class="image" alt="Sample Image, 20th Century Groceries" src="../../assets/SampleImage.jpg"/>
+				<div><img class="image" alt="Sample Image, 20th Century Groceries" :src="sampleImage"/>
 				</div>
 				<div class="grad-bw"></div>
 				<div class="grad-rgb"></div>
