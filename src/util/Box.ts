@@ -9,7 +9,7 @@ export const getCornerPoint = (box: Box, corner: CardinalCorner): XY => {
 	return xy;
 };
 
-export const moveBoxCorner = (box: Box, xy: XY, corner: CardinalCorner, minWinSize: XY): Box => {
+export const moveBoxCorner = (box: Box, xy: XY, corner: CardinalCorner, minWinSize: XY = {x:0, y: 0}): Box => {
 	const newBox: Box = { ...box };
 
 	if (corner[1] === "w") {

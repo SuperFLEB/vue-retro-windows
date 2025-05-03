@@ -3,7 +3,7 @@ import type {MenuItemSpec, MenuItemState} from "./types.ts";
 import {MenuTypes} from "./MenuTypes.ts";
 import {computed} from "vue";
 import SubMenu from "@/components/Menu/SubMenu.vue";
-import Themed from "@/providers/ThemeProvider/Themed.vue";
+import Themed from "@/themed/Themed.vue";
 
 type Props = { spec: MenuItemSpec, checked?: boolean, root?: boolean };
 const props = withDefaults(defineProps<Props>(), {checked: false, root: false});

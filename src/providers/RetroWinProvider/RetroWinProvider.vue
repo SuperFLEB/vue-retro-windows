@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {provide, readonly, ref} from "vue";
 import type {ApplicationDefinition, ApplicationId} from "@t/Application.js";
-import k from "@/providers/AppManProvider/keys.js";
+import k from "@/providers/RetroWinProvider/keys.js";
 import uuid from "@/util/uuid.js";
 
 type Props = { apps?: ApplicationDefinition[], autoLaunchApps?: ApplicationDefinition[] };
@@ -31,7 +31,7 @@ function createInstance(pid: number, appId: ApplicationId, data?: Partial<Instan
 		alive: true,
 		data: {
 			winMan: {
-				winId: uuid(true)
+				uid: uuid(true)
 			},
 			appMan: {},
 			instanceData: {},

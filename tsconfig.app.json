@@ -6,6 +6,7 @@
 		"lib": ["dom", "es2023"],
 
 		"isolatedModules": true,
+		"allowImportingTsExtensions": true,
 
 		"noEmit": true,
 		"emitDeclarationOnly": false,
@@ -27,5 +28,5 @@
 			"*": ["./*", "./*/index.vue", "./*/index"],
 		}
 	},
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "demo/**/*.ts", "demo/**/*.vue"]
 }

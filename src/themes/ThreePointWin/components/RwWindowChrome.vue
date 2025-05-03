@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import {useWindow} from "@/providers/WinManProvider/useWindow.ts";
+import {useWindow} from "@/providers/WindowProvider/useWindow.ts";
 import HandleSet from "@/components/ResizeHandles/HandleSet.vue";
 import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
 import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";
 import MenuBar from "@/components/Menu/MenuBar.vue";
 import MenuProvider from "@/components/Menu/MenuProvider.vue";
 
-const {props: windowProps} = useWindow();
+const {instance: windowInstance} = useWindow();
 
 const canMinimize = true;
 const canResize = true;
@@ -15,11 +15,11 @@ const windowChromeSvgUrl = new URL("../assets/windowChrome.svg", import.meta.url
 
 <template>
 	<MenuProvider>
-		<div :="$attrs" :class="['frame', 'resizeable', {focus: windowProps.focus}]" :tabindex="-1" @focusin="$emit('windowfocus', $event)"
+		<div :="$attrs" :class="['frame', 'resizeable', {focus: windowInstance.focus}]" :tabindex="-1" @focusin="$emit('windowfocus', $event)"
 			 @focusout="$emit('windowblur', $event)">
 			<div class="innerFrame">
 				<div :tabIndex="-1" class="noTheme titleBar">
-					<div class="title" @touchstart="$emit('movestart', $event)" @mousedown="$emit('movestart', $event)">{{ windowProps.title }}</div>
+					<div class="title" @touchstart="$emit('movestart', $event)" @mousedown="$emit('movestart', $event)">{{ windowInstance.title }}</div>
 					<button
 						type="button"
 						class="windowButton contextMenuButton"

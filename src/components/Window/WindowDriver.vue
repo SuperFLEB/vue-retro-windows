@@ -5,43 +5,47 @@
 
 import {computed, type CSSProperties} from "vue";
 import {useDraggable} from "@superfleb/draggable/vue";
-import {useWindow} from "@/providers/WinManProvider/useWindow.ts";
+import {useWindow} from "@/providers/WindowProvider/useWindow.ts";
 import useTheme from "@/providers/ThemeProvider/useTheme.ts";
 import WindowPane from "@/components/Window/WindowPane.vue";
-import Themed from "@/providers/ThemeProvider/Themed.vue";
+import Themed from "@/themed/Themed.vue";
 import {boxOf} from "@/util.ts";
 import type Box from "@t/Box.ts";
 
-const {props: windowProps, interface: winManIntf} = useWindow();
+const {instance: windowInstance, interface: windowInterface} = useWindow();
 const {themeRef} = useTheme();
 
 const focusinHandler = () => {
-	winManIntf.focus();
+	windowInterface.focus();
 };
 const focusoutHandler = (e: MouseEvent) => {
 	if ((e.currentTarget as Node | null)?.contains(e?.relatedTarget as Node | null)) return;
-	winManIntf.blur();
+	windowInterface.blur();
 };
 
 const {dragStartHandler, stateRef: dragState} = useDraggable(
 	{
 		onMove: (_, dragState) => {
-			winManIntf.proxyMoveTo(dragState);
+			windowInterface.proxyMoveTo(dragState);
 		},
 		onEnd: (_, dragState) => {
-			winManIntf.moveTo(dragState);
-			winManIntf.proxyDrop();
+			windowInterface.moveTo(dragState);
+			windowInterface.proxyDrop();
 		}
 	},
 	{
-		startXy: {x: windowProps.x, y: windowProps.y},
+		startXy: {x: windowInstance.x, y: windowInstance.y},
 	}
 );
 
-const windowBox = computed<Box>(() => themeRef.value && boxOf(windowProps));
-const proxyBox = computed<Box>(() => {
-	return boxOf({...windowBox.value, ...windowProps.proxyBox});
+const windowBox = computed<Box>(() => {
+	return themeRef.value && boxOf(windowInstance);
 });
+
+const proxyBox = computed<Box>(() => {
+	return boxOf({...windowBox.value, ...windowInstance.proxyBox});
+});
+
 const windowStyle = computed<CSSProperties>(() => {
 	const box = themeRef.value.useProxyDrag ? windowBox.value : proxyBox.value;
 	return {
@@ -50,7 +54,7 @@ const windowStyle = computed<CSSProperties>(() => {
 		top: box.y + "px",
 		width: box.width + "px",
 		height: box.height + "px",
-		zIndex: windowProps.z,
+		zIndex: windowInstance.z,
 	}
 });
 </script>

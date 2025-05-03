@@ -1,24 +1,7 @@
 import type XY from "@t/XY.ts";
 import type CssModule from "@t/CssModule.ts";
-import type * as Themed from "@t/themedComponents.ts";
 import type {Like} from "@t/Like.ts";
-
-export type ThemeComponents = {
-	AboutTheme: Themed.AboutTheme,
-	RwWindowChrome?: Themed.RwWindowChrome;
-	RwWindowDragProxy?: Themed.RwWindowDragProxy;
-	RwDesktop?: Themed.RwDesktop;
-	RwWindowPane?: Themed.RwWindowPane;
-	RwScrollBars?: Themed.RwScrollBars;
-	RwScrollBarX?: Themed.RwScrollBar;
-	RwScrollBarY?: Themed.RwScrollBar;
-	RwScrollBarCorner?: Themed.RwScrollBarCorner;
-	RwVisualMangler?: Themed.RwVisualMangler;
-	RwMenuBar?: Themed.RwMenuBar;
-	RwSubMenu?: Themed.RwSubMenu;
-	RwMenuItem?: Themed.RwMenuItem;
-	RwFolderSpace?: Themed.RwFolderSpace;
-};
+import type {ThemeComponents} from "@/themed/types.ts";
 
 export const defaultThemeEffects = Object.freeze({
 	monochrome: false as boolean,
@@ -54,10 +37,10 @@ export type ThemeInfo = {
 	themeSpecificSettings?: Record<string, any>;
 };
 
-export type ThemeSpec = ThemeInfo & { components: ThemeComponents };
+export type ThemeSpec = ThemeInfo & { components: Partial<ThemeComponents> };
 
 export type CompleteThemeSpec = Required<ThemeSpec> & {
-	components: Required<ThemeComponents>;
+	components: ThemeComponents;
 	effects: Required<ThemeEffects>;
 };
 export type CompleteThemeInfo = Required<ThemeInfo> & {

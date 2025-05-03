@@ -6,6 +6,8 @@ import RwVisualMangler from "./components/RwVisualMangler.vue";
 import RwScrollBars from "./components/RwScrollBars.vue";
 import LockedScrollPane from "./components/LockedScrollPane.vue";
 import RwSubMenu from "./components/RwSubMenu.vue";
+import RwFolderSpace from "./components/RwFolderSpace.vue";
+import RwLauncher from "./components/RwLauncher.vue";
 
 const theme: ThemeSpec = {
 	keyName: "fleb/console",
@@ -23,6 +25,8 @@ const theme: ThemeSpec = {
 		RwScrollBars,
 		RwWindowPane: LockedScrollPane,
 		RwSubMenu,
+		RwFolderSpace,
+		RwLauncher,
 	},
 	effects: {
 		textOnly: true,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useWindow} from "@/providers/WinManProvider/useWindow.ts";
+import {useWindow} from "@/providers/WindowProvider/useWindow.ts";
 import {computed, useTemplateRef} from "vue";
 import {charGrid} from "../constants.ts";
 import useRepeatButton from "@/composables/useRepeatButton.ts";
@@ -9,16 +9,16 @@ type Props = { dimension: "x" | "y" };
 const props = defineProps<Props>();
 const sbRef = useTemplateRef("sb");
 
-const {props: windowProps} = useWindow();
+const {instance: windowInstance} = useWindow();
 const {visible, state: scrollState, interface: scrollInterface} = useScroll();
 const lengthDim = props.dimension === "x" ? "width" : "height";
 
 const state = computed(() => {
-	const chLen = Math.floor(windowProps[lengthDim] / charGrid[props.dimension]);
+	const chLen = Math.floor(windowInstance[lengthDim] / charGrid[props.dimension]);
 	const trackChLen = chLen - 4;
 	const chPos = Math.round(scrollState.value[props.dimension].at * (chLen - 5));
 	return {
-		visible: windowProps.focus && visible.value[props.dimension],
+		visible: windowInstance.focus && visible.value[props.dimension],
 		trackChLen,
 		chLen,
 		chPos,
@@ -28,7 +28,7 @@ const state = computed(() => {
 const fills = {x: "◀═░■▶", y: "▲║░■▼"}[props.dimension];
 const colorVars = computed(() => {
 	// Just to trip reactivity
-	windowProps.focus;
+	windowInstance.focus;
 
 	if (!sbRef.value) return {};
 

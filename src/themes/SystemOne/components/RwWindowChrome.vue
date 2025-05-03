@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {useWindow} from "@/providers/WinManProvider/useWindow.ts";
+import {useWindow} from "@/providers/WindowProvider/useWindow.ts";
 import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
 import Handle from "@/components/ResizeHandles/Handle.vue";
 import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";
@@ -7,33 +7,33 @@ import useMenu from "@/components/Menu/useMenu.ts";
 
 const emit = defineEmits(["movestart", "windowfocus", "windowblur"]);
 
-const {props: windowProps} = useWindow();
+const {instance: windowInstance} = useWindow();
 
 const canMinimize = true;
 const canResize = true;
 
-function moveStart(e: MouseEvent) {
+function moveStart(e: MouseEvent | TouchEvent) {
 	const target = e.target as HTMLElement;
 	if (!Array.from(target.classList).includes("drag")) return;
 	emit("movestart", e);
 }
 
 const { interface: menuIntf } = useMenu();
-function focusin(e: MouseEvent | TouchEvent) {
-	menuIntf.setMenu(windowProps.menu);
+function focusin(e: FocusEvent) {
+	menuIntf.setMenu(windowInstance.menu);
 	emit("windowfocus", e);
 }
 </script>
 
 <template>
-	<div :class="[{focus: windowProps.focus}, 'frame container', {resizeable: canResize, minimizable: canMinimize}]"
+	<div :class="[{focus: windowInstance.focus}, 'frame', 'container', {resizeable: canResize, minimizable: canMinimize}]"
 		 :tabindex="-1" @focusin="focusin"
 		 @focusout="$emit('windowblur', $event)">
 		<div :tabIndex="-1" class="titleBar drag" @touchstart="moveStart($event)" @mousedown="moveStart($event)">
 			<div class="titleClose">
 				<button type="button" class="closeButton">✕</button>
 			</div>
-			<div class="titleName drag">{{ windowProps.title }}</div>
+			<div class="titleName drag">{{ windowInstance.title }}</div>
 		</div>
 		<div class="main">
 			<ScrollProvider>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Themed from "@/providers/ThemeProvider/Themed.vue";
+import Themed from "@/themed/Themed.vue";
 </script>
 <script lang="ts">
 export default {

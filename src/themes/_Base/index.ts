@@ -12,6 +12,7 @@ import RwMenuItem from "./components/RwMenuItem.vue";
 import AboutTheme from "./components/AboutTheme.vue";
 import RwWindowDragProxy from "./components/RwWindowDragProxy.vue";
 import RwFolderSpace from "./components/RwFolderSpace.vue";
+import RwLauncher from "./components/RwLauncher.vue";
 /*
  * This is a base theme used as a fallback for when themes are missing exported.
  * You shouldn't put this into your config/themes.ts unless you're testing it.
@@ -53,6 +54,7 @@ const theme: CompleteThemeSpec = {
 		RwMenuItem,
 		RwWindowDragProxy,
 		RwFolderSpace,
+		RwLauncher,
 	},
 	effects: {
 		...defaultThemeEffects

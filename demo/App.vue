@@ -1,21 +1,22 @@
 <script setup lang="ts">
 import {DefaultApp} from "@apps";
-import RwLauncher from "@/components/Launcher/RwLauncher.vue";
-import LauncherIcon from "@/components/Launcher/LauncherIcon.vue";
-import RwFolderSpace from "@/components/FolderSpace/RwFolderSpace.vue";
+
 import AboutAppDef from "@apps/About/def.js";
 import ThemePickerDef from "@apps/ThemePicker/def";
+
+import * as Themed from "@/themed/index";
+
 import BlatherDef from "./apps/Blather/Blather.def";
 import SampleImageDef from "./apps/SampleImage/SampleImage.def.ts";
 </script>
 
 <template>
 	<DefaultApp theme="fleb/threepointwin">
-		<RwFolderSpace context="desktop">
-			<RwLauncher :app="AboutAppDef"/>
-			<RwLauncher :app="ThemePickerDef"/>
-			<RwLauncher :app="SampleImageDef"/>
-			<RwLauncher :app="BlatherDef"/>
-		</RwFolderSpace>
+		<Themed.RwFolderSpace context="desktop">
+			<Themed.RwLauncher :app="AboutAppDef"/>
+			<Themed.RwLauncher :app="ThemePickerDef"/>
+			<Themed.RwLauncher :app="SampleImageDef"/>
+			<Themed.RwLauncher :app="BlatherDef"/>
+		</Themed.RwFolderSpace>
 	</DefaultApp>
 </template>

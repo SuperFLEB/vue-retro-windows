@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import {useWindow} from "@/providers/WinManProvider/useWindow.ts";
+import {useWindow} from "@/providers/WindowProvider/useWindow.ts";
 import {useDraggable} from "@superfleb/draggable/vue";
-import {getCornerPoint} from "./util.ts";
+import {getCornerPoint} from "@/util/Box.ts";
 import type CardinalCorner from "@t/CardinalCorner.ts";
 import type Box from "@t/Box.ts";
 import {xyOf} from "@/util.ts";
 
 type Props = { corner: CardinalCorner };
 const {corner} = defineProps<Props>();
-const {props: windowProps, interface: {moveCorner}} = useWindow();
+const {instance: windowInstance, interface: {moveCorner}} = useWindow();
 
 const {dragStartHandler} = useDraggable({
 		beforeStart: (_, __, instance) => {
-			instance.xy = getCornerPoint(windowProps as Box, corner);
+			instance.xy = getCornerPoint(windowInstance as Box, corner);
 		},
 		onMove: (_, dragState) => {
 			moveCorner(corner, xyOf(dragState));

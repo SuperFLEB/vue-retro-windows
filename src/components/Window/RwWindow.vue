@@ -1,50 +1,42 @@
 <script setup lang="ts">
+import WindowDriver from "@/components/Window/WindowDriver.vue";
+import WindowProvider from "@/providers/WindowProvider/WindowProvider.vue";
+import useWindowManager from "@/providers/AppManagerProvider/useWindowManager.ts";
+import type {PartialWindowInstanceWithWinId, WindowInstance} from "@t/RwEnvironment.ts";
+import useAppInstance, {canUseAppInstance} from "@/providers/AppInstanceProvider/useAppInstance.ts";
+import type {WinUid} from "@t/WinMan.ts";
+
 /**
  * This is the outer window component that ingests initial props and creates a WindowProvider context.
  * The inner component, WindowDriver, actually draws the window.
- *
- * The naming is a bit weird-- This is basically just a way to shim a WindowProvider in front of every Window,
- * but it's just called Window because that's more intuitive from the outside.
  */
 
-import WindowDriver from "@/components/Window/WindowDriver.vue";
-import WindowProvider from "@/providers/WinManProvider/WindowProvider.vue";
-import type {ValidPartialWindowProps} from "@t/WinMan.ts";
-import {createWindowProps, defaultWindowProps} from "@/components/Window/props.ts";
-import {onMounted} from "vue";
-import {useWindowManager} from "@/providers/WinManProvider/useWinMan.ts";
-import {ComposableOutOfContextError} from "@/errors.ts";
+type Props = PartialWindowInstanceWithWinId;
+const props = withDefaults(defineProps<Props>(), {});
+const propsFiltered = Object.fromEntries(Object.entries(props).filter(([_, p]) => p !== undefined));
 
-type Props = ValidPartialWindowProps;
-const props = withDefaults(defineProps<Props>(), {
-	...defaultWindowProps
-});
+const appInstanceInterface = canUseAppInstance() ? useAppInstance().interface : undefined;
+const windowManagerInterface = useWindowManager().interface;
 
-const initialState = createWindowProps({...props});
-const {interface: winMan} = useWindowManager();
-
-if (!winMan) {
-	throw new ComposableOutOfContextError("Window Manager Registry Interface not found. <RwWindow> must be created within a WinManProvider.");
+let uid: WinUid | undefined = undefined;
+if (appInstanceInterface) {
+	uid = appInstanceInterface.getWindowUid(props.winId);
 }
 
-if (!props.winId) {
-	throw new Error("<RwWindow> created without winId");
+if (uid === undefined) {
+	uid = windowManagerInterface.register(propsFiltered).uid;
+	appInstanceInterface?.registerWindowUid(props.winId, uid);
 }
 
-onMounted(() => {
-	winMan.register(props);
-});
 </script>
 
 <template>
-	<template v-if="winMan.has(props.winId)">
-		<WindowProvider :winId="initialState.winId">
-			<WindowDriver>
-				<template #subWindows>
-					<slot name="subWindows"/>
-				</template>
-				<slot/>
-			</WindowDriver>
-		</WindowProvider>
-	</template>
+	<WindowProvider :uid="uid">
+		<WindowDriver>
+			<template #subWindows>
+				<slot name="subWindows"/>
+			</template>
+			<slot/>
+		</WindowDriver>
+	</WindowProvider>
 </template>

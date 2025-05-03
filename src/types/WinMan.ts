@@ -1,12 +1,13 @@
 import type Box from '@t/Box';
 import type {MenuItemSpec} from "@/components/Menu/types.ts";
 
-export type WinManRegistry = Record<WinId, WindowProps>;
+export type WinManRegistry = Record<WinUid, WindowProps>;
 
 export const enum WindowSource {
 	STATIC,
 	DYNAMIC,
 }
+export type WinUid = string;
 export type WinId = string;
 export type DefaultWindowProps = Box & {
 	z: number;
@@ -17,7 +18,7 @@ export type DefaultWindowProps = Box & {
 	menu: MenuItemSpec | null;
 };
 export type WindowProps = DefaultWindowProps & {
-	winId: WinId;
+	uid: WinUid;
 };
 
-export type ValidPartialWindowProps = Partial<WindowProps> & Required<Pick<WindowProps, "winId">>;
+export type ValidPartialWindowProps = Partial<WindowProps> & Required<Pick<WindowProps, "uid">>;

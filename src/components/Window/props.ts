@@ -3,7 +3,7 @@ import {
 	type ValidPartialWindowProps,
 	type WindowProps,
 	WindowSource,
-	type WinId
+	type WinUid
 } from "@t/WinMan.ts";
 
 export const defaultWindowProps: DefaultWindowProps = {
@@ -20,17 +20,17 @@ export const defaultWindowProps: DefaultWindowProps = {
 };
 
 let autoCounter = 0;
-export const newWinId = (): WinId => {
+export const newWinId = (): WinUid => {
 	return `autowinid:${++autoCounter}`;
 }
 
 export const createWindowProps = (
 	windowProps: Partial<WindowProps> | null,
-	winId?: WinId | null,
+	uid?: WinUid | null,
 	defaults = defaultWindowProps,
 ): WindowProps =>
 	(({
-		winId: windowProps?.winId ?? winId ?? newWinId(),
+		uid: windowProps?.uid ?? uid ?? newWinId(),
 		...defaults,
 		...(windowProps || {}),
 	}) as WindowProps);
@@ -38,7 +38,7 @@ export const createWindowProps = (
 export const clean = (
 	windowProps: ValidPartialWindowProps,
 	defaults: DefaultWindowProps | Record<never, never> = defaultWindowProps,
-	defaultKeyObject: WindowProps = {...defaultWindowProps, winId: ""},
+	defaultKeyObject: WindowProps = {...defaultWindowProps, uid: ""},
 ) => {
 	const cleaned: ValidPartialWindowProps = {...defaults, ...windowProps} as ValidPartialWindowProps;
 	for (const key in cleaned) {

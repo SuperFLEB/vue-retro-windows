@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import RwApplication from "@/components/RwApplication.vue";
+import RwDesktopEnvironment from "@/components/RwDesktopEnvironment.vue";
 import "@/util/style.mjs";
 import type {ApplicationDefinition} from "@t/Application.js";
 
@@ -20,9 +20,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 </script>
 <template>
-	<RwApplication :theme :appId :apps>
+	<RwDesktopEnvironment :theme :appId :apps>
 		<slot/>
-	</RwApplication>
+	</RwDesktopEnvironment>
 	<component v-if="props.rootSelector" is="style">
 		{{ props.rootSelector }} {
 		margin: 0;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type {MenuItemSpec} from "@/components/Menu/types.ts";
 import MenuItem from "@/components/Menu/MenuItem.vue";
-import Themed from "@/providers/ThemeProvider/Themed.vue";
+import Themed from "@/themed/Themed.vue";
 type Props = { sub: MenuItemSpec[] };
 const props = defineProps<Props>();
 </script>

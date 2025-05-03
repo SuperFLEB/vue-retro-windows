@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import RwVisualMangler from "@exp/RwVisualMangler.vue";
 import useTheme from "@/providers/ThemeProvider/useTheme";
-import Instance from "@/providers/AppManProvider/AppManProvider.vue";
+import RetroWinProvider from "@/providers/RetroWinProvider/RetroWinProvider.vue";
 import RwWindow from "@/components/Window/RwWindow.vue";
 
-type Props = { target: string | undefined, instance: Instance };
+type Props = { target: string | undefined, instance: RetroWinProvider };
 const props = withDefaults(defineProps<Props>(), {target: undefined});
 </script>
 

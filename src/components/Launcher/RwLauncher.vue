@@ -1,22 +1,25 @@
 <script setup lang="ts">
 import type {ApplicationDefinition, ApplicationId} from "@t/Application.js";
-import useAppMan from "@/providers/AppManProvider/useAppMan.js";
+import useAppManager from "@/providers/AppManagerProvider/useAppManager.js";
+import useApplicationCollection from "@/providers/ApplicationCollectionProvider/useApplicationCollection.js";
 
 type Props = { app: ApplicationDefinition | ApplicationId, attachment?: string, label?: string };
 const props = withDefaults(defineProps<Props>(), {attachment: undefined, label: undefined });
 
-const {interface: appManIntf} = useAppMan();
-const applicationId = typeof props.app === "object" ? appManIntf.resolveOrRegister(props.app) : props.app;
-const Icon = appManIntf.getLauncherIcon(applicationId);
-const label = props.label ?? appManIntf.getApplication(applicationId).displayName;
+const {interface: appManIntf} = useAppManager();
+const {interface: appCollectionIntf} = useApplicationCollection();
+
+const applicationId = typeof props.app === "object" ? appCollectionIntf.resolveOrRegister(props.app) : props.app;
+const Icon = appCollectionIntf.getLauncherIcon(applicationId);
+const label = props.label ?? appCollectionIntf.getApplicationDefinition(applicationId).displayName;
 
 function launch() {
-	appManIntf.launch(applicationId);
+	appManIntf.launch(applicationId, 0);
 }
 </script>
 
 <template>
-	<div class="launcher" @dblclick="launch" @click="" tabindex="0">
+	<div class="launcher" @dblclick="launch" tabindex="0">
 		<div class="icon">
 			<Icon :attachment="props.attachment" :size="{x: 48, y: 48}" launcher="instance" />
 		</div>

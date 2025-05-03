@@ -32,18 +32,6 @@ const style = {
 };
 const debugStyle = ref({});
 
-/*
-function movedebug(e: MouseEvent) {
-	if (!gridModel) return;
-	if (!gridRef.value) return;
-	const cell = getGridCell(gridModel, e.clientX, e.clientY);
-	debugStyle.value = {
-		"grid-row": cell.row + 1,
-		"grid-column": cell.column + 1,
-		"display": "block",
-	};
-}
-*/
 </script>
 
 <template>

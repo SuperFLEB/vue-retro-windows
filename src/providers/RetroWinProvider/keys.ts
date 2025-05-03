@@ -1,0 +1,7 @@
+export default Object.freeze({
+	"APPS_INTERFACE": Symbol("APPS_INTERFACE"),
+	"INSTANCE_INTERFACE": Symbol("INSTANCE_INTERFACE"),
+	"WINDOWS_INTERFACE": Symbol("WINDOWS_INTERFACE"),
+	"INTERFACE": Symbol("INTERFACE"),
+	"INSTANCES": Symbol("INSTANCES"),
+});

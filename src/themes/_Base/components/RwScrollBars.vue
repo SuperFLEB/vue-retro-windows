@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import IfScroll from "@/components/ScrollBar/IfScroll.vue";
-import Themed from "@/providers/ThemeProvider/Themed.vue";
+import Themed from "@/themed/Themed.vue";
 </script>
 
 <template>

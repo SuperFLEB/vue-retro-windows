@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import {useWindow} from "@/providers/WinManProvider/useWindow.ts";
+import {useWindow} from "@/providers/WindowProvider/useWindow.ts";
 import ResizeHandle from "@/components/ResizeHandles/Handle.vue";
 import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
 import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";
-const {props: windowProps} = useWindow();
+const {instance: windowInstance} = useWindow();
 </script>
 
 <template>
-	<div class="frame" :class="[ 'frame', 'resizeable', {focus: windowProps.focus} ]" :tabindex="-1"
+	<div class="frame" :class="[ 'frame', 'resizeable', {focus: windowInstance.focus} ]" :tabindex="-1"
 		 @focusin="$emit('windowfocus', $event)" @focusout="$emit('windowblur', $event)">
 		<div class="titleBar" @touchstart="$emit('movestart', $event)" @mousedown="$emit('movestart', $event)" :tabindex="-1">
+			<button type="button" class="close" @click="$emit('windowclose', $event)">X</button>
 			<div class="titleText">
-				{{ windowProps.title }}
+				{{ windowInstance.title }}
 			</div>
 		</div>
 		<div class="main">

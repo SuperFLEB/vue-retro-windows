@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import Themed from "@/providers/ThemeProvider/Themed.vue";
+import Themed from "@/themed/Themed.vue";
 import useTheme from "@/providers/ThemeProvider/useTheme.ts";
 import RwWindow from "@/components/Window/RwWindow.vue";
-import type {Instance} from "@/providers/AppManProvider/AppManProvider.vue";
+import type {Instance} from "@/providers/RetroWinProvider/RetroWinProvider.vue";
 
 type Props = { target: string | undefined, instance: Instance };
 withDefaults(defineProps<Props>(), { target: undefined });

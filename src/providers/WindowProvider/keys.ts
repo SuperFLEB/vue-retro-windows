@@ -5,5 +5,5 @@ export const WinMan = Object.freeze({
 
 export const Win = Object.freeze({
 	INTERFACE: Symbol("WINMAN_WIN_INTERFACE"),
-	PROPS_REF: Symbol("WINMAN_WIN_PROPS"),
+	INSTANCE: Symbol("WINMAN_WIN_INSTANCE"),
 });

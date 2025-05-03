@@ -1,13 +1,13 @@
-import RwApplication from "@/components/RwApplication.vue";
+import RwDesktopEnvironment from "@/components/RwDesktopEnvironment.vue";
 import RwWindow from "@/components/Window/RwWindow.vue";
 import RwVisualMangler from "@/components/RwVisualMangler.vue";
-import IfRwTheme from "@/components/IfRwTheme.vue";
-import {DefaultApp} from "@/apps";
+import RwIfTheme from "@/components/RwIfTheme.vue";
+import DefaultApp from "@/apps/DefaultApp.vue";
 
 export {
 	DefaultApp,
-	RwApplication,
-	IfRwTheme,
+	RwDesktopEnvironment,
+	RwIfTheme,
 	RwWindow,
 	RwVisualMangler
 };

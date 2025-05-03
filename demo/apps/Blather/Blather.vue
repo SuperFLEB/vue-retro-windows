@@ -3,10 +3,10 @@ import {RwWindow} from "@exp";
 import DemoContent from "./DemoContent.vue";
 import type {MenuItemSpec} from "@/components/Menu/types.ts";
 import {MenuTypes} from "@/components/Menu/MenuTypes.ts";
-import Instance from "@/providers/AppManProvider/AppManProvider.vue";
+import RetroWinProvider from "@/providers/RetroWinProvider/RetroWinProvider.vue";
 import {h} from "vue";
 
-type Props = { target: string | undefined, instance: Instance };
+type Props = { target: string | undefined, instance: RetroWinProvider };
 const props = withDefaults(defineProps<Props>(), {target: undefined});
 
 const actionClick = (message: string) => {
