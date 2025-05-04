@@ -9,4 +9,5 @@ export default {
 	displayName: "About",
 	component: defineAsyncComponent(() => import("./AboutApp.vue")),
 	launcherIcon: LauncherIconWith({ src }),
+	recyclable: true,
 } as ApplicationDefinition;

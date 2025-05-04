@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type XY from "@t/XY.js";
-import defaultIcon from "@/assets/icons/app1.png";
+import defaultIcon from "@/assets/icons/genericApp.png";
 type Props = { size?: XY, src?: string };
 const props = withDefaults(defineProps<Props>(), {
 	src: defaultIcon,

@@ -3,7 +3,7 @@ import useLauncher from "@/components/Launcher/useLauncher.ts";
 import type {ApplicationDefinition, ApplicationId} from "@t/Application.ts";
 import {computed} from "vue";
 
-type Props = { app: ApplicationDefinition | ApplicationId, attachment?: string, label?: string };
+type Props = { launch: ApplicationDefinition | ApplicationId, attachment?: string, label?: string };
 const props = withDefaults(defineProps<Props>(), {attachment: undefined, label: undefined });
 
 const launcher = computed(() => useLauncher(props));

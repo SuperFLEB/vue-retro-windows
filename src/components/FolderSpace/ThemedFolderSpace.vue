@@ -41,14 +41,6 @@ const debugStyle = ref({});
 </template>
 
 <style scoped>
-.debug {
-	background-color: #f00;
-	inset: 0;
-	grid-column: 1;
-	grid-row: 1;
-	display: none;
-}
-
 .folderSpace {
 	display: grid;
 	box-sizing: border-box;

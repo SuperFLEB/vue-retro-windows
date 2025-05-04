@@ -1,6 +1,6 @@
 import SampleImage from "./SampleImage.vue";
 import LauncherIconWith from "@/components/Launcher/LauncherIconWith";
-import icon from "@/assets/icons/imgview.png";
+import icon from "@/assets/icons/image.png";
 
 export const id = Symbol("SampleImageApp");
 export default {
