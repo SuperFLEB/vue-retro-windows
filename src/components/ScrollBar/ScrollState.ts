@@ -2,17 +2,17 @@ import {ScrollStateActionSource, ScrollStateActionType} from "./types.ts";
 import {pos, size} from "./util";
 import type {Dimension} from "@t/scroll";
 import type {LinearScrollState, ScrollState, ScrollStateAction,} from "./types.ts";
+import clamp from "@/util/clamp.ts";
 
 type EnoughLinearScrollProperties = Pick<LinearScrollState, "pxStart" | "pxWindowSize" | "pxScrollSize" | "windowSize">;
-
-const clamp = (min: number, max: number, value: number) => Math.max(min, Math.min(max, value));
 
 const updateScrollPointPx = (
 	partial: EnoughLinearScrollProperties,
 	pxStart: number,
 ): LinearScrollState => {
-	const maxStart = (partial.pxScrollSize - partial.pxWindowSize) / partial.pxScrollSize;
-	const start = clamp(0, maxStart, pxStart / partial.pxScrollSize);
+	const pxMax = partial.pxScrollSize - partial.pxWindowSize;
+	const max = pxMax / partial.pxScrollSize;
+	const start = clamp(pxStart / partial.pxScrollSize, 0, max);
 	const mid = start + partial.windowSize / 2;
 	const at = partial.windowSize < 1 ? start / (1 - partial.windowSize) : 0;
 
@@ -22,6 +22,8 @@ const updateScrollPointPx = (
 		mid,
 		at,
 		pxStart: start * partial.pxScrollSize,
+		pxMax,
+		max,
 	} as LinearScrollState;
 };
 
@@ -29,7 +31,9 @@ const updateScrollPoint = (
 	dimState: LinearScrollState,
 	proposedStart: number,
 ): LinearScrollState => {
-	const start = clamp(0, 1 - dimState.windowSize, proposedStart);
+	const max = 1 - dimState.windowSize;
+	const pxMax = max * dimState.pxScrollSize;
+	const start = clamp(proposedStart, 0, 1 - dimState.windowSize);
 	const mid = start + dimState.windowSize / 2;
 	const at = dimState.windowSize < 1 ? start / (1 - dimState.windowSize) : 0;
 	const pxStart = start * dimState.pxScrollSize;
@@ -40,6 +44,8 @@ const updateScrollPoint = (
 		mid,
 		at,
 		pxStart,
+		max,
+		pxMax
 	};
 };
 
@@ -79,6 +85,8 @@ export const setupScroll = (): ScrollState => {
 			pxWindowSize: 0,
 			pxScrollSize: 0,
 			windowSize: 0,
+			max: 0,
+			pxMax: 0,
 			dimension: "x",
 		},
 		y: {
@@ -89,6 +97,8 @@ export const setupScroll = (): ScrollState => {
 			pxWindowSize: 0,
 			pxScrollSize: 0,
 			windowSize: 0,
+			max: 0,
+			pxMax: 0,
 			dimension: "y",
 		},
 		source: ScrollStateActionSource.INITIAL,
