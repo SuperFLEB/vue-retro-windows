@@ -4,9 +4,11 @@ export type LinearScrollState = {
 	start: number;
 	mid: number;
 	at: number;
+	max: number;
 	pxStart: number;
 	pxWindowSize: number;
 	pxScrollSize: number;
+	pxMax: number;
 	windowSize: number;
 	dimension: Dimension;
 };

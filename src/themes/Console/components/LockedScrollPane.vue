@@ -4,7 +4,8 @@ import {useScrollableElement} from "@/components/ScrollBar/useScrollableElement.
 import {isRefSet} from "@/util.ts";
 import useScroll from "@/components/ScrollBar/useScroll.ts";
 import {charGrid} from "../constants.ts";
-import debug from "@/debug/index.ts";
+import clamp from "@/util/clamp.ts";
+import floatEq from "@/util/floatEq.ts";
 
 const paneDom = useTemplateRef("pane");
 const calipersDom = useTemplateRef("calipers");
@@ -12,13 +13,16 @@ const calipersDom = useTemplateRef("calipers");
 const {state: scrollState, interface: scrollInterface} = useScroll();
 
 watch(scrollState.value, () => {
-	const charsX = scrollState.value.x.pxStart / charGrid.x;
-	const charsY = scrollState.value.y.pxStart / charGrid.y;
-	if (Math.abs(Math.round(charsX) - charsX) > .0001 || Math.abs(Math.round(charsY) - charsY) > .0001) {
-		debug.log("Scroll state rounded", {charsX, charsY});
+	const currentX = scrollState.value.x.pxStart;
+	const currentY = scrollState.value.y.pxStart;
+
+	const clampedX = clamp(Math.round( currentX / charGrid.x) * charGrid.x, 0, scrollState.value.x.pxMax);
+	const clampedY = clamp(Math.round(currentY / charGrid.y) * charGrid.y, 0, scrollState.value.y.pxMax);
+
+	if (!floatEq(currentX, clampedX, 1) || !floatEq(currentY, clampedY, 1) ) {
 		scrollInterface.scrollToPx({
-			x: Math.max(0, Math.round(charsX) * charGrid.x),
-			y: Math.max(0, Math.round(charsY) * charGrid.y)
+			x: clampedX,
+			y: clampedY,
 		});
 	}
 }, {immediate: true});
