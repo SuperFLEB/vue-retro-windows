@@ -3,12 +3,12 @@ import type {ApplicationDefinition, ApplicationId} from "@t/Application.js";
 import useLauncher from "@/components/Launcher/useLauncher.ts";
 import {computed} from "vue";
 
-type Props = { app: ApplicationDefinition | ApplicationId, attachment?: string, label?: string };
+type Props = { launch: ApplicationDefinition | ApplicationId | (() => void), attachment?: string, label?: string };
 const props = withDefaults(defineProps<Props>(), {attachment: undefined, label: undefined });
-
-const launcher = computed(() => useLauncher(props));
+const launcher = computed(() => {
+	return useLauncher(props);
+});
 </script>
-
 <template>
 	<div class="launcher" @dblclick="launcher.launchFunction" tabindex="0">
 		<div class="icon">

@@ -14,11 +14,11 @@ import ChangeTrackerDef from "./apps/ChangeTracker/ChangeTracker.def.ts";
 <template>
 	<DefaultApp theme="fleb/threepointwin">
 		<Themed.RwFolderSpace context="desktop">
-			<Themed.RwLauncher :app="AboutAppDef"/>
-			<Themed.RwLauncher :app="ThemePickerDef"/>
-			<Themed.RwLauncher :app="SampleImageDef"/>
-			<Themed.RwLauncher :app="BlatherDef"/>
-			<Themed.RwLauncher :app="ChangeTrackerDef"/>
+			<Themed.RwLauncher :launch="AboutAppDef"/>
+			<Themed.RwLauncher :launch="ThemePickerDef"/>
+			<Themed.RwLauncher :launch="SampleImageDef"/>
+			<Themed.RwLauncher :launch="BlatherDef"/>
+			<Themed.RwLauncher :launch="ChangeTrackerDef"/>
 		</Themed.RwFolderSpace>
 	</DefaultApp>
 </template>

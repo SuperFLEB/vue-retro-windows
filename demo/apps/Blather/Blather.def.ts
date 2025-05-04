@@ -1,5 +1,5 @@
 import LauncherIconWith from "@/components/Launcher/LauncherIconWith";
-import icon from "@/assets/icons/app1.png";
+import icon from "@/assets/icons/document.png";
 import Blather from "./Blather.vue";
 
 export const id = Symbol("Blather");

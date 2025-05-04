@@ -1,20 +1,27 @@
 import useAppManager from "@/providers/AppManagerProvider/useAppManager.ts";
 import useApplicationCollection from "@/providers/ApplicationCollectionProvider/useApplicationCollection.ts";
 import type {ApplicationDefinition, ApplicationId} from "@t/Application.ts";
+import type {Pid} from "@t/AppInstance.ts";
+import LauncherIcon from "@/components/Launcher/LauncherIcon.vue";
 
-export default function useLauncher({app, label}: {app: ApplicationDefinition | ApplicationId, label?: string}) {
+export type LauncherProps = {
+	launch: (() => void) | ApplicationDefinition | ApplicationId;
+	label?: string;
+	parent?: Pid;
+	icon?: string;
+}
+
+export default function useLauncher({launch, label, parent}: LauncherProps) {
 	const {interface: appManIntf} = useAppManager();
 	const {interface: appCollectionIntf} = useApplicationCollection();
 
-	const applicationId = typeof app === "object" ? appCollectionIntf.resolveOrRegister(app) : app;
+	// TODO: Support custom icons on launch functions
+	if (typeof launch === "function") return {IconComponent: LauncherIcon, launchFunction: launch, label: label ?? "Unknown Function" };
 
-	const IconComponent = appCollectionIntf.getLauncherIcon(applicationId);
-
+	const applicationId = typeof launch === "string" ? launch : appCollectionIntf.resolveOrRegister(launch as ApplicationDefinition);
+	const launchFunction = () => appManIntf.launch(applicationId, parent ?? 0);
+	const IconComponent = (typeof launch === "function") ? LauncherIcon : appCollectionIntf.getLauncherIcon(applicationId);
 	label = label ?? appCollectionIntf.getApplicationDefinition(applicationId).displayName;
-
-	function launchFunction() {
-		appManIntf.launch(applicationId, 0);
-	}
 
 	return {IconComponent, launchFunction, label };
 }
