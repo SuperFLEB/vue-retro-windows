@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {onMounted, onUnmounted, ref, useTemplateRef} from "vue";
-import {calculateGridModel, getGridCell, type GridModel} from "@/util/gridmodel.js";
+import {calculateGridModel, type GridModel} from "@/util/gridmodel.js";
 
 type Props = { rtl: boolean, column: boolean };
 const props = withDefaults(defineProps<Props>(), { rtl: false, column: false });

@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import type {ApplicationDefinition, ApplicationId} from "@t/Application.js";
 import useLauncher from "@/components/Launcher/useLauncher.ts";
-import {computed} from "vue";
+import {computed, useTemplateRef} from "vue";
+import {useTapEvents} from "@/util/watchTapEvents.ts";
 
 type Props = { launch: ApplicationDefinition | ApplicationId | (() => void), attachment?: string, label?: string };
 const props = withDefaults(defineProps<Props>(), {attachment: undefined, label: undefined });
 const launcher = computed(() => {
 	return useLauncher(props);
 });
+useTapEvents(useTemplateRef("component"));
 </script>
 <template>
-	<div class="launcher" @dblclick="launcher.launchFunction" tabindex="0">
+	<div class="launcher" @dblclick="launcher.launchFunction" @tapdouble="launcher.launchFunction" ref="component" tabindex="0">
 		<div class="icon">
 			<component :is="launcher.IconComponent" :attachment="props.attachment" :size="{x: 48, y: 48}" launcher="instance" />
 		</div>
