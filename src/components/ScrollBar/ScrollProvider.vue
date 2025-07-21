@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, provide, reactive, readonly, ref, type Ref, toRefs} from "vue";
+import {computed, provide, reactive, readonly, ref, toRefs} from "vue";
 import {scrollStateUpdater, setupScroll} from "@/components/ScrollBar/ScrollState.ts";
 import {
 	type Overflows,
@@ -57,28 +57,28 @@ export type ScrollInterface = {
 };
 
 const intf: ScrollInterface = Object.freeze({
-	scrollByPx(xy: XY, source: ScrollStateActionSource = ScrollStateActionSource.EXTERNAL) {
+	scrollByPx(xy: Partial<XY>, source: ScrollStateActionSource = ScrollStateActionSource.EXTERNAL) {
 		return scrollStateUpdater(_scrollState, {
 			type: ScrollStateActionType.scrollBy,
 			source,
 			...xy,
 		});
 	},
-	scrollToPx(xy: XY, source = ScrollStateActionSource.EXTERNAL) {
+	scrollToPx(xy: Partial<XY>, source = ScrollStateActionSource.EXTERNAL) {
 		return scrollStateUpdater(_scrollState, {
 			type: ScrollStateActionType.scrollTo,
 			source,
 			...xy
 		});
 	},
-	scrollByFraction(xy: XY, source = ScrollStateActionSource.EXTERNAL) {
+	scrollByFraction(xy: Partial<XY>, source = ScrollStateActionSource.EXTERNAL) {
 		return scrollStateUpdater(_scrollState, {
 			type: ScrollStateActionType.scrollByFraction,
 			source,
 			...xy
 		});
 	},
-	scrollToFraction(xy: XY, source = ScrollStateActionSource.EXTERNAL) {
+	scrollToFraction(xy: Partial<XY>, source = ScrollStateActionSource.EXTERNAL) {
 		return scrollStateUpdater(_scrollState, {
 			type: ScrollStateActionType.scrollToFraction,
 			source,

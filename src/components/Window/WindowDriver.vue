@@ -3,14 +3,18 @@
  * This sets up move and focus handlers and renders the window chrome and (themed) pane.
  */
 
-import {computed, type CSSProperties} from "vue";
+import {computed, onMounted} from "vue";
 import {useDraggable} from "@superfleb/draggable/vue";
 import {useWindow} from "@/providers/WindowProvider/useWindow.ts";
 import useTheme from "@/providers/ThemeProvider/useTheme.ts";
 import WindowPane from "@/components/Window/WindowPane.vue";
-import Themed from "@/themed/Themed.vue";
+import ThemedComponent from "@/ThemedComponent/ThemedComponent.vue";
 import {boxOf} from "@/util.ts";
 import type Box from "@t/Box.ts";
+import RwWindowBox from "@/components/Window/RwWindowBox.vue";
+
+type Props = { initFocused: boolean };
+const props = defineProps<Props>();
 
 const {instance: windowInstance, interface: windowInterface} = useWindow();
 const {themeRef} = useTheme();
@@ -38,36 +42,23 @@ const {dragStartHandler, stateRef: dragState} = useDraggable(
 	}
 );
 
-const windowBox = computed<Box>(() => {
-	return themeRef.value && boxOf(windowInstance);
-});
-
 const proxyBox = computed<Box>(() => {
-	return boxOf({...windowBox.value, ...windowInstance.proxyBox});
+	return boxOf({...windowInstance, ...windowInstance.proxyBox});
 });
 
-const windowStyle = computed<CSSProperties>(() => {
-	const box = themeRef.value.useProxyDrag ? windowBox.value : proxyBox.value;
-	return {
-		position: "absolute",
-		left: box.x + "px",
-		top: box.y + "px",
-		width: box.width + "px",
-		height: box.height + "px",
-		zIndex: windowInstance.z,
-	}
-});
+onMounted(() => {
+	if (props.initFocused) focusinHandler();
+})
 </script>
 
 <template>
-	<slot v-if="!themeRef.mdiSubWindows" name="subWindows" />
-	<div :="$attrs" class="windowDriver" :tabindex="-1" :style="windowStyle">
-		<Themed is="RwWindowChrome" @movestart="dragStartHandler($event)" @click="focusinHandler" @windowfocus="focusinHandler" @windowblur="focusoutHandler">
+	<RwWindowBox :="$attrs" :tabindex="-1">
+		<ThemedComponent is="RwWindowChrome" @movestart="dragStartHandler" @click="focusinHandler" @windowfocus="focusinHandler" @windowblur="focusoutHandler">
 			<WindowPane>
 				<slot v-if="themeRef.mdiSubWindows" name="subWindows" />
 				<slot />
 			</WindowPane>
-		</Themed>
-	</div>
-	<Themed v-if="themeRef.useProxyDrag && dragState.inDrag" is="RwWindowDragProxy" :proxyBox :windowBox/>
+		</ThemedComponent>
+	</RwWindowBox>
+	<ThemedComponent v-if="themeRef.useProxyDrag && dragState.inDrag" is="RwWindowDragProxy" :proxyBox />
 </template>

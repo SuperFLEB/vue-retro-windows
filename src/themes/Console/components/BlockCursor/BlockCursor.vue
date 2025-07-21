@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, onMounted, onUnmounted, ref, type Ref, toRefs, watch} from "vue";
+import {computed, onMounted, onUnmounted, ref, type Ref} from "vue";
 import type XY from "@t/XY.ts";
 import {charGrid} from "../../constants.ts";
 
@@ -19,9 +19,8 @@ const props = withDefaults(defineProps<Props>(), {
 	colors: () => ["#fff", "#000"],
 	gridSize: () => ({...charGrid}),
 });
-const {elementRef, type, colors, gridSize} = toRefs(props);
 
-const cursorRef = ref<HTMLElement>(null);
+const cursorRef = ref<HTMLElement>();
 const positionRef = ref<XY>({x: 0, y: 0});
 
 const onCursorMove = (e: MouseEvent) => {
@@ -35,8 +34,8 @@ const onCursorMove = (e: MouseEvent) => {
 	};
 
 	const gridPosition = {
-		x: Math.floor(realPos.x / gridSize.value.x) * gridSize.value.x,
-		y: Math.floor(realPos.y / gridSize.value.y) * gridSize.value.y,
+		x: Math.floor(realPos.x / props.gridSize.x) * props.gridSize.x,
+		y: Math.floor(realPos.y / props.gridSize.y) * props.gridSize.y,
 	};
 
 	Object.assign(positionRef.value, gridPosition);
@@ -45,24 +44,24 @@ const onCursorMove = (e: MouseEvent) => {
 const styles = computed(() => ({
 	left: `${positionRef.value.x}px`,
 	top: `${positionRef.value.y}px`,
-	width: `${gridSize.value.x}px`,
-	height: `${gridSize.value.y}px`,
-	color: type.value === "invert" ? "#fff" : "inherit",
+	width: `${props.gridSize.x}px`,
+	height: `${props.gridSize.y}px`,
+	color: props.type === "invert" ? "#fff" : "inherit",
 }))
 
 onMounted(() => {
-	elementRef.value.addEventListener("mousemove", onCursorMove);
-	elementRef.value.classList.add("winman-cursor-hide");
+	props.elementRef.value.addEventListener("mousemove", onCursorMove);
+	props.elementRef.value.classList.add("winman-cursor-hide");
 });
 
 onUnmounted(() => {
-	if (elementRef.value) elementRef.value.classList.remove("winman-cursor-hide");
+	if (props.elementRef.value) props.elementRef.value.classList.remove("winman-cursor-hide");
 	if (!cursorRef.value) return;
 });
 </script>
 
 <template>
-	<Teleport v-if="elementRef" :to="elementRef">
+	<Teleport v-if="elementRef.value" :to="elementRef.value">
 		{{styles}}
 		<div ref="cursorRef" :class="['cursor', {invert: type === 'invert'}]" :style="styles" />
 	</Teleport>

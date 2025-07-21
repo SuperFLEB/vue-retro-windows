@@ -3,6 +3,7 @@ import MenuBar from "@/components/Menu/MenuBar.vue";
 import MenuProvider from "@/components/Menu/MenuProvider.vue";
 import useThemeMenu from "@/composables/useThemeMenu.ts";
 import {MenuTypes} from "@/components/Menu/MenuTypes.ts";
+import type {MenuItemSpec} from "@/components/Menu/types.ts";
 
 const themeMenu = useThemeMenu();
 
@@ -17,7 +18,7 @@ const baseMenu = {
 				{ type: MenuTypes.SEPARATOR },
 				...(themeMenu.sub ?? []),
 			]
-		},
+		} as MenuItemSpec,
 	]
 };
 </script>
@@ -78,7 +79,6 @@ const baseMenu = {
 	flex-direction: row;
 	font: 16px / 18px "ChicagoFLF", sans-serif;
 	height: 1.5lh;
-	background-color: #fff;
 	border-bottom: 2px solid #000;
 }
 </style>

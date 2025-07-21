@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import makeBackgroundTile from "@themes/Console/components/RwDesktop/makeBackgroundTile.ts";
 import CaretController from "@superfleb/caret";
-import {computed, getCurrentInstance, onMounted, onUnmounted, ref, useTemplateRef} from "vue";
+import {computed, onMounted, onUnmounted, ref, useTemplateRef} from "vue";
 import BlockCursor from "./BlockCursor/BlockCursor.vue";
 import dos437Unicode from "../assets/DOS437Unicode.ts";
 import MenuProvider from "@/components/Menu/MenuProvider.vue";
 import MenuBar from "@/components/Menu/MenuBar.vue";
 import useThemeMenu from "@/composables/useThemeMenu.ts";
+import type {MenuItemSpec} from "@/components/Menu/types.ts";
 
-const tile = ref<string>(null);
+const tile = ref<string>();
 const desktopRef = useTemplateRef("desktop");
 
 const style = computed(() => {
 	return ({
-		backgroundImage: tile.value ? `url(${tile.value})` : null,
+		backgroundImage: tile.value ? `url(${tile.value})` : undefined,
 	});
 });
 
@@ -32,18 +33,14 @@ onUnmounted(() => {
 });
 
 const themeMenu = useThemeMenu();
-const baseMenu = {
+const baseMenu: MenuItemSpec = {
 	name: "root",
-	sub: [
-		{
-			...themeMenu,
-			display: "Theme"
-		},
-	]
+	sub: [{
+		...themeMenu,
+		display: "Themes",
+	} as MenuItemSpec]
 };
 
-const instance = getCurrentInstance();
-const scopeId = instance?.vnode?.scopeId;
 </script>
 
 <template>
@@ -60,9 +57,10 @@ const scopeId = instance?.vnode?.scopeId;
 	</MenuProvider>
 </template>
 
-<style scoped lang="scss" src="./MenuBar.scss" />
+<style scoped lang="scss" src="./MenuBar.scss"/>
 <style module lang="scss">
 @use "../_html.scss" as s;
+
 :where(.screen) {
 	@include s.themed;
 }

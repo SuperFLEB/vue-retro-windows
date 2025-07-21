@@ -1,7 +1,7 @@
 {
 	"name": "@superfleb/retrowin-vue",
 	"private": true,
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"scripts": {
 		"dev": "vite",
 		"build": "vue-tsc -b && vite build",
@@ -13,25 +13,26 @@
 	"exports": {
 		".": {
 			"import": {
-				"types": "./dist/index.d.ts",
-				"default": "./dist/index.mjs"
-			}
-		},
-		"./components": {
-			"import": {
 				"types": "./dist/exported/index.d.ts",
 				"default": "./dist/exported/index.mjs"
 			}
 		},
+		"./components": {
+			"import": {
+				"types": "./dist/exported/components.d.ts",
+				"default": "./dist/exported/components.mjs"
+			}
+		},
 		"./components/*": {
 			"import": {
-				"default": "./dist/exported/*.mjs"
+				"types": "./dist/components/*.d.ts",
+				"default": "./dist/components/*.mjs"
 			}
 		},
 		"./apps": {
 			"import": {
-				"types": "./dist/apps/index.d.ts",
-				"default": "./dist/apps/index.mjs"
+				"types": "./dist/exported/apps.d.ts",
+				"default": "./dist/exported/apps.mjs"
 			}
 		},
 		"./apps/*": {
@@ -41,21 +42,32 @@
 		}
 	},
 	"dependencies": {
-		"@superfleb/caret": "^0.0.6",
+		"@superfleb/caret": "^0.0.7",
 		"@superfleb/draggable": "^0.1.5",
 		"vue": "^3.5.13",
 		"vue-sfc-transformer": "^0.1.11"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "^2.1.2",
+		"@eslint/css": "^0.10.0",
+		"@eslint/js": "^9.31.0",
+		"@eslint/json": "^0.13.0",
+		"@eslint/markdown": "^7.0.0",
 		"@types/node": "^22.13.5",
 		"@vitejs/plugin-vue": "^5.2.3",
 		"@vue/tsconfig": "^0.7.0",
+		"eslint": "^9.31.0",
+		"eslint-plugin-vue": "^10.3.0",
+		"globals": "^16.3.0",
 		"madge": "^8.0.0",
 		"magic-string": "^0.30.17",
 		"sass": "^1.86.3",
 		"tinyglobby": "^0.2.12",
 		"typescript": "~5.7.2",
+		"typescript-eslint": "^8.38.0",
 		"vite": "^6.3.4",
+		"vite-plugin-lib-inject-css": "^2.2.2",
+		"vue-eslint-parser": "^10.2.0",
 		"vue-tsc": "^2.2.0"
 	},
 	"packageManager": "yarn@4.7.0"

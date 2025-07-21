@@ -2,5 +2,7 @@ export default Object.freeze({
 	"INTERFACE_AM": Symbol("INTERFACE_AM"),
 	"REGISTRY_AM": Symbol("REGISTRY_AM"),
 	"INTERFACE_WM": Symbol("INTERFACE_WM"),
+	"BIND_INTERFACE_WM": Symbol("BIND_INTERFACE_WM"),
 	"REGISTRY_WM": Symbol("REGISTRY_WM"),
+	"CHILDREN_BY_STATE_WM": Symbol("CHILDREN_BY_STATE_WM"),
 });

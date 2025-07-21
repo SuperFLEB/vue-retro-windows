@@ -60,10 +60,10 @@ export function boxOf(obj: Partial<Box>, filterUndefinedAndNull: boolean = false
 		height: obj.height,
 	};
 
-	if (filterUndefinedAndNull) return filterObject(box, ([_, v]) => !([null, undefined].includes(v))) as Partial<Box>;
+	if (filterUndefinedAndNull) return filterObject<Box>(box as Box, ([_, v]) => !(([null, undefined] as any[]).includes(v))) as Partial<Box>;
 	assertValidBox(box);
 	return box;
-};
+}
 
 export const stylesOf = (dims: XY | Box): CSSProperties => Object.fromEntries(Object.entries({
 	left: dims.x,

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type {ThemeComponents} from "@/themed/types.ts";
+import type {ThemeComponents} from "@/ThemedComponent/types.ts";
 import useTheme from "@/providers/ThemeProvider/useTheme.ts";
 import {shallowRef, watch} from "vue";
 

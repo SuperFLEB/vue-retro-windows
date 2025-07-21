@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useWindow} from "@/providers/WindowProvider/useWindow.ts";
 import {charGrid} from "../constants.ts";
-import Handle from "@/components/ResizeHandles/Handle.vue";
+import ResizeHandle from "@/components/ResizeHandles/ResizeHandle.vue";
 import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
 import {computed} from "vue";
 import {boxOf} from "@/util.ts";
@@ -33,7 +33,7 @@ const frame = computed(() => {
 });
 
 const { interface: menuIntf } = useMenu();
-function focusin(e: MouseEvent) {
+function focusin(e: FocusEvent) {
 	menuIntf.setMenu(windowInstance.menu);
 	emit("windowfocus", e);
 }
@@ -54,7 +54,7 @@ function focusin(e: MouseEvent) {
 					{{ frame.titleBarText }}
 				</div>
 				<div class="titleClose">[☼]</div>
-				<Handle class="resizeHandle" corner="se">■</Handle>
+				<ResizeHandle class="resizeHandle" corner="se">■</ResizeHandle>
 			</div>
 			<ScrollBars />
 

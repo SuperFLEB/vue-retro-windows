@@ -1,2 +1,2 @@
-const clamp = (value, min, max) => Math.min(max, Math.max(value, min));
+const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(value, min));
 export default clamp;

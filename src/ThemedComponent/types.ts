@@ -10,14 +10,15 @@ export type ThemeComponents = {
 	RwWindowDragProxy: ComponentShape<Empty>;
 	RwDesktop: ComponentShape<Empty>;
 	RwWindowPane: ComponentShape<Empty>;
+	RwWindowBox: ComponentShape<Empty>;
 	RwScrollBars: ComponentShape<Empty>;
 	RwScrollBarX: ComponentShape<{ dimension: Dimension }, Empty>;
 	RwScrollBarY: ComponentShape<{ dimension: Dimension }, Empty>;
 	RwScrollBarCorner: ComponentShape<Empty>;
 	RwVisualMangler: ComponentShape<Empty>;
-	RwMenuBar: ComponentShape<Empty>;
 	RwSubMenu: ComponentShape<Empty>;
 	RwMenuItem: ComponentShape<{ spec: MenuItemSpec, item: MenuItemState, hasToggle?: boolean }>;
 	RwFolderSpace: ComponentShape<{ context: "desktop" | "folder" }>;
 	RwLauncher: ComponentShape<{ app: ApplicationDefinition | ApplicationId, attachment?: string, label?: string }>;
+	RwMinimizedWindowSpace: ComponentShape<Empty>;
 };

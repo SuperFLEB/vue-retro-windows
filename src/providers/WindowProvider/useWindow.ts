@@ -8,9 +8,12 @@ import type {WindowInstance} from "@t/WindowInstance.ts";
 export const useWindow = () => {
 	const intf = inject<WindowInterface>(w.INTERFACE);
 	const instance = inject<WindowInstance>(w.INSTANCE);
+
 	if (!(intf && instance)) {
 		throw new ComposableOutOfContextError("WinInterface not found. Components using useWindow must be placed within a WindowProvider.");
 	}
 
 	return {instance, interface: intf};
 };
+
+export const canUseWindow = () => !!inject(w.INTERFACE, null);

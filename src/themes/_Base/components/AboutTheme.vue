@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import type {ThemeSpec} from "@t/Theme.ts";
-defineProps<{ themeName: string }>();
+import useApplicationThemes from "@/providers/ThemeCollectionProvider/useApplicationThemes.ts";
+
+const props = defineProps<{ themeName: string }>();
+const theme = useApplicationThemes().interface.get(props.themeName);
 </script>
 <template>
 	<p v-if="theme.keyName === 'core/base'">This is the base theme used as a fallback to all other themes.</p>

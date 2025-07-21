@@ -2,11 +2,7 @@
 import ThemedFolderSpace from "@/components/FolderSpace/ThemedFolderSpace.vue";
 import RwWindow from "@/components/Window/RwWindow.vue";
 type Props = { context: "desktop" | "folder" };
-const props = withDefaults(defineProps<Props>(), { scope: "folder" });
-const tfsProps = {
-	folder: { rtl: false, column: false },
-	desktop: { rtl: true, column: true },
-}[props.context];
+withDefaults(defineProps<Props>(), { context: "folder" });
 </script>
 
 <template>

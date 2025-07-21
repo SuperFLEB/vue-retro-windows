@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import useAppManager from "@/providers/AppManagerProvider/useAppManager.ts";
-import useWindowManager from "@/providers/AppManagerProvider/useWindowManager.ts";
 import k from "./keys.ts";
 import {provide} from "vue";
 import type {WinId, WinUid} from "@t/WinMan.ts";
-import type {WindowInstance} from "@t/WindowInstance.ts";
 import type {AppInstance, Pid} from "@t/AppInstance.ts";
 
 type Props = { pid: Pid };
@@ -34,7 +32,3 @@ provide(k.INTERFACE, intf);
 <template>
 <slot />
 </template>
-
-<style scoped>
-
-</style>

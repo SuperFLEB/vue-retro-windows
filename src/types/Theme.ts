@@ -1,7 +1,6 @@
 import type XY from "@t/XY.ts";
-import type CssModule from "@t/CssModule.ts";
 import type {Like} from "@t/Like.ts";
-import type {ThemeComponents} from "@/themed/types.ts";
+import type {ThemeComponents} from "@/ThemedComponent/types.ts";
 
 export const defaultThemeEffects = Object.freeze({
 	monochrome: false as boolean,
@@ -28,11 +27,11 @@ export type ThemeInfo = {
 	nativeScroll?: boolean;
 	hijackScroll?: boolean;
 	useProxyDrag?: boolean;
+	canMinimize?: boolean;
+	canMaximize?: boolean;
 	mdiSubWindows?: boolean;
 	desktopMenu?: boolean;
-	className?: string;
 	effects?: Partial<ThemeEffects>;
-	style?: CssModule;
 	debugModeOnly?: true;
 	themeSpecificSettings?: Record<string, any>;
 };

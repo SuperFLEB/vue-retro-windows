@@ -9,6 +9,7 @@ type Props = {
 	theme?: string,
 	appId?: string,
 	apps?: ApplicationDefinition[],
+	autoLaunchApps?: ApplicationDefinition[],
 };
 const props = withDefaults(defineProps<Props>(), {
 	rootSelector: ":root, html, body",
@@ -16,14 +17,15 @@ const props = withDefaults(defineProps<Props>(), {
 	theme: "fleb/threepointwin",
 	appId: "main",
 	apps: () => [],
+	autoLaunchApps: () => [],
 });
 
 </script>
 <template>
-	<RwDesktopEnvironment :theme :appId :apps>
+	<RwDesktopEnvironment :theme :appId :apps :autoLaunchApps>
 		<slot/>
 	</RwDesktopEnvironment>
-	<component v-if="props.rootSelector" is="style">
+	<component v-if="props.rootSelector" :is="'style'">
 		{{ props.rootSelector }} {
 		margin: 0;
 		padding: 0;
@@ -46,7 +48,7 @@ const props = withDefaults(defineProps<Props>(), {
 		</template>
 		*/
 	</component>
-	<component if="props.appSelector" is="style">
+	<component if="props.appSelector" :is="'style'">
 		{{ appSelector }} {
 		display: flex;
 		flex-direction: column;

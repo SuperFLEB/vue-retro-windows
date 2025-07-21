@@ -1,5 +1,5 @@
 import {defineConfig} from "vite";
-import importCss from "./build-script/importCss.mjs";
+import importCss from "./build-script/importCss";
 import vue from "@vitejs/plugin-vue";
 import path from "node:path";
 

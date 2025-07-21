@@ -1,3 +1,0 @@
-const themedComponent = (componentName: string) => {
-
-}

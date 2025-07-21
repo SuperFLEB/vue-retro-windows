@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {toRefs} from "vue";
-import Handle from "./Handle.vue";
+import ResizeHandle from "./ResizeHandle.vue";
 import type CardinalCorner from "@t/CardinalCorner.ts";
 
 type Props = { corners: CardinalCorner[] };
@@ -10,7 +10,7 @@ const {corners} = toRefs(props);
 
 <template>
 	<div class="resizeHandles">
-		<Handle v-for="corner in corners" :corner/>
+		<ResizeHandle v-for="corner in corners" :corner :key="corner" />
 	</div>
 </template>
 

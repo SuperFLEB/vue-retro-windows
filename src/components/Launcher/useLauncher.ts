@@ -3,25 +3,44 @@ import useApplicationCollection from "@/providers/ApplicationCollectionProvider/
 import type {ApplicationDefinition, ApplicationId} from "@t/Application.ts";
 import type {Pid} from "@t/AppInstance.ts";
 import LauncherIcon from "@/components/Launcher/LauncherIcon.vue";
+import type {LauncherIconComponent} from "@t/Launcher.ts";
+
+type LauncherFunction = (() => void) | ApplicationDefinition | ApplicationId;
 
 export type LauncherProps = {
-	launch: (() => void) | ApplicationDefinition | ApplicationId;
+	launch: LauncherFunction;
 	label?: string;
 	parent?: Pid;
-	icon?: string;
+	icon?: LauncherIconComponent;
 }
 
-export default function useLauncher({launch, label, parent}: LauncherProps) {
+export default function useLauncher({launch, label, parent, icon}: LauncherProps) {
 	const {interface: appManIntf} = useAppManager();
 	const {interface: appCollectionIntf} = useApplicationCollection();
 
-	// TODO: Support custom icons on launch functions
-	if (typeof launch === "function") return {IconComponent: LauncherIcon, launchFunction: launch, label: label ?? "Unknown Function" };
-
-	const applicationId = typeof launch === "string" ? launch : appCollectionIntf.resolveOrRegister(launch as ApplicationDefinition);
-	const launchFunction = () => appManIntf.launch(applicationId, parent ?? 0);
-	const IconComponent = (typeof launch === "function") ? LauncherIcon : appCollectionIntf.getLauncherIcon(applicationId);
-	label = label ?? appCollectionIntf.getApplicationDefinition(applicationId).displayName;
-
-	return {IconComponent, launchFunction, label };
+	switch (typeof launch) {
+		case "function":
+			// Function
+			return {
+				launchFunction: launch,
+				IconComponent: icon ?? LauncherIcon,
+				label: label ?? launch.name ?? "Unknown Function",
+			};
+		case "string":
+			// Application ID
+			return {
+				launchFunction: () => appManIntf.launch(launch, parent ?? 0),
+				IconComponent: appCollectionIntf.getLauncherIcon(launch),
+				label: label ?? appCollectionIntf.getApplicationDefinition(launch).displayName,
+			};
+		case "object": {
+			// ApplicationDefinition
+			const id = appCollectionIntf.resolveOrRegister(launch as ApplicationDefinition);
+			return {
+				launchFunction: () => appManIntf.launch(id, parent ?? 0),
+				label: label ?? appCollectionIntf.getApplicationDefinition(id).displayName,
+				IconComponent: appCollectionIntf.getLauncherIcon(id),
+			};
+		}
+	}
 }

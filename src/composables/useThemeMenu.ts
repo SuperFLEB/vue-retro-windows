@@ -6,7 +6,7 @@ export default function useThemeMenu() {
 
 	function pick(keyName: string) {
 		setCurrentTheme(keyName);
-	};
+	}
 
 	return {
 		name: "Theme",

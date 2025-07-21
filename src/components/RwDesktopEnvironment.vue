@@ -15,7 +15,8 @@ type Props = {
 	themes?: ThemeSpec[],
 	theme: BuiltInThemes | string,
 	appId?: string,
-	apps?: ApplicationDefinition[]
+	apps?: ApplicationDefinition[],
+	autoLaunchApps: ApplicationDefinition[],
 };
 const props = withDefaults(defineProps<Props>(), {
 	themes: undefined,
@@ -26,7 +27,7 @@ const themes = computed(() => props.themes ?? builtInThemes);
 </script>
 <template>
 	<ApplicationCollectionProvider :apps>
-		<AppManagerProvider>
+		<AppManagerProvider :autoLaunchApps>
 			<ThemeCollectionProvider :themes :defaultTheme="theme">
 				<ThemeProvider :root="true">
 					<RwDesktop>

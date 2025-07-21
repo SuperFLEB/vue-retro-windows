@@ -1,19 +1,22 @@
 import MagicString from "magic-string";
 import path from "node:path";
+import type {RenderedChunk, ResolveIdResult, SourceMapInput} from "rollup";
+import type {ResolvedConfig} from "vite";
 
-let config;
+let config: ResolvedConfig;
 
-export default function importCss(exportName) {
+export default function importCss(exportName: string) {
 	const filePath = path.resolve(`./${exportName ?? "UNKNOWN"}.css`);
-	const cssFakeImport = `\\0IMPORT-CSS-PLUGIN-WAS-HERE:${filePath}`;
+	const cssFakeImport = "\0IMPORT-CSS-PLUGIN-RESOLVE-HERE";
+
 	return {
 		name: 'importCss',
-		configResolved(resolvedConfig) {
+		configResolved(resolvedConfig: ResolvedConfig) {
 			config = resolvedConfig;
 		},
-		resolveId(id) {
+		resolveId(id: string): ResolveIdResult {
 			if (id === "[css]") {
-				if (config.lib) {
+				if (config.build.lib) {
 					return {
 						id: cssFakeImport,
 						external: true,
@@ -23,13 +26,13 @@ export default function importCss(exportName) {
 			}
 			return id;
 		},
-		load(id) {
+		load(id: string): string | undefined {
 			// This handles the dev server where renderChunk never happens and it actually tries to resolve the temporary import.
 			// Since it's the dev server so the CSS gets included automatically we can just ignore the import entirely.
-			if (id === "[css]") return "";
-			if (id === cssFakeImport) return "";
+			if (id === "[css]") return "/* [css] import ignored */";
+			if (id === cssFakeImport) return "/* CSS fake import ignored */";
 		},
-		renderChunk(code, chunk) {
+		renderChunk(code: string, chunk: RenderedChunk): { code: string; map?: SourceMapInput } | string | null {
 			const s = new MagicString(code);
 			if (code.includes(cssFakeImport)) {
 				const chunkDir = path.dirname(chunk.fileName);

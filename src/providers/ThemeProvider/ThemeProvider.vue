@@ -2,13 +2,12 @@
 import keys from "./keys.ts";
 import FailedComponent from "@/components/FailedComponent/FailedComponent.vue";
 import FallbackTheme from "@themes/_Base/index.ts";
-import {computed, type ComputedRef, provide, readonly, ref, shallowRef, useSlots, watch, watchEffect} from "vue";
+import {provide, readonly, ref, shallowRef, useSlots, watchEffect} from "vue";
 import {debug, getDebugMode, nondebug} from "@/debug/index.ts";
 
 import type {
 	CompleteThemeInfo,
 	CompleteThemeSpec,
-	ThemeComponents,
 	ThemeEffects,
 	ThemeEffectsList,
 	ThemeInfo,
@@ -19,13 +18,14 @@ import {randomString} from "@/util.ts";
 import type {Like} from "@t/Like.ts";
 import useApplicationThemes from "@/providers/ThemeCollectionProvider/useApplicationThemes.ts";
 import getFailedComponent from "@/components/FailedComponent/createFailedComponent.ts";
+import type {ThemeComponents} from "@/ThemedComponent/types.ts";
 
 function strip(themeIn: ThemeSpec): ThemeInfo {
 	const {components: _, ...themeOut} = themeIn;
 	return themeOut;
 }
 
-type Props = { root?: boolean, themes?: ThemeSpec[], defaultTheme?: string, theme?: string };
+type Props = { root?: boolean, defaultTheme?: string, theme?: string };
 const props = defineProps<Props>();
 
 const emit = defineEmits<{
@@ -36,12 +36,16 @@ const { themesRef: applicationThemesRef, interface: applicationThemesIntf } = us
 const themes = applicationThemesRef.value as Map<string, ThemeSpec>;
 const themeInstanceId = ref<string>(randomString(20));
 
+const multipleChildren = Boolean(useSlots().default?.()[1]);
+if (multipleChildren) {
+	console.warn("Theme provider has multiple root slot children. A wrapper DIV was created in order to set class information, but you should be doing this yourself.");
+}
+
 const localThemeName = ref<string|undefined>();
 const currentTheme = shallowRef<CompleteThemeSpec>()!;
 
 watchEffect(() => {
-	const composed = composeTheme(applicationThemesIntf.get(localThemeName.value ?? props.theme ?? false), FallbackTheme as CompleteThemeSpec);
-	currentTheme.value = composed;
+	currentTheme.value = composeTheme(applicationThemesIntf.get(localThemeName.value ?? props.theme ?? false), FallbackTheme as CompleteThemeSpec);
 });
 
 function getThemesInfo(includeDebug = false): ThemeInfo[] {
@@ -52,7 +56,7 @@ function getThemesInfo(includeDebug = false): ThemeInfo[] {
 
 const intf = Object.freeze({
 	getCurrentTheme(): CompleteThemeSpec {
-		return currentTheme.value;
+		return currentTheme.value ?? applicationThemesIntf.getDefaultTheme() as CompleteThemeSpec;
 	},
 	getCurrentThemeInfo(): CompleteThemeInfo {
 		return strip(intf.getCurrentTheme()) as CompleteThemeInfo;
@@ -67,7 +71,7 @@ const intf = Object.freeze({
 	},
 	setCurrentTheme(keyName: string): void {
 		if (!themes.has(keyName)) {
-			debug.error("setCurrentTheme attempt failed because the theme could not be found", {keyName, themes});
+			debug.error("setCurrentTheme attempt failed because the theme could not be found", {keyName, themes: themes});
 			nondebug.error("Error changing the theme to", keyName);
 		}
 		if (props.root) {
@@ -83,27 +87,20 @@ const intf = Object.freeze({
 	},
 	themedComponent<N extends keyof ThemeComponents>(componentName: N, themeName?: string): ThemeComponents[N] | typeof FailedComponent {
 		const theme = (themeName && themes.has(themeName)) ? themes.get(themeName) : currentTheme.value;
-		return theme!.components[componentName] ?? getFailedComponent({ name: componentName, themeName: theme.keyName });
+		return theme!.components[componentName] ?? getFailedComponent({ name: componentName, themeName: theme!.keyName });
 	}
 } as const);
-
 export type ThemeProviderInterface = Like<typeof intf>;
+const currentThemeInfo = intf.getCurrentThemeInfo();
 
 provide(keys.INTERFACE, intf);
 provide(keys.IS_ROOT_THEME, props.root);
 provide(keys.CURRENT_THEME_REF, readonly(currentTheme));
-
-const multipleChildren = Boolean(useSlots().default?.()[1]);
-const theme = intf.getCurrentThemeInfo();
-
-if (multipleChildren) {
-	console.warn("Theme provider has multiple root slot children. A wrapper DIV was created in order to set class information, but you should be doing this yourself.");
-}
 </script>
 
 <template>
-	<div v-if="multipleChildren" :class="['theme-definition-start', theme.uniqueClassName]">
+	<div v-if="multipleChildren" :class="['theme-definition-start', currentThemeInfo.uniqueClassName]">
 		<slot></slot>
 	</div>
-	<slot v-else :class="['theme-definition-start', theme.uniqueClassName]"/>
+	<slot v-else :class="['theme-definition-start', currentThemeInfo.uniqueClassName]"/>
 </template>

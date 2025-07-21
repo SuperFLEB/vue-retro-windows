@@ -3,10 +3,9 @@ import {provide, shallowReadonly, shallowRef} from "vue";
 import type {ApplicationDefinition, ApplicationId} from "@t/Application.js";
 import k from "./keys.js";
 
-type Props = { apps?: Iterable<ApplicationDefinition>, autoLaunchApps?: ApplicationDefinition[] };
+type Props = { apps?: Iterable<ApplicationDefinition> };
 const props = withDefaults(defineProps<Props>(), {
 	apps: () => [],
-	autoLaunchApps: () => [],
 });
 
 const registry = shallowRef(new Map<ApplicationId, ApplicationDefinition>());

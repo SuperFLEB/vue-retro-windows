@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {RwWindow} from "@exp";
+import {RwWindow} from "@exp/components.ts";
 import DemoContent from "./DemoContent.vue";
 import type {MenuItemSpec} from "@/components/Menu/types.ts";
 import {MenuTypes} from "@/components/Menu/MenuTypes.ts";

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, onUnmounted, ref, useTemplateRef} from "vue";
+import {type CSSProperties, onMounted, onUnmounted, useTemplateRef} from "vue";
 import {calculateGridModel, type GridModel} from "@/util/gridmodel.js";
 
 type Props = { rtl: boolean, column: boolean };
@@ -28,15 +28,13 @@ onUnmounted(() => {
 
 const style = {
 	...(props.rtl ? {direction: "rtl"} : undefined),
-	"grid-auto-flow": props.column ? "column" : "row",
-};
-const debugStyle = ref({});
-
+	"grid-auto-flow": (props.column ? "column" : "row"),
+} as CSSProperties;
 </script>
 
 <template>
 <div class="folderSpace" ref="grid" :style>
-	<slot></slot>
+	<slot />
 </div>
 </template>
 

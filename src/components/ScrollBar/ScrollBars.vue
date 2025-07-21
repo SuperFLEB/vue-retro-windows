@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Themed from "@/themed/Themed.vue";
+import ThemedComponent from "@/ThemedComponent/ThemedComponent.vue";
 </script>
 
 <template>
-<Themed is="RwScrollBars" :="$attrs" />
+<ThemedComponent is="RwScrollBars" :="$attrs" />
 </template>

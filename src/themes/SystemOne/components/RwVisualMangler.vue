@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import SvgFilter from "../assets/bw-halftone.svg.vue";
+import BwHalftoneSvg from "../assets/BwHalftone.svg.vue";
 </script>
 
 <template>
-	<div class="filters"><SvgFilter /></div>
+	<div class="filters"><BwHalftoneSvg /></div>
 	<div :="$attrs" class="mangle">
 		<slot/>
 	</div>

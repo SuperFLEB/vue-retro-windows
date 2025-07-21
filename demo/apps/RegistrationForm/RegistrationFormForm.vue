@@ -255,7 +255,10 @@ const countries = {
 <template>
 	<form class="regForm">
 		<p>Thank you for choosing @superfleb/vue-windows! Please register your product so we can give you important
-			updates and serve you better.</p>
+			junk mail, keep you in our files forever, and... serve you better, I guess.</p>
+
+		<p style="font-style: italic;">Todo: Format this form.</p>
+
 		<div>
 			<label for="name">Name</label>
 			<input type="text" id="name"/>
@@ -275,7 +278,7 @@ const countries = {
 		<div>
 			<label for="country">Country</label>
 			<select id="country">
-				<option v-for="(code, name) in countries" value="code">{{ name }}</option>
+				<option v-for="(code, name) in countries" :value="code">{{ name }}</option>
 			</select>
 		</div>
 		<div>
