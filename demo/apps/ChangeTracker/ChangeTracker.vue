@@ -2,13 +2,13 @@
 import {onMounted, onUnmounted, ref} from "vue";
 import {randomString} from "@/util.ts";
 import RwWindow from "@/components/Window/RwWindow.vue";
+import {newWinId} from "@/components/Window/props.ts";
 
 const timestamp = () => randomString(3) + "-" + new Date().getTime().toString(32).slice(-3);
 
 const runTime = timestamp();
 const mountTimeRef = ref<string>("UNINITIALIZED");
 const liveTimeRef = ref<string>("UNINITIALIZED");
-const liveTitleRef = ref<string>("UNINITIALIZED");
 
 onMounted(() => {
 	mountTimeRef.value = timestamp();
@@ -23,10 +23,12 @@ onUnmounted(() => {
 	mountTimeRef.value = "OBSOLETE";
 	liveTimeRef.value = "OBSOLETE";
 });
+
+const uid = newWinId();
 </script>
 
 <template>
-	<RwWindow win-id="main" :width="400" :height="200" :title="`Change Tracker (${liveTimeRef})`">
+	<RwWindow win-id="main" :width="400" :height="200" :x="20" :y="20" :title="`Change Tracker (${liveTimeRef})`" :uid>
 		<table class="t">
 			<thead>
 			<tr>

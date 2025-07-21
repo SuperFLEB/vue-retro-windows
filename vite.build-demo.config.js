@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var vite_1 = require("vite");
-var importCss_mjs_1 = require("./build-script/importCss.mjs");
+var importCss_1 = require("./build-script/importCss");
 var plugin_vue_1 = require("@vitejs/plugin-vue");
 var node_path_1 = require("node:path");
 exports.default = (0, vite_1.defineConfig)({
-    plugins: [(0, plugin_vue_1.default)(), (0, importCss_mjs_1.default)("retrowin-vue")],
+    plugins: [(0, plugin_vue_1.default)(), (0, importCss_1.default)("retrowin-vue")],
     base: "./",
     build: {
         assetsInlineLimit: 0,

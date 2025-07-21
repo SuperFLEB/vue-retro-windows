@@ -1,5 +1,5 @@
-import type {CompleteThemeSpec, ThemeSpec} from "@t/Theme";
-import {DemoThemedScroll, DemoNativeScroll, DemoProxyDrag} from "./_Demo";
+import type {ThemeSpec} from "@t/Theme";
+import {DemoNativeScroll, DemoProxyDrag, DemoThemedScroll} from "./_Demo";
 import ThreePointWin from "./ThreePointWin";
 import ThreePointWinClassic from "./ThreePointWinClassic";
 import SystemOne from "./SystemOne";
@@ -18,6 +18,6 @@ const themes: ThemeSpec[] = [
 ];
 
 // This is only an advisory type for IDE hints, and should not be relied upon for type checking.
-export type BuiltInThemes = "fleb/threepointwin" | "fleb/threepointwin/arial" | "fleb/systemone" | "fleb/console" | "fleb/egavga";
+export type BuiltInThemes = "fleb/threepointwin" | "fleb/threepointwin/classic" | "fleb/systemone" | "fleb/console" | "fleb/egavga";
 
 export default themes;

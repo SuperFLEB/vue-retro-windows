@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useWindow} from "@/providers/WindowProvider/useWindow.ts";
 import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
-import Handle from "@/components/ResizeHandles/Handle.vue";
+import ResizeHandle from "@/components/ResizeHandles/ResizeHandle.vue";
 import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";
 import useMenu from "@/components/Menu/useMenu.ts";
 
@@ -43,7 +43,7 @@ function focusin(e: FocusEvent) {
 				</div>
 			</ScrollProvider>
 		</div>
-		<Handle class="resizeHandle" corner="se"/>
+		<ResizeHandle class="resizeHandle" corner="se"/>
 	</div>
 </template>
 

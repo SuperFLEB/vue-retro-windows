@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Themed from "@/themed/Themed.vue";
+import ThemedComponent from "@/ThemedComponent/ThemedComponent.vue";
 </script>
 <script lang="ts">
 export default {
@@ -7,5 +7,5 @@ export default {
 }
 </script>
 <template>
-	<Themed is="RwDesktop" :="{...$props, ...$attrs}"><slot/></Themed>
+	<ThemedComponent is="RwDesktop" :="{...$props, ...$attrs}"><slot/></ThemedComponent>
 </template>

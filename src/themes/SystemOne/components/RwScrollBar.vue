@@ -2,7 +2,7 @@
 import type {Dimension, Directional, ScrollDirection} from "@t/scroll.ts";
 import {ref, toRefs, useTemplateRef} from "vue";
 import TrackSegment from "@/components/ScrollBar/TrackSegment.vue";
-import Thumb from "@/components/ScrollBar/Thumb.vue";
+import ScrollBarThumb from "@/components/ScrollBar/ScrollBarThumb.vue";
 import contentSizeRef from "@/util/observeSize.ts";
 import ScrollButton from "@/components/ScrollBar/ScrollButton.vue";
 import useCanScroll from "@/composables/useCanScroll.ts";
@@ -44,7 +44,7 @@ const labelEvents = (direction: ScrollDirection) => ({
 		<div class="track" ref="track">
 			<template v-if="canScroll[dimension]">
 				<TrackSegment :dimension direction="back" class="trackSegmentVisual"/>
-				<Thumb :dimension class="thumbVisual" size="square" :trackDimensions :proxy-drag="true"/>
+				<ScrollBarThumb :dimension class="thumbVisual" size="square" :trackDimensions :proxy-drag="true"/>
 				<TrackSegment :dimension direction="fwd" class="trackSegmentVisual"/>
 			</template>
 		</div>

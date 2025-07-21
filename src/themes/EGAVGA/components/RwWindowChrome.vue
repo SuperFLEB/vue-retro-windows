@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useWindow} from "@/providers/WindowProvider/useWindow.ts";
-import ResizeHandle from "@/components/ResizeHandles/Handle.vue";
+import ResizeResizeHandle from "@/components/ResizeHandles/ResizeHandle.vue";
 import ScrollProvider from "@/components/ScrollBar/ScrollProvider.vue";
 import ScrollBars from "@/components/ScrollBar/ScrollBars.vue";
 
@@ -21,7 +21,7 @@ const {instance: windowInstance} = useWindow();
 				</div>
 			</ScrollProvider>
 		</div>
-		<ResizeHandle class="resizeHandle" corner="se">◿</ResizeHandle>
+		<ResizeResizeHandle class="resizeHandle" corner="se">◿</ResizeResizeHandle>
 	</div>
 </template>
 

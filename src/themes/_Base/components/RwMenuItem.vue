@@ -14,6 +14,6 @@ defineEmits(["click"]);
 		<span class="toggle" v-if="props.hasToggle">{{ item.checked ? "X" : "-" }}</span>
 		<hr v-if="props.spec.type === MenuTypes.SEPARATOR" />
 		<RenderMenuItem @click="$emit('click', $event)" class="item" v-else :item :display fallback="span"/>
-		<SubMenu class="menu sub" v-if="item.sub" :sub="props.spec.sub"/>
+		<SubMenu class="menu sub" v-if="item.sub" :sub="props.spec.sub!"/>
 	</li>
 </template>

@@ -48,6 +48,15 @@ const tightTable = "0 .05 .95 1";
 
 	filter: var(--filter-url);
 	background-image: linear-gradient(45deg, #000, #00c 100%);
+
+	font-family: "DOS437Unicode", sans-serif;
+	font-size: 8px;
+	color: #fff;
+
+	:deep(.windowBox) {
+		color: #000;
+	}
+
 	/*
 	top: -30px;
 	bottom: -30px;

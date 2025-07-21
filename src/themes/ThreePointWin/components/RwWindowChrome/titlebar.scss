@@ -19,6 +19,10 @@
 .frame.focus .titleBar {
 	background-color: var(--highlightColor);
 	color: #fff;
+
+	&.altContent {
+		background-color: transparent;
+	}
 }
 
 .title {
@@ -30,6 +34,11 @@
 	white-space: nowrap;
 }
 
+.titleAltContent {
+	flex-grow: 1;
+	min-height: 100%;
+	background-color: #fff;
+}
 
 .windowButton:not(.contextMenuButton) {
 	border: 1px solid #000;
@@ -38,8 +47,8 @@
 
 .windowButton:not(.contextMenuButton)::after {
 	border: 2px outset #fff;
-	position: absolute;
 	border-width: 2px 3px 3px 2px;
+	position: absolute;
 	inset: 0;
 	content: " ";
 }

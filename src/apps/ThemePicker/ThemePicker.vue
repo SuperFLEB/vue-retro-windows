@@ -17,7 +17,7 @@ const pick = (e: MouseEvent) => {
 			<form @submit="$event.preventDefault()">
 				<fieldset>
 					<legend>Themes</legend>
-					<template v-for="thisTheme in themes">
+					<template v-for="thisTheme in themes" :key="thisTheme.keyName">
 						<label style="display: block">
 							<input type="radio" name="theme" :value="thisTheme.keyName"
 								   :checked="currentTheme.keyName === thisTheme.keyName" @click="pick"/>

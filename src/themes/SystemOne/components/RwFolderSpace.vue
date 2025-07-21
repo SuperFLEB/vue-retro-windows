@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ThemedFolderSpace from "@/components/FolderSpace/ThemedFolderSpace.vue";
 type Props = { context: "desktop" | "folder" };
-const props = withDefaults(defineProps<Props>(), { scope: "folder" });
+const props = withDefaults(defineProps<Props>(), { context: "folder" });
 const tfsProps = {
 	folder: { rtl: false, column: false },
 	desktop: { rtl: true, column: true },

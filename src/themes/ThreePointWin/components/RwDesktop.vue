@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type {CSSProperties} from "vue";
+import RwMinimizedWindowSpace from "@themes/_Base/components/RwMinimizedWindowSpace.vue";
 
 type Props = { style?: CSSProperties };
 const props = defineProps<Props>();
@@ -7,6 +8,7 @@ const props = defineProps<Props>();
 
 <template>
 	<div class="desktop" :style="props.style ?? {}">
+		<RwMinimizedWindowSpace class="minWin" />
 		<slot/>
 	</div>
 </template>
@@ -27,6 +29,16 @@ const props = defineProps<Props>();
 
 	&:deep() {
 		@include h.themed;
+	}
+
+	.minWin {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-end;
+
+		z-index: 0;
 	}
 }
 </style>

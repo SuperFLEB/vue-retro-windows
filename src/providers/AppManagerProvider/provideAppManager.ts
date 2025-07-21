@@ -4,13 +4,12 @@ import {onUnmounted, provide, readonly, ref} from "vue";
 import k from "./keys.ts";
 import type {WinId, WinUid} from "@t/WinMan.ts";
 import type {WindowManagerProvides} from "@/providers/AppManagerProvider/AppManagerProvider.vue";
-import type {WindowInstance} from "@t/WindowInstance.ts";
 import type {AppInstance, Pid} from "@t/AppInstance.ts";
 
 let lastPid: Pid = 0;
 
 export default function provideAppManager() {
-	let associatedWindowManager: WindowManagerProvides | undefined = undefined;
+	let associatedWindowManager: WindowManagerProvides | undefined;
 
 	const registry = ref(new Map<Pid, AppInstance>());
 	const {interface: appCollectionInterface} = useApplicationCollection();

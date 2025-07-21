@@ -6,7 +6,7 @@ import type {SingleOrArray} from "@t/SingleOrArray.ts";
 
 type Props = { not?: boolean, name?: string, isRootTheme?: true, effects?: SingleOrArray<keyof ThemeEffects>, match?: boolean };
 const props = withDefaults(defineProps<Props>(), { not: false, name: undefined, effects: undefined, isRootTheme: undefined, match: false });
-const {interface: intf, isRootTheme, themeRef} = useTheme();
+const {interface: intf, isRootTheme: themeIsRootTheme, themeRef} = useTheme();
 
 const result = computed(() => {
 	if ([props.name, props.effects, props.isRootTheme].filter(v => v !== undefined).length > 1) throw new TypeError("Multiple mutually-exclusive props provided. You can only do one type of match.");
@@ -22,7 +22,7 @@ const result = computed(() => {
 		}
 		return true;
 	}
-	if (props.isRootTheme) return isRootTheme !== props.not;
+	if (props.isRootTheme) return themeIsRootTheme !== props.not;
 
 	console.warn(`<IfTheme> without operands ${props.not ? 'and "not" property ' : ''}will always return ${props.not ? "false" : "true"}.`);
 	return !props.not;

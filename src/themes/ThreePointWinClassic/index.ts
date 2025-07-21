@@ -20,4 +20,6 @@ const theme: ThemeSpec = {
 	},
 };
 
+console.log(theme);
+
 export default theme;

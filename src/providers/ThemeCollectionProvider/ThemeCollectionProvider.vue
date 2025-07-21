@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type {ThemeSpec} from "@t/Theme.ts";
-import {provide, readonly, shallowReadonly, shallowRef, triggerRef} from "vue";
+import {provide, shallowReadonly, shallowRef, triggerRef} from "vue";
 import k from "./keys.ts";
 import debug from "@/debug/index.ts";
 import fallbackTheme from "@themes/_Base/index.ts";
 import savedThemeKeyName from "@/providers/ThemeCollectionProvider/savedThemeKeyName.ts";
 
-// This needs to be a shallowRef because it comtains a deep structure including exported
+// This needs to be a shallowRef because it contains a deep structure including exported
 // Be sure to triggerRef(_themes) whenever you modify the map;
 const _themes = shallowRef<Map<string, ThemeSpec>>(new Map());
 const themesRef = shallowReadonly(_themes);
@@ -55,7 +55,7 @@ const intf = {
 	},
 	setSavedTheme: savedThemeKeyName.set,
 	getDefaultTheme(): ThemeSpec {
-		return intf.getByKeyName(props.defaultTheme);
+		return intf.getByKeyName(props.defaultTheme) ?? intf.getByKeyName("core/base")!;
 	},
 };
 

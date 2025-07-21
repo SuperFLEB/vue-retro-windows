@@ -1,8 +1,7 @@
-<script setup>
+<script setup lang="ts">
 import dither from "@/assets/shades/rgb-17-33-50.png";
 </script>
 <template>
-
 	<svg class="filters" width="0" height="0">
 		<defs>
 			<filter id="bwHalftoneFilter" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
@@ -52,5 +51,4 @@ import dither from "@/assets/shades/rgb-17-33-50.png";
 			</filter>
 		</defs>
 	</svg>
-
 </template>

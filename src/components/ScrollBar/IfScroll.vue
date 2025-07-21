@@ -18,9 +18,10 @@ const show = computed(() => {
 		x: visible.value.x && state.value.x.windowSize < 1,
 		y: visible.value.y && state.value.y.windowSize < 1,
 	};
-	if (props.dimension in canScroll) return canScroll[props.dimension];
 	if (props.dimension === "both") return canScroll.x && canScroll.y;
 	if (props.dimension === "either") return canScroll.x || canScroll.y;
+	if (props.dimension in canScroll) return canScroll[props.dimension];
+	return false;
 });
 </script>
 

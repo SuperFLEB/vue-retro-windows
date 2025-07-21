@@ -1,4 +1,4 @@
-import Themed from "./Themed.vue";
+import ThemedComponent from "./ThemedComponent.vue";
 import themedComponent from "./themedComponent.js";
 
 export const RwLauncher = themedComponent("RwLauncher");
@@ -11,9 +11,8 @@ export const RwScrollBarX = themedComponent("RwScrollBarX");
 export const RwScrollBarY = themedComponent("RwScrollBarY");
 export const RwScrollBarCorner = themedComponent("RwScrollBarCorner");
 export const RwVisualMangler = themedComponent("RwVisualMangler");
-export const RwMenuBar = themedComponent("RwMenuBar");
 export const RwSubMenu = themedComponent("RwSubMenu");
 export const RwMenuItem = themedComponent("RwMenuItem");
 export const RwFolderSpace = themedComponent("RwFolderSpace");
 
-export { Themed };
+export { ThemedComponent };

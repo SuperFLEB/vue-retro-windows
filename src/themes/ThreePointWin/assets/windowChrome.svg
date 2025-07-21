@@ -21,10 +21,14 @@
     <rect class="st0" x="17" y="22" width="18" height="8"/>
     <rect class="st1" x="15.5" y="20.5" width="17" height="7"/>
   </g>
-  <g id="maximize">
-    <polygon points="14 20 34 20 24 30 14 20"/>
-  </g>
   <g id="minimize">
-    <polygon points="34 27 14 27 24 17 34 27"/>
+    <polygon id="aMin" points="14 20 34 20 24 30 14 20"/>
+  </g>
+  <g id="maximize">
+    <polygon id="aMax" points="34 27 14 27 24 17 34 27"/>
+  </g>
+  <g class="show" id="restore">
+	  <use href="#aMin" y="5" />
+	  <use href="#aMax" y="-5" />
   </g>
 </svg>

@@ -1,4 +1,3 @@
-import WindowDragProxy from "@/components/Window/WindowDragProxy.vue";
 import {type CompleteThemeSpec, defaultThemeEffects} from "@t/Theme.ts";
 import RwWindowChrome from "./components/RwWindowChrome.vue";
 import RwDesktop from "./components/RwDesktop.vue";
@@ -13,6 +12,8 @@ import AboutTheme from "./components/AboutTheme.vue";
 import RwWindowDragProxy from "./components/RwWindowDragProxy.vue";
 import RwFolderSpace from "./components/RwFolderSpace.vue";
 import RwLauncher from "./components/RwLauncher.vue";
+import RwWindowBox from "./components/RwWindowBox.vue";
+import RwMinimizedWindowSpace from "@themes/_Base/components/RwMinimizedWindowSpace.vue";
 /*
  * This is a base theme used as a fallback for when themes are missing exported.
  * You shouldn't put this into your config/themes.ts unless you're testing it.
@@ -38,6 +39,8 @@ const theme: CompleteThemeSpec = {
 	hijackScroll: false,
 	debugModeOnly: true,
 	useProxyDrag: false,
+	canMinimize: false,
+	canMaximize: false,
 	mdiSubWindows: false,
 	desktopMenu: false,
 	components: {
@@ -45,6 +48,7 @@ const theme: CompleteThemeSpec = {
 		RwWindowChrome,
 		RwDesktop,
 		RwWindowPane,
+		RwWindowBox,
 		RwScrollBars,
 		RwScrollBarX: RwScrollBar,
 		RwScrollBarY: RwScrollBar,
@@ -52,6 +56,7 @@ const theme: CompleteThemeSpec = {
 		RwVisualMangler,
 		RwSubMenu,
 		RwMenuItem,
+		RwMinimizedWindowSpace,
 		RwWindowDragProxy,
 		RwFolderSpace,
 		RwLauncher,

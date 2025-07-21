@@ -3,6 +3,7 @@ import {computed, onMounted, useTemplateRef} from "vue";
 import useTheme, {canUseTheme} from "@/providers/ThemeProvider/useTheme.ts";
 import {useScrollableElement} from "@/components/ScrollBar/useScrollableElement.ts";
 import {isRefSet} from "@/util.ts";
+import {ThemedComponent} from "../../../ThemedComponent";
 
 const paneRef = useTemplateRef("pane");
 const calipersDom = useTemplateRef("calipers");
@@ -25,6 +26,7 @@ onMounted(() => {
 	<div :class="['pane', nativeScroll ? 'nativeScroll' : 'themedScroll']" ref="pane">
 		<div class="calipers" ref="calipers">
 			<slot/>
+			<ThemedComponent is="RwMinimizedWindowSpace" />
 		</div>
 	</div>
 </template>

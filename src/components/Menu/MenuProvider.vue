@@ -54,7 +54,7 @@ export type MenuInterface = typeof intf;
 export type MenuSpecRef = DeepReadonly<Ref<MenuItemSpec>>;
 
 provide<MenuInterface>(keys.INTERFACE, intf);
-provide<MenuSpecRef>(keys.MENUSPEC, menuRef);
+provide<MenuSpecRef>(keys.MENUSPEC, menuRef as MenuSpecRef);
 </script>
 <template>
 	<slot/>

@@ -33,10 +33,10 @@ globalThis.setDebugMode = setDebugMode;
 export const getDebugMode = () => debugModeMemo ?? !!sessionStorage.getItem(APP.sessionKey);
 
 type LoggerFunction = (...args: unknown[]) => void;
-type LoggerGetter = (_: unknown, methodName: string | Symbol) => LoggerFunction;
+type LoggerGetter = (_: unknown, methodName: string | symbol) => LoggerFunction;
 
 const debugHandler: ProxyHandler<typeof console> = {
-	get: (_: unknown, __: string | Symbol) => nullFn,
+	get: () => nullFn,
 	set: () => {
 		console.error("Attempts were made to write to a debug proxy. Someone did something exceptionally wrong.");
 		return false;
@@ -56,7 +56,7 @@ const helloDebugFn: LoggerFunction = () => {
 	debugHandler.get = () => nullFn;
 };
 
-const debugLogGetter: LoggerGetter = (_: unknown, methodName: string | Symbol) => {
+const debugLogGetter: LoggerGetter = (_: unknown, methodName: string | symbol) => {
 	if (!(typeof methodName === "string" && console[methodName as keyof typeof console] instanceof Function)) {
 		return (...args: unknown[]) => {
 			console.warn("🐞⚠️ Attempt to call debug method, but no corresponding console method exists", {

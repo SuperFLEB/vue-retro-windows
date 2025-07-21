@@ -2,7 +2,7 @@ import {defineConfig} from "vite";
 import vue from "@vitejs/plugin-vue";
 import * as path from "node:path";
 import {globSync} from "tinyglobby";
-import importCss from "./build-script/importCss.mjs";
+import importCss from "./build-script/importCss.ts";
 
 const typeGlobs = ["./src/**/*.ts", "./src/**/*.tsx", "./src/**/*.vue", "./src/**/*.mjs", "./src/**/*.js"];
 
@@ -21,7 +21,7 @@ function globject(glob: string[]) {
 const entries = globject(typeGlobs);
 const CSS_NAME = "retrowin-vue";
 
-export default defineConfig(({command}) => (
+export default defineConfig(() => (
 	{
 		appType: "mpa", // disable history fallback
 		plugins: [vue(), importCss(CSS_NAME)],

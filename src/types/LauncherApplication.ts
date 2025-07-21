@@ -2,7 +2,7 @@ import type {ThemeInfo} from "@t/Theme.js";
 import type {Component} from "vue";
 import type XY from "@t/XY.js";
 
-type Parent = {/* TBD */};
+type Parent = any /* TBD */;
 export type DeriverCallback<T, EXTRA extends Record<string | symbol, any> | undefined = undefined> = (attachment: string | undefined, parent: Parent | undefined, theme: ThemeInfo, launcher: LauncherApplicationInstance, extra?: EXTRA) => T;
 
 export type LaunchState = "CLOSED" | "HIDDEN" | "MINIMIZED" | "NORMAL" | "MAXIMIZED";

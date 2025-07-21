@@ -1,14 +1,12 @@
-import {computed, ref, watch} from "vue";
+import {computed, type ComputedRef, type Ref, ref, watch} from "vue";
 import useScroll from "@/components/ScrollBar/useScroll.ts";
 import useTheme from "@/providers/ThemeProvider/useTheme.ts";
 import {type ScrollState, ScrollStateActionSource} from "@/components/ScrollBar/types.ts";
-import {scrolls} from "@/components/ScrollBar/util.ts";
 import {ComposableOutOfContextError} from "@/errors.ts";
 import type XY from "@t/XY.ts";
 import debug from "@/debug";
 import type {ScrollInterface} from "@/components/ScrollBar/ScrollProvider.vue";
 import type {ThemeProviderInterface} from "@/providers/ThemeProvider/types.ts";
-import type {AnyRef} from "@t/AnyRef.ts";
 
 type Mount = (props: {
 	element: HTMLElement,
@@ -103,7 +101,7 @@ const mount: Mount = ({element, calipers, scrollState, scrollInterface, getCurre
 	}
 ;
 
-export const useScrollableElement = (elementRef: AnyRef<HTMLElement>, calipersElementRef?: AnyRef<HTMLElement|null>) => {
+export const useScrollableElement = (elementRef: Ref<HTMLElement>, calipersElementRef?: Ref<HTMLElement|null>) => {
 	const {state: scrollState, interface: scrollInterface} = useScroll();
 	let getCurrentThemeInfo = null;
 	try {
@@ -118,10 +116,10 @@ export const useScrollableElement = (elementRef: AnyRef<HTMLElement>, calipersEl
 	abortRef.value ??= new AbortController();
 
 	watch(
-		[elementRef, calipersElementRef, scrollStateInitialized],
+		[elementRef, calipersElementRef, scrollStateInitialized] as [Ref<HTMLElement>, Ref<HTMLElement | null>, ComputedRef<boolean>],
 		(
 			[elementIs, calipersIs, isInitialized],
-			[elementWas, calipersWas, wasInitialized]: [HTMLElement, HTMLElement | null, boolean]
+			[elementWas, calipersWas, wasInitialized]
 		) => {
 		if (!elementIs) return null;
 		if (elementIs === elementWas && isInitialized === wasInitialized) return null;

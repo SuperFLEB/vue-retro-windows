@@ -121,7 +121,7 @@ $text-enhanced-input: "input[type='date'],input[type='time'],input[type='datetim
 		}
 	}
 
-	button:not(.scrollBar *), input[type=button], input[type=submit] {
+	button:not(:global .scrollBar *), input[type=button], input[type=submit] {
 		font: inherit;
 		border: 0;
 		margin: 0;

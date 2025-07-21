@@ -3,7 +3,7 @@ import type {Dimension, DimensionalDirectional} from "@t/scroll.ts";
 import {toRefs, useTemplateRef} from "vue";
 import IfScroll from "@/components/ScrollBar/IfScroll.vue";
 import TrackSegment from "@/components/ScrollBar/TrackSegment.vue";
-import Thumb from "@/components/ScrollBar/Thumb.vue";
+import ScrollBarThumb from "@/components/ScrollBar/ScrollBarThumb.vue";
 import contentSizeRef from "@/util/observeSize.ts";
 import ScrollButton from "@/components/ScrollBar/ScrollButton.vue";
 
@@ -32,7 +32,7 @@ const trackDimensions = contentSizeRef(trackElementRef);
 		<div :="$attrs" :class="['container', dimension]">
 			<div class="track" ref="track">
 				<TrackSegment :dimension direction="back" class="trackSegmentVisual"/>
-				<Thumb :dimension class="thumbVisual" size="auto" :trackDimensions/>
+				<ScrollBarThumb :dimension class="thumbVisual" size="auto" :trackDimensions/>
 				<TrackSegment :dimension direction="fwd" class="trackSegmentVisual"/>
 			</div>
 			<ScrollButton :dimension direction="back" class="button back">{{ labels[dimension].back }}</ScrollButton>

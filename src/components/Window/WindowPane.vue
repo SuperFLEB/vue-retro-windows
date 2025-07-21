@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Themed from "@/themed/Themed.vue";
+import ThemedComponent from "@/ThemedComponent/ThemedComponent.vue";
 </script>
 <script lang="ts">
 export default {
 	name: 'WindowPane(Wrapper)'
 }
 </script><template>
-	<Themed is="RwWindowPane" :class="['pane']"><slot /></Themed>
+	<ThemedComponent is="RwWindowPane" :class="['pane']"><slot /></ThemedComponent>
 </template>

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-import Handle from "@/components/ResizeHandles/Handle.vue";
+import ResizeHandle from "@/components/ResizeHandles/ResizeHandle.vue";
 </script>
 
 <template>
 	<div class="scrollBarCorner">
-		<Handle corner="se" class="handle">⧉</Handle>
+		<ResizeHandle corner="se" class="handle">⧉</ResizeHandle>
 	</div>
 </template>
 

@@ -27,7 +27,7 @@ const state = computed(() => {
 });
 const fills = {x: "◀═░■▶", y: "▲║░■▼"}[props.dimension];
 const colorVars = computed(() => {
-	// Just to trip reactivity
+	// eslint-disable-next-line @typescript-eslint/no-unused-expressions -- Just to trip reactivity
 	windowInstance.focus;
 
 	if (!sbRef.value) return {};
@@ -50,16 +50,20 @@ const colorVars = computed(() => {
 const {mouseDownHandler: page} = useRepeatButton((_: Event, direction: 1 | -1 = 1) => {
 	scrollInterface.scrollByFraction({[props.dimension]: direction * scrollState.value[props.dimension].windowSize});
 }, 100);
+
+const {mouseDownHandler: line} = useRepeatButton((_: Event, direction: 1 | -1 = 1) => {
+	scrollInterface.scrollByPx({[props.dimension]: direction * charGrid[props.dimension]});
+}, 100);
 </script>
 
 <template>
 	<div ref="sb" :class="['scrollBar', dimension]" :style="colorVars">
 		<template v-if="state.visible">
-			<button type="button">{{ fills[0] }}</button>
+			<button type="button" @mousedown="line($event, -3)">{{ fills[0] }}</button>
 			<div class="track" @mousedown="page($event, -1)">{{fills[2].repeat(state.chPos)}}</div>
 			<div class="track thumb">{{ fills[3] }}</div>
-			<div class="track" @mousedown="page($event, 1)">{{fills[2].repeat(state.trackChLen - state.chPos - 1)}}</div>
-			<button type="button">{{ fills[4] }}</button>
+			<div class="track" @mousedown="page($event, 3)">{{fills[2].repeat(state.trackChLen - state.chPos - 1)}}</div>
+			<button type="button" @mousedown="line($event, 3)">{{ fills[4] }}</button>
 		</template>
 		<template v-else>
 			<div class="noTrack">{{ (fills[1] + (dimension === "y" ? "\n" : "")).repeat(state.chLen - 2) }}</div>
@@ -80,6 +84,7 @@ const {mouseDownHandler: page} = useRepeatButton((_: Event, direction: 1 | -1 = 
 		font: inherit;
 		color: var(--currentBackground);
 		background-color: var(--currentColor);
+		box-shadow: none;
 	}
 
 	&.x {

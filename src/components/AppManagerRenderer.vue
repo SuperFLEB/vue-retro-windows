@@ -20,6 +20,6 @@ const activeApps = computed(() =>
 </script>
 <template>
 	<AppInstanceProvider v-for="app in activeApps" :key="app.pid" :pid="app.pid">
-		<component :is="app.def.component" />
+		<component :is="app.def.component"/>
 	</AppInstanceProvider>
 </template>
